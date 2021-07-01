@@ -1,0 +1,1 @@
+# Verano_Shopitesz_Eq6
