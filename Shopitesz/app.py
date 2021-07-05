@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route("/")
 def inicio():
     #return "Bienvenido a la tienda en linea Shipitesz
-    return render_template('usuarios/principal.html')
+    return render_template('principal.html')
 
 @app.route("/validarSesion")
 def validarSesion():
