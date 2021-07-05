@@ -1,21 +1,28 @@
-from flask import Flask
+from flask import Flask, render_template, request
+
 app = Flask(__name__)
 
 @app.route("/")
 def inicio():
-    return "Hola mundo"
+    #return "Bienvenido a la tienda en linea Shipitesz
+    return render_template('usuarios/principal.html')
 
-@app.route("/login")
+@app.route("/validarSesion")
+def validarSesion():
+    return render_template('usuarios/login.html')
+
+@app.route("/login",methods=['POST'])
 def login():
-    return "otra ruta de prueba"
+    correo=request.form['correo']
+    return "Validando al usuario"+correo
+
+@app.route("/registrarCuenta")
+def registrarCuenta():
+    return render_template('usuarios/registrarCuenta.html')
 
 @app.route("/productos")
-def consultarProductos():
-    return "Retorna la lista de productos"
-
-@app.route("/productos/agregar")
-def agregarProducto():
-    return "agregando un producto"
+def productos():
+    return render_template("productos/ConsultaGeneral.html")
 
 @app.route("/productos/actualizar")
 def actualizarProducto():
