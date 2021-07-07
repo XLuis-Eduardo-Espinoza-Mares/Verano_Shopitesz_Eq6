@@ -16,3 +16,5 @@ def validarSesion():
 def login():
     correo=request.form['correo']
     return "Validando al usuario"+correo
+if __name__=='__main__':
+    app.run(debug=True)

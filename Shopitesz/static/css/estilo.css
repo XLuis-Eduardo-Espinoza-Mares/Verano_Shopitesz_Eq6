@@ -1,0 +1,19 @@
+h1{
+    color:blue;
+    font-size:15px;
+    font-weight: bold;
+}
+#h1{
+    color:green;
+    font-size:10px;
+    font-weight:bold;
+}
+.linkButton{
+    background:red;
+    border:2px solid black;
+    text-decoration:none;
+}
+body{
+ 	background-image: url('../../static/img/fondo_pantalla.jpeg')  ;
+ 	 
+}

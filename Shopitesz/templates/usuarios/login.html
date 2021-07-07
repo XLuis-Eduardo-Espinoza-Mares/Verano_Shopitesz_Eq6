@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SHOPITESZ</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}"><!-- Aplicando estilo de un hoja externa -->
+    <style><!-- Aplicando estilo a nivel documento -->
+        input{
+            background:aqua;
+        }
+    </style>
+</head>
+<body>
+    <H1>
+       ACCESO A LA TIENDA VIRTUAL
+    </H1>
+    <h1 id="h1">Debes informar tus credenciales de acceso</h1>
+    <!--<p>Este es una parrafo de ejemplo</p>
+    <b>Este es un texto en negritas</b>-->
+    <!--<img src="/Users/roberto/Documents/GitHub/Shopitesz/static/img/login.png" width="50%" height="50%">-->
+    <!--<img src="../../static/img/login.png" width="50%" height="50%">-->
+    <img src="{{url_for('static',filename='img/SHOPITESZ.jpeg')}}" width="200" height="200">
+    <form action="/login" method="post">
+        <label style="color:red;">Correo:</label> <!-- Aplicando el estilo en linea -->
+        <input type="email" name="correo" maxlength="50" required>
+        <label>Contraseña:</label>
+        <input type="password" name="clave" maxlength="20" required>
+        <a class="linkButton" href="/registrarCuenta">Registrarme</a>
+        <a class="linkButton" href="/">Regresar</a>
+        <input type="submit" value="Validar">
+    </form>
+
+</body>
+</html>
