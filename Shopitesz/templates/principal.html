@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>SHOPITESZ</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <p>Se mostraria la lista de productos</p>
-    <a href="/productos">Productos</a><br>
-    <a href="/validarSesion">Iniciar Sesion</a>
+<div class="buscar">
+    <input type="text" class="buscar_texto">
+    <a href="" class="boton">
+        <i class="bi bi-basket2"></i></a>
+</div>
 </body>
 </html>

@@ -1,19 +1,52 @@
-h1{
-    color:blue;
-    font-size:15px;
-    font-weight: bold;
-}
-#h1{
-    color:green;
-    font-size:10px;
-    font-weight:bold;
-}
-.linkButton{
-    background:red;
-    border:2px solid black;
-    text-decoration:none;
+*{
+    box-sizing: border-box;;
+    margin: 0;
+    padding: 0;
 }
 body{
- 	background-image: url('../../static/img/fondo_pantalla.jpeg')  ;
- 	 
+	background-color: #c8e5e3;
+	height: 100vh;
+	background-size: cover;
+}
+.buscar{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	background: #069;
+	padding: 10px;
+	height: 80px;
+	border-radius: 40px;
+}
+.buscar_texto{
+	border: none;
+	background: none;
+	outline: none;
+	color: white;
+	font-size: 20px;
+	float: left;
+	line-height: 60px;
+	transition: .3s;
+	width: 0;
+}
+.boton{
+	width: 40px;
+	height: 40px;
+	text-decoration: none;
+	color: white;
+	font-size: 30px;
+}
+@media screen and (min-width:768px){
+	.buscar:hover > .buscar_texto{
+		width: 300px;
+	}
+}
+
+@media screen and (min-width:1024px){
+	.buscar:hover > .buscar_texto{
+		width: 500px;
+	}
 }
