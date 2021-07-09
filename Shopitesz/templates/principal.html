@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SHOPITESZ</title>
-    <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+
 <p>Se mostraria la lista de productos</p>
     <a href="/productos">Productos</a><br>
-    <a href="/validarSesion">Iniciar Sesion</a>
-</body>
-</html>
+    <a href="/validarSesion" class="btn btn-primary">Iniciar Sesion</a>
+{% endblock %}
