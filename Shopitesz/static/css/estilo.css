@@ -105,6 +105,12 @@ body {
     top: 60px;
     width: 100%;
     padding: 20px 0;
+
+    height: calc(100% - 60px);
+    overflow-y: auto; 
+
+    left: 100%;
+    transition: left 0.3s;
   }
 
   .op{

@@ -4,6 +4,8 @@
 {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
+<script defer src="{{url_for('static',filename='js/index.js')}}"></script>
+
 <header class="header">
         <nav class="nav">
             <img class="op" src="{{url_for('static',filename='img/shop-window.svg')}}" alt="Bootstrap" width="32" height="32">
@@ -11,11 +13,11 @@
             <button class="nav-toggle">
             <i><img class="op" src="{{url_for('static',filename='img/list.svg')}}" alt="Bootstrap" width="32" height="32"></i>
             </button>
-            <ul class="nav-menu">
-                <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Iniciar Secion</a></li>
-                <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Productos</a></li>
-                <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Tarjeta</a></li>
-                <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Carrito</a></li>
+            <ul class="nav-menu nav-menu_visible">
+                <li class="nav-menu-item"><a href="/validarSesion" class="nav-menu-link nav-link">Iniciar Secion</a></li>
+                <li class="nav-menu-item"><a href="/productos" class="nav-menu-link nav-link">Productos</a></li>
+                <li class="nav-menu-item"><a href="/tarjeta" class="nav-menu-link nav-link"><img class="op" src="{{url_for('static',filename='img/credit-card.svg')}}" alt="Bootstrap" width="32" height="32">  Tarjeta</a></li>
+                <li class="nav-menu-item"><a href="/carrito" class="nav-menu-link nav-link nav-menu-link_active"><img class="op" src="{{url_for('static',filename='img/cart4.svg')}}" alt="Bootstrap" width="32" height="32"></a></li>
             </ul>
         </nav>
     </header>

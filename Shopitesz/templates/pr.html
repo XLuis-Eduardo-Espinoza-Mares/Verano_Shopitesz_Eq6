@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
+    <script defer src="{{url_for('static',filename='js/index.js')}}"></script>
+</head>
+<body>
+
+<header class="header">
+        <nav class="nav">
+            <img class="op" src="{{url_for('static',filename='img/shop-window.svg')}}" alt="Bootstrap" width="32" height="32">
+            <a href="#" class="logo nav-link">Shopitesz</a>
+            <button class="nav-toggle">
+            <i><img class="op" src="{{url_for('static',filename='img/list.svg')}}" alt="Bootstrap" width="32" height="32"></i>
+            </button>
+            <ul class="nav-menu nav-menu_visible">
+                <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Iniciar Secion</a></li>
+                <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Productos</a></li>
+                <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link">Tarjeta</a></li>
+                <li class="nav-menu-item"><a href="#" class="nav-menu-link nav-link nav-menu-link_active">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
