@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>SHOPITESZ</title>
+     <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}"><!-- Aplicando estilo de un hoja externa -->
+    <style><!-- Aplicando estilo a nivel documento -->
+        input{
+            background:aqua;
+        }
+    </style>
 </head>
 <body>
     <h1>LISTADO DE PRODUCTOS</h1>
@@ -12,27 +18,34 @@
         <th>DESCRIPCION</th>
         <th>PRECIO</th>
         <th>STOCK</th>
+        <th>VER</th>
         </thead>
         <tr>
             <td>Camisa ANDROID</td>
             <td>UNISEX MEDIDAS C,M,L</td>
             <td>$60.000</td>
             <td>20 Unidades</td>
+            <td><a href="/ProductosDescripcion1">Mas informacion</a></td>
         </tr>
         <tr>
-            <td>Camisa Ingenieria (ISC,G.E,I.A,  </td>
+            <td>Camisa Ingenieria (ISC,GE,IA,IAS,IE,TICS,C.P,I.I)  </td>
             <td>UNSEX CON INICIALES DE LA CARRERA EN CUESTION (C,M,L)</td>
             <td>$80.000</td>
             <td>10 Unidades X Ingeniería</td>
+            <td><a href="/ProductosDescripcion2">Mas informacion</a></td>
         </tr>
         <tr>
             <td>CAMISA "GAMER"</td>
             <td>UNISEX MEDIDAS C,M,L</td>
             <td>$60.000</td>
             <td>20 Unidades</td>
+            <td><a href="/ProductosDescripcion3">Mas informacion</a></td>
         </tr>
     </table>
     <table>
+        <br>
+        <br>
+        <br>
         <h2>LISTA DE MEDIDAS</h2>
         <table border="1" >
             <thead>
