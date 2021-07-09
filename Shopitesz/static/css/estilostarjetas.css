@@ -5,7 +5,8 @@
 }
 
 body {
-	background: #ddeefc;
+margin-top: 50px;
+  padding: 15px;
 	font-family: 'Lato', sans-serif;
 }
 
@@ -91,7 +92,9 @@ body {
 	justify-content: space-between;
 	margin-top: 20px;
 }
-
+a{
+color:white;
+}
 /* ---------- Tarjeta Trasera ----------*/
 .trasera {
 	background: url(../img/bg-tarjeta/bg-tarjeta-02.jpg);
