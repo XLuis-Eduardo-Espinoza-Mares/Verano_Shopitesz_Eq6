@@ -12,13 +12,21 @@ def inicio():
 def validarSesion():
     return render_template('usuarios/login.html')
 
+@app.route("/Registrarse")
+def Registrarse():
+    return render_template('usuarios/registrarCuenta.html')
+
 @app.route("/productos")
 def Productos():
     return render_template('productos/consultaGeneral.html')
 
 @app.route("/tarjeta")
 def tarjeta():
-    return render_template('tarjeta/consultaGeneral.html')
+    return render_template('Tarjeta/Tarjeta.html')
+
+@app.route("/ticket")
+def ticket():
+    return render_template('Tarjeta/Ticket.html')
 
 @app.route("/carrito")
 def carrito():

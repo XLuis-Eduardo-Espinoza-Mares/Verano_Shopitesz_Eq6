@@ -1,7 +1,8 @@
 h1,h2{
+    margin-top: 150px;
+	padding: 15px;
     background-color: white;
     text-align: center;
-    padding: 30px;
     font-family: Arial;
 }
 
