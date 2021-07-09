@@ -12,6 +12,10 @@ def inicio():
 def validarSesion():
     return render_template('usuarios/login.html')
 
+@app.route("/productos")
+def Productos():
+    return render_template('productos/consultaGeneral.html')
+
 @app.route("/login",methods=['POST'])
 def login():
     correo=request.form['correo']
