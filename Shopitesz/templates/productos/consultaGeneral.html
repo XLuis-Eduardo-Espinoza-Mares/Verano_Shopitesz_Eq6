@@ -1,38 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SHOPITESZ</title>
-</head>
-<body>
+{% extends 'comunes/base.html' %}
+{% block contenido %}
     <h1>LISTADO DE PRODUCTOS</h1>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/EstiloTabla.css')}}">
+    <div id="main-container1">
     <table border="1">
         <thead>
         <th>NOMBRE</th>
         <th>DESCRIPCION</th>
         <th>PRECIO</th>
         <th>STOCK</th>
+        <th>VER</th>
         </thead>
         <tr>
             <td>Camisa ANDROID</td>
             <td>UNISEX MEDIDAS C,M,L</td>
             <td>$60.000</td>
             <td>20 Unidades</td>
+            <td><a href="/ProductosDescripcion1">Mas informacion</a></td>
         </tr>
         <tr>
-            <td>Camisa Ingenieria (ISC,G.E,I.A,  </td>
+            <td>Camisa Ingenieria (ISC,GE,IA,IAS,IE,TICS,C.P,I.I)  </td>
             <td>UNSEX CON INICIALES DE LA CARRERA EN CUESTION (C,M,L)</td>
             <td>$80.000</td>
             <td>10 Unidades X Ingeniería</td>
+            <td><a href="/ProductosDescripcion2">Mas informacion</a></td>
         </tr>
         <tr>
             <td>CAMISA "GAMER"</td>
             <td>UNISEX MEDIDAS C,M,L</td>
             <td>$60.000</td>
             <td>20 Unidades</td>
+            <td><a href="/ProductosDescripcion3">Mas informacion</a></td>
         </tr>
     </table>
+<div id="main-container2">
     <table>
+        <br>
+        <br>
+        <br>
         <h2>LISTA DE MEDIDAS</h2>
         <table border="1" >
             <thead>
@@ -60,6 +65,7 @@
                 <td>1.75/1.90</td>
             </tr>
         </table>
+        </div>
     </table>
-</body>
-</html>
+</div>
+{% endblock %}

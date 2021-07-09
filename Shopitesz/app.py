@@ -16,6 +16,30 @@ def validarSesion():
 def Productos():
     return render_template('productos/consultaGeneral.html')
 
+@app.route("/tarjeta")
+def tarjeta():
+    return render_template('tarjeta/consultaGeneral.html')
+
+@app.route("/carrito")
+def carrito():
+    return render_template('carrito/consultaGeneral.html')
+
+@app.route("/pedidos")
+def Pedidos():
+    return render_template('productos/consultaGeneral.html')
+
+@app.route("/ProductosDescripcion1")
+def Descripcion1():
+    return render_template('productos/ProductosDescripcion/CAMISAANDROID.html')
+
+@app.route("/ProductosDescripcion2")
+def Descripcion2():
+    return render_template('productos/ProductosDescripcion/CAMISACARRERA.html')
+
+@app.route("/ProductosDescripcion3")
+def Descripcion3():
+    return render_template('productos/ProductosDescripcion/CAMISAGAMER.html')
+
 @app.route("/login",methods=['POST'])
 def login():
     correo=request.form['correo']
