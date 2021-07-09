@@ -1,0 +1,15 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+
+    <H1>
+        Camisa Ingenieria (ISC,GE,IA,IAS,IE,TICS,C.P,I.I)
+    </H1>
+    <img src="{{url_for('static',filename='img/CAMISACARRERA.jpg')}}" width="300" height="300"> <!--Aqui va la imagen de una camisa android-->
+    <h2>CAMISA UNSEX CON INICIALES DE LA CARRERA EN CUESTION (C,M,L)
+    </h2>
+    <br><br>
+    <form action="/CAMISACARRERA" method="post">
+        <a class="linkButton"> Añadir al Carrito</a> <!--aqui se creara un proceso que permita agregar el producto al carrito-->
+    </form>
+
+{% endblock %}

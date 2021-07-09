@@ -1,14 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SHOPITESZ</title>
-    <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-<p>Se mostraria la lista de productos</p>
-    <a href="/productos">Productos</a><br>
-    <a href="/validarSesion">Iniciar Sesion</a>
-</body>
-</html>
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+
+<main class="main">
+    <section class="welcome">
+        <h2>Descripción de la empresa</h2>
+        <p class="welcome-txt">Es una tienda en lo que encuentras todo lo que estas buscando, ofrecemos nuevos estilos novedosos,de colores llamativos y de hermosos acabados.
+Vestidos.
+Jeans.
+Blusas.
+Minifaldas.
+top.
+Shorts.
+Pantalones de vestir.
+Y mucho más.
+Búscanos y te darás cuenta que la BOUTIQUE "VANE" ofrece un diferente estilo, estamos buscando una nueva versión de la moda en las señoritas.</p>
+    </section>
+</main>
+
+{% endblock %}

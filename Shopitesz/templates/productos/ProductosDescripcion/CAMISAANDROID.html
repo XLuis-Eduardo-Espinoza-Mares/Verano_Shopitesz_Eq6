@@ -1,0 +1,15 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+
+    <H1>
+        CAMISA ANDROID UNISEX TALLA C,M,G
+    </H1>
+    <img src="{{url_for('static',filename='img/AndroidCamisa.jpg')}}" width="300" height="300"> <!--Aqui va la imagen de una camisa android-->
+    <h2>Esta camisa representa uno de los logos mas reconocidos por todo el mundo
+    </h2>
+    <br><br>
+    <form action="/CAMISAANDROID" method="post">
+        <a class="linkButton"> Añadir al Carrito</a> <!--aqui se creara un proceso que permita agregar el producto al carrito-->
+    </form>
+
+{% endblock %}
