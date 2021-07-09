@@ -22,7 +22,11 @@ def Productos():
 
 @app.route("/tarjeta")
 def tarjeta():
-    return render_template('tarjeta/consultaGeneral.html')
+    return render_template('Tarjeta/Tarjeta.html')
+
+@app.route("/ticket")
+def ticket():
+    return render_template('Tarjeta/Ticket.html')
 
 @app.route("/carrito")
 def carrito():
