@@ -1,4 +1,4 @@
-h1,h2{
+body{
     margin-top: 150px;
 	padding: 15px;
 }
@@ -6,6 +6,6 @@ h1,h2{
 div{
 	margin: auto;
 	width: 960px;
-	height: 880px;
+	height: 500px;
 	background-image: linear-gradient(to right, rgba(161, 210 ,206, 0.61),white);
 }

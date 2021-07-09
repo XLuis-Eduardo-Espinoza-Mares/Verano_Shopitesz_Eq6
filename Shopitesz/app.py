@@ -30,11 +30,15 @@ def ticket():
 
 @app.route("/carrito")
 def carrito():
-    return render_template('carrito/consultaGeneral.html')
+    return render_template('pedidos/pagDetallesPedidos.html')
 
 @app.route("/pedidos")
 def Pedidos():
-    return render_template('productos/consultaGeneral.html')
+    return render_template('pedidos/pagPedidos.html')
+
+@app.route("/Detallepedidos")
+def DetallesPedidos():
+    return render_template('pedidos/pagDetallesPedidos.html')
 
 @app.route("/ProductosDescripcion1")
 def Descripcion1():

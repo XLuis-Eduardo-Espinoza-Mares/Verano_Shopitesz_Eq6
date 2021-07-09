@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>DETALLESPEDIDO</title>
-</head>
-<body>
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/estiloDescripcion.css')}}">
+<div class="parrafo">
     <H1>
         Detalles del pedido
     </H1>
@@ -21,6 +18,7 @@
         <label for="subtotal">subtotal: 599.00</label><br>
         <label for="status">Estatus: Finalizada</label><br>
         <label for="comentario">Comentario: El producto llegó antes de lo esperado!</label><br>
+        <button type="submit" class="btn-enviar"><a href="/tarjeta">Pagar</a></button>
     </form>
-</body>
-</html>
+    </div>
+{% endblock %}
