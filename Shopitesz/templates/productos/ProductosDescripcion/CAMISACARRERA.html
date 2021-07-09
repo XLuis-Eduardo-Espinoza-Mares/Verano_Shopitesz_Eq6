@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SHOPITESZ</title>
-     <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}"><!-- Aplicando estilo de un hoja externa -->
-    <style><!-- Aplicando estilo a nivel documento -->
-        input{
-            background:aqua;
-        }
-    </style>
-</head>
+{% extends 'comunes/base.html' %}
+{% block contenido %}
 
-    <body>
     <H1>
         Camisa Ingenieria (ISC,GE,IA,IAS,IE,TICS,C.P,I.I)
     </H1>
-    <img src="{{url_for('static',filename='img/CAMISACARRERA.jpeg')}}" width="300" height="300"> <!--Aqui va la imagen de una camisa android-->
+    <img src="{{url_for('static',filename='img/CAMISACARRERA.jpg')}}" width="300" height="300"> <!--Aqui va la imagen de una camisa android-->
     <h2>CAMISA UNSEX CON INICIALES DE LA CARRERA EN CUESTION (C,M,L)
     </h2>
     <br><br>
@@ -23,5 +12,4 @@
         <a class="linkButton"> Añadir al Carrito</a> <!--aqui se creara un proceso que permita agregar el producto al carrito-->
     </form>
 
-</body>
-</html>
+{% endblock %}

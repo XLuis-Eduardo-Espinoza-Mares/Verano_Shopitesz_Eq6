@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SHOPITESZ</title>
-     <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}"><!-- Aplicando estilo de un hoja externa -->
-    <style><!-- Aplicando estilo a nivel documento -->
-        input{
-            background:aqua;
-        }
-    </style>
-</head>
+{% extends 'comunes/base.html' %}
+{% block contenido %}
 
-    <body>
     <H1>
         CAMISA ANDROID UNISEX TALLA C,M,G
     </H1>
-    <img src="" width="300" height="300"> <!--Aqui va la imagen de una camisa android-->
+    <img src="{{url_for('static',filename='img/AndroidCamisa.jpg')}}" width="300" height="300"> <!--Aqui va la imagen de una camisa android-->
     <h2>Esta camisa representa uno de los logos mas reconocidos por todo el mundo
     </h2>
     <br><br>
@@ -23,5 +12,4 @@
         <a class="linkButton"> Añadir al Carrito</a> <!--aqui se creara un proceso que permita agregar el producto al carrito-->
     </form>
 
-</body>
-</html>
+{% endblock %}

@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SHOPITESZ</title>
-     <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}"><!-- Aplicando estilo de un hoja externa -->
-    <style><!-- Aplicando estilo a nivel documento -->
-        input{
-            background:aqua;
-        }
-    </style>
-</head>
-<body>
+{% extends 'comunes/base.html' %}
+{% block contenido %}
     <h1>LISTADO DE PRODUCTOS</h1>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/EstiloTabla.css')}}">
+    <div id="main-container1">
     <table border="1">
         <thead>
         <th>NOMBRE</th>
@@ -42,6 +33,7 @@
             <td><a href="/ProductosDescripcion3">Mas informacion</a></td>
         </tr>
     </table>
+<div id="main-container2">
     <table>
         <br>
         <br>
@@ -73,6 +65,7 @@
                 <td>1.75/1.90</td>
             </tr>
         </table>
+        </div>
     </table>
-</body>
-</html>
+</div>
+{% endblock %}
