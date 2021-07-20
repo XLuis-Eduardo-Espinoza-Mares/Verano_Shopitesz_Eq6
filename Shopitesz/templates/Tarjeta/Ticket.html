@@ -1,10 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/estiloTicket.css')}}">
+<div class="parrafo">
+<table celspacing="none" class="voucher">
+		<tr>
+			<td class="text-center"><h2> TICKET DE VENTA </h2></td>
+            <tr>
+									<td class="dado">
+										<h5>
+											<td>Shopitesz </td>
+										</h5>
+									</td>
+            </tr>
+         <tr>
+									<td class="dado">
 
-</body>
-</html>
+         </tr>
+            <td>Fecha: 09/07/2021 </td>
+
+            <td>HORA: 02:30 a.m </td>
+
+            </tr>
+										</h5>
+									</td>
+            </tr>
+			<td class="logos" align="right">
+				<img width="40" src="assets/images/anpg.jpeg" alt="">
+				<img width="40" src="assets/images/ubes.jpg" alt="">
+				<img width="40" src="assets/images/une.jpg" alt="">
+			</td>
+		</tr>
+
+		<tr>
+			<td class="box" colspan="2">
+				</tr>
+            <td>CANTIDAD</td>
+            <td>PRODUCTO</td>
+            <td>$$</td>
+            </tr>
+			</td>
+		</tr>
+<tr>
+			<td class="box" colspan="2">
+
+       	<tr>
+									<td>
+										<h5>
+											<small>Nombre del Usuario:</small>
+										</h5>
+									</td>
+								</tr>
+								<tr>
+									<td class="dado">
+										<h5>
+											<small>Alejandro Jimenez Martinez</small>
+										</h5>
+									</td>
+								</tr>
+        <td>
+
+            <tr>
+            <td>1X Camisa ANDROID</td>
+            <td>UNISEX MEDIDAS C,M,L</td>
+            <td>$60.000</td>
+            </tr>
+             <tr>
+            <td>1X Gorra ANDROID</td>
+            <td>UNISEX MEDIDAS C,M,L</td>
+            <td>$70.000</td>
+            </tr>
+             <tr>
+            <td>1X pantalon ANDROID</td>
+            <td>UNISEX MEDIDAS C,M,L</td>
+            <td>$200.000</td>
+            </tr>
+             <tr>
+            <td>1X chamarra ANDROID</td>
+            <td>UNISEX MEDIDAS C,M,L</td>
+            <td>$400.000</td>
+            </tr>
+            <td>TOTAL</td>
+            <td>$</td>
+            <td>$730.000</td>
+            </tr>
+
+
+
+			</td>
+		</tr>
+
+		<tr>
+			<td class="box" colspan="2">
+				<h5> ¡GRACIAS POR SU COMPRA!</h5>
+			</td>
+		</tr>
+
+	</table>
+</div>
+{% endblock %}

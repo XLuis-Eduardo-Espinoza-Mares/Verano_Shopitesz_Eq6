@@ -8,18 +8,20 @@
 		<section class="tarjeta" id="tarjeta">
 			<div class="delantera">
 				<div class="logo-marca" id="logo-marca">
-					 <img src="{{url_for('static',filename='img/logos/visa.png')}}" alt="">
+
+					 <img src="{{url_for('static',filename='img/logos/paypal2.png')}}" alt="">
+
 				</div>
 				<img src="{{url_for('static',filename='img/chip-tarjeta.png')}}" class="chip" alt="">
 				<div class="datos">
 					<div class="grupo" id="numero">
 						<p class="label">Número Tarjeta</p>
-						<p class="numero">#### #### #### ####</p>
+						<p class="numero">### ### ### ###</p>
 					</div>
 					<div class="flexbox">
 						<div class="grupo" id="nombre">
 							<p class="label">Nombre Tarjeta</p>
-							<p class="nombre">Jhon Doe</p>
+							<p class="nombre">########</p>
 						</div>
 
 						<div class="grupo" id="expiracion">
@@ -42,12 +44,12 @@
 						<p class="ccv"></p>
 					</div>
 				</div>
-				<p class="leyenda">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus exercitationem, voluptates illo.</p>
+				<p class="leyenda">PRESERVAMOS LA MONEDA NACIONAL Y CONTRIBUYENDO A MEJORAR EL BIENESTAR ECONOMICO DE LA REPUBLICA MEXICANA.</p>
 				<a href="#" class="link-banco">www.Paypal.com</a>
 			</div>
 		</section>
 
-		<!-- Contenedor Boton Abrir Formulario -->
+		<!-- -->
 		<div class="contenedor-btn">
 			<button class="btn-abrir-formulario" id="btn-abrir-formulario">
 				<i class="fas fa-plus"></i>
@@ -57,12 +59,33 @@
 		<!-- Formulario -->
 		<form action="" id="formulario-tarjeta" class="formulario-tarjeta">
 			<div class="grupo">
+<div class="grupo ccv">
+					<label for="inputCCV">Elige una opción de Tarjeta</label>
+				</div>
+				<select name="OS">
+   <option selected value="0">----------</option>
+       <optgroup label="Tarjeta de crédito">
+       <option value="1">Básica American Express</option>
+       <option value="2">Santander Ligth</option>
+       <option value="3">HSBC Air </option>
+		   <option value="4">HSBC Platinum </option>
+		   <option value="5">Stori </option>
+   </optgroup>
+   <optgroup label="tarjeta de debito">
+       <option value="10">Paypal</option>
+       <option value="11">DISCOVER</option>
+       <option value="12">MASTERCARD</option>
+	   <option value="13">VISA </option>
+   </optgroup>
+</select>
+
+			<div class="grupo">
 				<label for="inputNumero">Número Tarjeta</label>
 				<input type="text" id="inputNumero" maxlength="19" autocomplete="off">
 			</div>
 			<div class="grupo">
 				<label for="inputNombre">Nombre</label>
-				<input type="text" id="inputNombre" maxlength="19" autocomplete="off">
+				<input type="text" id="inputNombre" maxlength="30" autocomplete="off">
 			</div>
 			<div class="flexbox">
 				<div class="grupo expira">
@@ -88,6 +111,7 @@
 					<input type="text" id="inputCCV" maxlength="3">
 				</div>
 			</div>
+
 			<button type="submit" class="btn-enviar"><a href="/ticket">Enviar</a></button>
 		</form>
 	</div>

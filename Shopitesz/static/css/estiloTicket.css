@@ -1,0 +1,11 @@
+body{
+    margin-top: 150px;
+	padding: 15px;
+}
+
+div{
+	margin: auto;
+	width: 960px;
+	height: 500px;
+	background-image: linear-gradient(to right, rgba(161, 210 ,206, 0.61),white);
+}

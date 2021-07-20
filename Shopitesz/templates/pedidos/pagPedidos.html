@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>PEDIDOS</title>
-</head>
-<body>
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/estiloDescripcion.css')}}">
+
+<div class="parrafo">
     <H1>
         Pedido
     </H1>
@@ -13,15 +11,13 @@
         <!--<label for="idPedido">idPedido: 0001</label><br>-->
         <label for="idComprador">Comprador: Juan</label><br>
         <label for="idVendedor">Vendedor: PlayerasGarcia</label><br>
-        <label for="idTarjeta">Tarjeta: 0000 0000 0000 0000</label><br>
         <label for="fechaRegistro">Fecha de registro: 01/07/2021</label><br>
         <label for="fechaAtencion">Fecha de atencion: 02/07/2021</label><br>
         <label for="fechaRecepcion">Fecha de recepcion: 08/07/2021</label><br>
         <label for="fechaCierre">Fecha de Cierre: 09/07/2021</label><br>
         <label for="total">Total: 599.00</label><br>
         <label for="status">Estatus: Finalizado</label><br>
-        </div>
-        <input type="submit" value="Detalles">
+        <button type="submit" class="btn-enviar"><a href="/Detallepedidos">Pedir</a></button>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}
