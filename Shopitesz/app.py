@@ -2,7 +2,7 @@ from datetime import timedelta
 
 from flask import Flask,render_template,request,redirect,url_for,flash,session,abort
 from flask_bootstrap import Bootstrap
-from modelo.Dao import db,Categoria
+from modelo.Dao import db, Categoria
 app = Flask(__name__)
 Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopiteszpractica:Shopit3sz.123@localhost/shopiteszpractica'
@@ -58,10 +58,15 @@ def Descripcion3():
 
 
 
-@app.route("/Categorias")
+@app.route('/Categorias')
 def consultaCategorias():
     cat=Categoria()
     render_template('categorias/consultaGeneral.html',categorias=cat.consultaGeneral())
+
+@app.route('/Categorias/consultarImagen/<int:id>')
+def consultarImagenCategoria(id):
+    cat=Categoria()
+    return cat.consultarImagen(id)
 
 
 
