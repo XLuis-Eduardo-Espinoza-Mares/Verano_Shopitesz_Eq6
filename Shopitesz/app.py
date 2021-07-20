@@ -3,10 +3,19 @@ from datetime import timedelta
 from flask import Flask,render_template,request,redirect,url_for,flash,session,abort
 from flask_bootstrap import Bootstrap
 from modelo.Dao import db,Categoria
+from flask_login import login_required,login_user,logout_user,current_user,LoginManager
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopiteszpractica:Shopit3sz.123@localhost/shopiteszpractica'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:Cadete0420@@localhost/shopitesz'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+app.secret_key='Cl4v3'
+
+#Implementación de la gestion de usuarios con flask-login
+login_manager=LoginManager()
+login_manager.init_app(app)
+login_manager.login_view='mostrar_login'
+login_manager.login_message='¡ Tu sesión expiró !'
+login_manager.login_message_category="info"
 
 @app.route("/")
 def inicio():
