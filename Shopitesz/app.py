@@ -2,16 +2,97 @@ from datetime import timedelta
 
 from flask import Flask,render_template,request,redirect,url_for,flash,session,abort
 from flask_bootstrap import Bootstrap
-from modelo.Dao import db, Categoria
+from modelo.Dao import db, Categoria, Producto,Usuario
+from flask_login import login_required,login_user,logout_user,current_user,LoginManager
 app = Flask(__name__)
 Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopiteszpractica:Shopit3sz.123@localhost/shopiteszpractica'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+app.secret_key='Cl4v3'
+
+#Implementación de la gestion de usuarios con flask-login
+login_manager=LoginManager()
+login_manager.init_app(app)
+login_manager.login_view='mostrar_login'
+login_manager.login_message='¡ Tu sesión expiró !'
+login_manager.login_message_category="info"
+
+# Urls defininas para el control de usuario
+@app.before_request
+def before_request():
+    session.permanent=True
+    app.permanent_session_lifetime=timedelta(minutes=10)
 
 @app.route("/")
 def inicio():
-    #return "Bienvenido a la tienda en linea Shipitesz
+    #return "Bienvenido a la tienda en linea Shopitesz"
     return render_template('principal.html')
+
+@app.route('/Usuarios/iniciarSesion')
+def mostrar_login():
+    if current_user.is_authenticated:
+        return render_template('principal.html')
+    else:
+        return render_template('usuarios/login.html')
+
+@login_manager.user_loader
+def cargar_usuario(id):
+    return Usuario.query.get(int(id))
+
+@app.route('/Usuarios/nuevo')
+def nuevoUsuario():
+    if current_user.is_authenticated and not current_user.is_admin():
+        return render_template('principal.html')
+    else:
+        return render_template('usuarios/registrarCuenta.html')
+
+@app.route('/Usuarios/agregar',methods=['post'])
+def agregarUsuario():
+    try:
+        usuario=Usuario()
+        usuario.nombreCompleto=request.form['nombre']
+        usuario.telefono=request.form['telefono']
+        usuario.direccion=request.form['direccion']
+        usuario.email=request.form['email']
+        usuario.genero=request.form['genero']
+        usuario.password=request.form['password']
+        usuario.tipo=request.values.get("tipo","Comprador")
+        usuario.estatus='Activo'
+        usuario.agregar()
+        flash('¡ Usuario registrado con exito')
+    except:
+        flash('¡ Error al agregar al usuario !')
+    return render_template('usuarios/registrarCuenta.html')
+
+
+@app.route("/Usuarios/validarSesion",methods=['POST'])
+def login():
+    correo=request.form['correo']
+    password=request.form['password']
+    usuario=Usuario()
+    user=usuario.validar(correo,password)
+    if user!=None:
+        login_user(user)
+        return render_template('principal.html')
+    else:
+        flash('Nombre de usuario o contraseña incorrectos')
+        return render_template('usuarios/login.html')
+
+@app.route('/Usuarios/cerrarSesion')
+@login_required
+def cerrarSesion():
+    logout_user()
+    return redirect(url_for('mostrar_login'))
+
+@app.route('/Usuarios/verPerfil')
+@login_required
+def consultarUsuario():
+    return render_template('usuarios/editar.html')
+#fin del manejo de usuarios
+
+
+
+
 @app.route("/validarSesion")
 def validarSesion():
     return render_template('usuarios/login.html')
@@ -57,7 +138,6 @@ def Descripcion3():
     return render_template('productos/ProductosDescripcion/CAMISAGAMER.html')
 
 
-
 @app.route('/Categorias')
 def consultaCategorias():
     cat=Categoria()
@@ -69,11 +149,11 @@ def consultarImagenCategoria(id):
     return cat.consultarImagen(id)
 
 
-
-@app.route("/login",methods=['POST'])
-def login():
-    correo=request.form['correo']
-    return "Validando al usuario"+correo
+#
+# @app.route("/login",methods=['POST'])
+# def login():
+#     correo=request.form['correo']
+#     return "Validando al usuario"+correo
 
 if __name__=='__main__':
     db.init_app(app) #Inicializando BD - pasa configuracion de la URL de la BD
