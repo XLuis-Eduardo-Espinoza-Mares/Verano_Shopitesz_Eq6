@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% extends 'comunes/base.html' %}
+{% block contenido %}
+    {{super()}}
+    <h1 class="bg-primary text-center">Edición de Usuarios</h1>
+    <form action="/Usuarios/modificar" method="post">
+        <div class="form-group">
+            <label for="nombre">Nombre completo:</label>
+            <input class="form-control form-control-lg" type="text" name="nombre" maxlength="50"  placeholder="Nombre Completo"  value="{{current_user.nombreCompleto}}"  required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" maxlength="50" class="form-control form-control-lg" required value="{{current_user.email}}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" name="direccion" maxlength="60" class="form-control" required value="{{current_user.direccion}}">
+        </div>
+        <div class="form-group">
+            <label for="clave">Password:</label>
+            <input type="password" name="password" maxlength="20" class="form-control" required value="{{current_user.password}}">
+        </div>
+        <div class="form-group">
+            <label for="telefono">Telefono:</label>
+            <input type="tel" name="telefono" maxlength="12" class="form-control" required value="{{current_user.telefono}}">
+        </div>
+        <div class="radio">
+            <label>Genero:</label>
+            {% if current_user.genero=='F' %}
+            <label class="radio-inline"><input type="radio" name="genero" value="F" checked>Femenino</label>
+            <label class="radio-inline"><input type="radio" name="genero" value="M">Masculino</label>
+            {% else %}
+            <label class="radio-inline"><input type="radio" name="genero" value="F">Femenino</label>
+            <label class="radio-inline"><input type="radio" name="genero" value="M" checked>Masculino</label>
+            {% endif %}
+        </div>
+        <div class="radio">
+            <label>Tipo:</label>
+            {% if current_user.is_authenticated %}
+            {%if current_user.is_admin() %}
+            <label class="radio-inline"><input type="radio" name="tipo" value="Comprador">Comprador</label>
+            <label class="radio-inline"><input type="radio" name="tipo" value="Vendedor">Vendedor</label>
+            <label class="radio-inline"><input type="radio" name="tipo" value="Administrador"checked >Administrador</label>
+            {% endif %}
+            {% if current_user.is_comprador() %}
+                <label class="radio-inline"><input type="radio" name="tipo" value="Comprador" checked>Comprador</label>
+            {% endif%}
+            {% if current_user.is_vendedor() %}
+                <label class="radio-inline"><input type="radio" name="tipo" value="Vendedor" checked>Vendedor</label>
+            {% endif %}
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary mb-3">
+            <span class="glyphicon glyphicon-floppy-disk"></span>
+            Registrar
+        </button>
+        <a href="/Usuarios/iniciarSesion" class="btn btn-danger mb-3">
+            <span class="glyphicon glyphicon-circle-arrow-left"></span>
+            Regresar
+        </a>
+    </form>
+{% endblock %}
+</head>
+<body>
+
+</body>
+</html>
