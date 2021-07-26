@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<div>
+
+    <h1 class="bg-primary text-center">Editar Tarjeta</h1>
+    <form action="/tarjeta/editar/{{current_user.idUsuario}}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="ID"> idTarjeta: </label>
+            <input type="number" name="ID"   class="form-control" value="{{tar.idTarjeta}}" readonly >
+        </div>
+        <div class="form-group">
+            <label for="IDU"> idUsuario: </label>
+            <input type="number" name="IDU"   class="form-control" value="{{current_user.idUsuario}}"readonly>
+        </div>
+        <div class="form-group">
+            <label for="noTarjeta">noTarjeta:</label>
+            <input type="number" name="noTarjeta"  maxlength="100" value="{{tar.noTarjeta}}" class="form-control">
+        </div>
+         <div class="form-group">
+            <label for="Saldo">Saldo:</label>
+            <input type="number" name="Saldo"  maxlength="200" value="{{tar.saldo}}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="Banco">Banco:</label>
+            <input type="text" name="Banco"  value="{{tar.banco}}" class="form-control">
+        </div>
+        <div >
+            <label for="Estatus" >Estatus en la que se encuentra A/B</label>
+            <input type="text" name="Estatus" maxlength="1" value="{{tar.estatus}}"   class="form-control">
+        </div>
+           <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+                Guardar
+            </button>
+           <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#borrar">
+                <span class="glyphicon glyphicon-trash"></span>
+                Eliminar
+            </a>
+            <a href="/Usuarios/verTarjetas/{{current_user.idUsuario}}'" class="btn btn-info">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                Cancelar
+            </a>
+    </form>
+
+
+<div id="borrar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Eliminación de Tarjeta</h4>
+      </div>
+      <div class="modal-body">
+        <p>¿ Estas seguro de eliminar la tarjeta:<b>{{tar.idTarjeta}} ?</b> </p>
+      </div>
+      <div class="modal-footer">
+          <a class="btn btn-primary" href="/tarjeta/eliminar/{{tar.idTarjeta}}">Aceptar</a>
+          <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+</div>
+
+
+</head>
+<body>
+
+</body>
+</html>

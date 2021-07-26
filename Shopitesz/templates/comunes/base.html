@@ -1,8 +1,9 @@
-{% extends 'bootstrap/base.html' %}
-{% block title %}
-    SHOPITESZ - Tienda en linea
-{% endblock %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<div>
 <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
 <script defer src="{{url_for('static',filename='js/index.js')}}"></script>
 
@@ -14,14 +15,16 @@
             <i><img class="op" src="{{url_for('static',filename='img/list.svg')}}" alt="Bootstrap" width="32" height="32"></i>
             </button>
             <ul class="nav-menu nav-menu_visible">
-                <li class="nav-menu-item"><a href="/validarSesion" class="nav-menu-link nav-link">Iniciar Seción</a></li>
+                <li class="nav-menu-item"><a href="/validarSesion" class="nav-menu-link nav-link">Iniciar Sesión</a></li>
                 <li class="nav-menu-item"><a href="/productos" class="nav-menu-link nav-link">Productos</a></li>
+                <li class="nav-menu-item"><a href="/Categorias" class="nav-menu-link nav-link">Categorias</a> </li>
                 <li class="nav-menu-item"><a href="/tarjeta" class="nav-menu-link nav-link"><img class="op" src="{{url_for('static',filename='img/credit-card.svg')}}" alt="Bootstrap" width="32" height="32">  Tarjeta</a></li>
-                <li class="nav-menu-item"><a href="/carrito" class="nav-menu-link nav-link nav-menu-link_active"><img class="op" src="{{url_for('static',filename='img/cart4.svg')}}" alt="Bootstrap" width="32" height="32"></a></li>
+                <li class="nav-menu-item"><a href="/carrito" class="nav-menu-link nav-link nav-menu-link_active"><img class="op" src="{{url_for('static',filename='img/cart4.svg')}}" alt="Bootstrap" width="32" height="32"></a> Carrito</a> </li>
             </ul>
         </nav>
     </header>
-     {% block contenido %}
+     </div>
+<body>
 
-    {% endblock %}
-{% endblock %}
+</body>
+</html>
