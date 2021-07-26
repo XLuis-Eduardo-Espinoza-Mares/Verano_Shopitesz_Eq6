@@ -37,7 +37,7 @@ def mostrar_login():
         return render_template('principal.html')
     else:
         return render_template('usuarios/login.html')
-
+ 
 @login_manager.user_loader
 def cargar_usuario(id):
     return Usuario.query.get(int(id))
@@ -52,28 +52,28 @@ def nuevoUsuario():
 @app.route('/Usuarios/agregar',methods=['post'])
 def agregarUsuario():
     try:
-        usuario=Usuario()
-        usuario.nombreCompleto=request.form['nombre']
-        usuario.telefono=request.form['telefono']
-        usuario.direccion=request.form['direccion']
-        usuario.email=request.form['email']
-        usuario.genero=request.form['genero']
-        usuario.password=request.form['password']
-        usuario.tipo=request.values.get("tipo","Comprador")
-        usuario.estatus='Activo'
-        usuario.agregar()
+        usuarios=usuario()
+        usuarios.nombreCompleto=request.form['nombre']
+        usuarios.telefono=request.form['telefono']
+        usuarios.direccion=request.form['direccion']
+        usuarios.email=request.form['email']
+        usuarios.genero=request.form['genero']
+        usuarios.password=request.form['password']
+        usuarios.tipo=request.values.get("tipo","Comprador")
+        usuarios.estatus='Activo'
+        usuarios.agregar()
         flash('¡ Usuario registrado con exito')
     except:
         flash('¡ Error al agregar al usuario !')
     return render_template('usuarios/registrarCuenta.html')
 
 
-@app.route("/Usuarios/validarSesion",methods=['POST'])
+@app.route("/usuarios/validarSesion",methods=['POST'])
 def login():
     correo=request.form['correo']
     password=request.form['password']
-    usuario=Usuario()
-    user=usuario.validar(correo,password)
+    usuarios=usuarios()
+    user=usuarios.validar(correo,password)
     if user!=None:
         login_user(user)
         return render_template('principal.html')
@@ -81,7 +81,7 @@ def login():
         flash('Nombre de usuario o contraseña incorrectos')
         return render_template('usuarios/login.html')
 
-@app.route('/Usuarios/cerrarSesion')
+@app.route('/usuarios/cerrarSesion')
 @login_required
 def cerrarSesion():
     logout_user()
@@ -95,8 +95,8 @@ def consultarUsuario():
 
 @app.route("/productos")
 def consultarProductos():
-    producto=Producto()
-    return render_template("productos/consultaGeneral.html",productos=producto.consultaGeneral())
+    productos=productos()
+    return render_template("productos/consultaGeneral.html",productos=productos.consultaGeneral())
 
 @app.route("/productos/agregar")
 def agregarProducto():
