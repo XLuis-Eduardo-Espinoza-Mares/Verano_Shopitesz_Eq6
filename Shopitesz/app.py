@@ -2,7 +2,8 @@ from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
 app = Flask(__name__)
 Bootstrap(app)
-
+app.config['SQLALCHEMY_DATABASE_URI']='mysal+pymysql://user_shopitesz:Shopitesz.123@localhost/shopitesz1'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 @app.route("/")
 def inicio():
     #return "Bienvenido a la tienda en linea Shipitesz
