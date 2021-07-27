@@ -52,6 +52,9 @@ def Descripcion2():
 @app.route("/ProductosDescripcion3")
 def Descripcion3():
     return render_template('productos/ProductosDescripcion/CAMISAGAMER.html')
+@app.route("/compra")
+def compra():
+    return render_template('carrito/compra.html')
 
 @app.route("/login",methods=['POST'])
 def login():
