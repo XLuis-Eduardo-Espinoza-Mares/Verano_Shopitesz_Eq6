@@ -27,7 +27,9 @@ body {
   max-width: 992px;
   margin: 0 auto;
 }
-
+.dropdown-menu{
+ position: center;
+}
 .nav-link {
   color: white;
   text-decoration: none;
@@ -36,7 +38,7 @@ body {
 .logo {
   font-size: 30px;
   font-weight: bold;
-  padding: 0 40px;
+  padding: 0 10px;
   line-height: 80px;
 }
 
