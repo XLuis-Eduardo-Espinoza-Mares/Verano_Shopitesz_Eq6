@@ -5,8 +5,7 @@
 {% block content %}
 <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
 <script defer src="{{url_for('static',filename='js/index.js')}}"></script>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/popper.min.js"></script>
+    <script src="{{url_for('static',filename='js/popper.min.js')}}"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     
     <link rel="stylesheet" href="css/sweetalert2.min.css">
@@ -34,7 +33,7 @@
             </a>
           </li>
           <li class="nav-menu-item">
-            <img src="{{url_for('static',filename='img/cart4.svg')}}" class="nav-link dropdown-toggle img-fluid nav-menu-link nav-link" height="70px" width="70px" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></img>
+            <img src="{{url_for('static',filename='img/cart4.svg')}}" class="nav-link dropdown-toggle img-fluid nav-menu-link nav-link op" height="70px" width="70px" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></img>
                                 <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
                                     <table id="lista-carrito" class="table">
                                         <thead>
@@ -49,7 +48,7 @@
                                     </table>
 
                                     <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
-                                    <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
+                                    <a href="/compra" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
                                         Compra</a>
                                 </div>
           </li>
@@ -63,11 +62,11 @@
         </ul>
       </nav>
     </header>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/sweetalert2.min.js"></script>
-    <script src="js/carrito.js"></script>
-    <script src="js/pedido.js"></script>
+    <script src="{{url_for('static',filename='js/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/sweetalert2.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/carrito.js')}}"></script>
+    <script src="{{url_for('static',filename='js/pedido.js')}}"></script>
      {% block contenido %}
 
     {% endblock %}
