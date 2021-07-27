@@ -1,8 +1,11 @@
-from flask import Flask, render_template, request
+from datetime import timedelta
+
+from flask import Flask, render_template, request,redirect,url_for,flash,session,abort
 from flask_bootstrap import Bootstrap
+from modelo.Dao import db, Categoria
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SQLALCHEMY_DATABASE_URI']='mysal+pymysql://user_shopitesz:Shopitesz.123@localhost/shopitesz1'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:Shopitesz.123@localhost/shopitesz'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 @app.route("/")
 def inicio():
@@ -56,9 +59,29 @@ def Descripcion3():
 def compra():
     return render_template('carrito/compra.html')
 
+
+
+# CRUD Categorías
+@app.route('/categorias')
+def consultaCategorias():
+    cat=Categoria()
+    return render_template('categorias/consultaGeneral.html',categorias=cat.consultaGeneral())
+
+@app.route('/Categorias/consultarImagen/<int:id>')
+def consultarImagenCategoria(id):
+    cat=Categoria()
+    return cat.consultarImagen(id)
+#FIN Categorías
+
+
+
+
 @app.route("/login",methods=['POST'])
 def login():
     correo=request.form['correo']
     return "Validando al usuario"+correo
+
+
 if __name__=='__main__':
+    db.init_app(app)    #Inicializando la BD
     app.run(debug=True)
