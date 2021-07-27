@@ -8,15 +8,13 @@
 		<section class="tarjeta" id="tarjeta">
 			<div class="delantera">
 				<div class="logo-marca" id="logo-marca">
-
-					 <img src="{{url_for('static',filename='img/logos/paypal2.png')}}" alt="">
-
+					 <img src="{{url_for('static',filename='img/logos/HSBC-Platinum.jpg')}}" alt="">
 				</div>
 				<img src="{{url_for('static',filename='img/chip-tarjeta.png')}}" class="chip" alt="">
 				<div class="datos">
 					<div class="grupo" id="numero">
 						<p class="label">Número Tarjeta</p>
-						<p class="numero">### ### ### ###</p>
+						<p class="numero">#### #### #### ####</p>
 					</div>
 					<div class="flexbox">
 						<div class="grupo" id="nombre">
@@ -44,12 +42,12 @@
 						<p class="ccv"></p>
 					</div>
 				</div>
-				<p class="leyenda">PRESERVAMOS LA MONEDA NACIONAL Y CONTRIBUYENDO A MEJORAR EL BIENESTAR ECONOMICO DE LA REPUBLICA MEXICANA.</p>
+				<p class="leyenda">PRESERVANDO LA MONEDA NACIONAL Y CONTRIBUYENDO A MEJORAR EL BIENESTAR ECONOMICO DE LA REPUBLICA MEXICANA.</p>
 				<a href="#" class="link-banco">www.Paypal.com</a>
 			</div>
 		</section>
 
-		<!-- -->
+		<!-- Contenedor Boton Abrir Formulario -->
 		<div class="contenedor-btn">
 			<button class="btn-abrir-formulario" id="btn-abrir-formulario">
 				<i class="fas fa-plus"></i>
@@ -58,8 +56,8 @@
 
 		<!-- Formulario -->
 		<form action="" id="formulario-tarjeta" class="formulario-tarjeta">
-			<div class="grupo">
-<div class="grupo ccv">
+
+			<div class="grupo ccv">
 					<label for="inputCCV">Elige una opción de Tarjeta</label>
 				</div>
 				<select name="OS">
@@ -75,9 +73,9 @@
        <option value="10">Paypal</option>
        <option value="11">DISCOVER</option>
        <option value="12">MASTERCARD</option>
-	   <option value="13">VISA </option>
+	   <option value="13">VISA</option>
    </optgroup>
-</select>
+        </select>
 
 			<div class="grupo">
 				<label for="inputNumero">Número Tarjeta</label>
@@ -85,7 +83,7 @@
 			</div>
 			<div class="grupo">
 				<label for="inputNombre">Nombre</label>
-				<input type="text" id="inputNombre" maxlength="30" autocomplete="off">
+				<input type="text" id="inputNombre" maxlength="19" autocomplete="off">
 			</div>
 			<div class="flexbox">
 				<div class="grupo expira">
@@ -98,7 +96,7 @@
 							<i class="fas fa-angle-down"></i>
 						</div>
 						<div class="grupo-select">
-							<select name="year" id="selectYea r">
+							<select name="year" id="selectYear">
 								<option disabled selected>Año</option>
 							</select>
 							<i class="fas fa-angle-down"></i>
@@ -110,6 +108,12 @@
 					<label for="inputCCV">CCV</label>
 					<input type="text" id="inputCCV" maxlength="3">
 				</div>
+
+			</div>
+
+			<div class="grupo SALDO">
+				<label for="inputNumero">SALDO</label>
+				<input type="text" id="inputNumero1" maxlength="15" autocomplete="off">
 			</div>
 
 			<button type="submit" class="btn-enviar"><a href="/ticket">Enviar</a></button>

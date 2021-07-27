@@ -1,7 +1,4 @@
-.main{
-	margin-top: 150px;
-	padding: 15px;
-}
+
 .welcome{
 	text-align: center;
 	padding: 20px 0;
@@ -12,7 +9,7 @@
 .welcome-txt{
 	font-size: 1.3em;
 }
-div{
+.parrafo{
 	margin: auto;
 	width: 960px;
 	height: 880px;
