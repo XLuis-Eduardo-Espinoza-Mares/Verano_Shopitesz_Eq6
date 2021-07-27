@@ -1,0 +1,161 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+<div>
+    <h1 class="bg-primary text-center">Edicion de Producto</h1>
+    <form action="/productos/editar" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="id"> idProducto: </label>
+            <input type="number" name="id"  required class="form-control" value="{{prod.idProducto}}" readonly class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="idCategoria"> idCategoria: </label>
+            <input type="number" name="idcategoria"   class="form-control" value="{{prod.idCategoria}}">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre"  maxlength="100" value="{{prod.nombre}}" class="form-control">
+        </div>
+         <div class="form-group">
+            <label for="descripcion">descripcion:</label>
+            <input type="text" name="descripcion"  maxlength="200" value="{{prod.descripcion}}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="precioVenta">precio de Venta:</label>
+            <input type="number" name="precioVenta"  value="{{prod.precioVenta}}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="existencia">Existencias:</label>
+            <input type="number" name="existencia"  value="{{prod.existencia}}" class="form-control">
+        </div>
+        <div class="form-control">
+            <label for="estatus">Estatus:</label>
+            {% if prod.estatus=='Activo'%}
+                <input type="checkbox" name="estatus" value="Activo" checked>
+            {% else %}
+                <input type="checkbox" name="estatus" value="Inactivo">
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label>foto:</label>
+            <input type="file" name="foto" placeholder="foto del Producto" class="form-control">
+            <a href="#" data-toggle="modal" data-target="#foto">
+                <span class="glyphicon glyphicon-eye-open"></span>Ver Foto
+            </a>
+        </div>
+        <div>
+            <label>especificaciones:</label>
+            <input type="file" name="especificaciones" placeholder="especificaciones del Producto" class="form-control">
+             <a href="#" data-toggle="modal" data-target="#especificaciones">
+                <span class="glyphicon glyphicon-eye-open"></span>Ver Foto
+            </a>
+        </div>
+           <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+                Guardar
+            </button>
+           <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#borrar">
+                <span class="glyphicon glyphicon-trash"></span>
+                Poner en Inactivo
+            </a>
+            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#eliminar">
+                <span class="glyphicon glyphicon-trash"></span>
+                Eliminar
+            </a>
+            <a href="/productos" class="btn btn-info">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                Cancelar
+            </a>
+    </form>
+
+ <div id="especificaciones" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">especificaciones del producto: <b>{{prod.nombre}}</b></h4>
+      </div>
+      <div class="modal-body">
+        <img src="/productos/consultarEspecificaciones/{{prod.idProducto}}" width="200px" height="150px">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<div id="foto" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Foro del producto: <b>{{prod.nombre}}</b></h4>
+      </div>
+      <div class="modal-body">
+        <img src="/productos/consultarImagen/{{prod.idProducto}}" width="200px" height="150px">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+<div id="eliminar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Eliminación de Producto</h4>
+      </div>
+      <div class="modal-body">
+        <p>¿ Estas seguro de eliminar el Producto:<b>{{prod.nombre}} ?</b> </p>
+      </div>
+      <div class="modal-footer">
+          <a class="btn btn-primary" href="/productis/eliminacionfisica/{{prod.idProducto}}">Aceptar</a>
+          <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div id="borrar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Eliminacion logica de producto</h4>
+      </div>
+      <div class="modal-body">
+        <p>¿ Estas seguro de eliminar logicamente el producto:<b>{{prod.nombre}} ?</b> </p>
+      </div>
+      <div class="modal-footer">
+          <a class="btn btn-primary" href="/productos/eliminar/{{prod.idProducto}}">Aceptar</a>
+          <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+</div>
+
+{% endblock %}

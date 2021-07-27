@@ -1,0 +1,43 @@
+{{% extends 'comunes/base.html' %}
+{% block contenido %}
+<div>
+    <h1 class="bg-primary text-center">Registro de Categorias</h1>
+    <form action="/productos/Insertar" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="Categoria"> Categoria: </label>
+            <select name='Categoria'  class="form-control">
+              {% for c in cat %}
+                  <option value="{{c.idCategoria}}">{{c.nombre}}</option>
+              {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" required maxlength="100" placeholder="Nombre de Producto" class="form-control">
+        </div>
+         <div class="form-group">
+            <label for="descripcion">descripcion:</label>
+            <input type="text" name="descripcion" required maxlength="200" placeholder="Descripcion de Producto" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="precioVenta">precio de Venta:</label>
+            <input type="number" name="precioventa" required placeholder="Precio de Venta" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="existencia">Existencias:</label>
+            <input type="number" name="existencia" required placeholder="Existencia" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>foto:</label>
+            <input type="file" name="foto" placeholder="foto del Producto" class="form-control">
+        </div>
+        <div>
+            <label>especificaciones:</label>
+            <input type="file" name="especificaciones" placeholder="especificaciones del Producto" class="form-control">
+        </div>
+            <button type="submit" class="btn btn-primary">Registrar</button>
+            <a href="/productos" class="btn btn-danger">Cancelar</a>
+    </form>
+</div>
+
+{% endblock %}
