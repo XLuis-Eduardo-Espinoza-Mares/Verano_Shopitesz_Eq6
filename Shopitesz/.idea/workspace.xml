@@ -51,16 +51,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/Tarjeta/Tarjeta.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="89" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="89" />
+            <state relative-caret-position="110">
+              <caret line="10" column="85" selection-start-line="10" selection-start-column="85" selection-end-line="10" selection-end-column="85" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/carrito/compra.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="186">
@@ -134,7 +134,6 @@
         <option value="$PROJECT_DIR$/static/css/estiloLogin.css" />
         <option value="$PROJECT_DIR$/templates/usuarios/login.html" />
         <option value="$PROJECT_DIR$/static/css/estiloRegistrar.css" />
-        <option value="$PROJECT_DIR$/templates/Tarjeta/Tarjeta.html" />
         <option value="$PROJECT_DIR$/static/css/estilostarjetas.css" />
         <option value="$PROJECT_DIR$/static/css/estiloDescripcion.css" />
         <option value="$PROJECT_DIR$/templates/productos/ProductosDescripcion/CAMISACARRERA.html" />
@@ -154,12 +153,13 @@
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/templates/comunes/base.html" />
         <option value="$PROJECT_DIR$/templates/carrito/compra.html" />
+        <option value="$PROJECT_DIR$/templates/Tarjeta/Tarjeta.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="488" />
-    <option name="y" value="-13" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="162" />
+    <option name="y" value="101" />
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
@@ -191,12 +191,6 @@
               <item name="Shopitesz" type="b2602c69:ProjectViewProjectNode" />
               <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Shopitesz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="carrito" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Shopitesz" type="b2602c69:ProjectViewProjectNode" />
@@ -305,15 +299,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="390" y="59" width="1346" height="688" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17931548" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18425076" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985119" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985119" visible="true" weight="0.36216217" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -515,17 +509,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/Tarjeta.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="89" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/carrito/compra.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="78" column="51" selection-start-line="78" selection-start-column="51" selection-end-line="78" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/Tarjeta.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="10" column="85" selection-start-line="10" selection-start-column="85" selection-end-line="10" selection-end-column="85" />
         </state>
       </provider>
     </entry>
