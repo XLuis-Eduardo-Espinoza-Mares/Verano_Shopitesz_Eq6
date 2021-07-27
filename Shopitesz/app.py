@@ -2,7 +2,7 @@ from datetime import timedelta
 
 from flask import Flask, render_template, request,redirect,url_for,flash,session,abort
 from flask_bootstrap import Bootstrap
-from modelo.Dao import db, Categoria
+from modelo.Dao import db, Categoria, Producto
 app = Flask(__name__)
 Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:Cadete0420@localhost/shopitesz'
@@ -20,9 +20,15 @@ def validarSesion():
 def Registrarse():
     return render_template('usuarios/registrarCuenta.html')
 
+
 @app.route("/productos")
-def Productos():
-    return render_template('productos/consultaGeneral.html')
+def consultarProductos():
+    #return "Retorna la lista de productos"
+    producto=Producto()
+    cat = Categoria()
+    return render_template("productos/consultaGeneral.html",productos=producto.consultaGeneral(),categorias=cat.consultaGeneral())
+
+
 
 @app.route("/tarjeta")
 def tarjeta():
