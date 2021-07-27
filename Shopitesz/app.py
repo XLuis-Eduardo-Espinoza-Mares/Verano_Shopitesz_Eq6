@@ -5,7 +5,7 @@ from flask_bootstrap import Bootstrap
 from modelo.Dao import db, Categoria
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopiteszpractica:Shopit3sz.123@localhost/shopiteszpractica'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:Shopitesz.123@localhost/shopitesz'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 @app.route("/")
 def inicio():
