@@ -1,9 +1,9 @@
 {% extends 'comunes/base.html' %}
 {% block navbar %}
-    {{super()}}
-    {% include 'comunes/menu.html' %}
-{% endblock %}
-{% block contenido %}
+<link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="stylesheet" href="{{url_for('static',filename='css/tarjeta.css')}}">
+
 <div>
 
     <h1 class="bg-primary text-center">Editar Tarjeta</h1>

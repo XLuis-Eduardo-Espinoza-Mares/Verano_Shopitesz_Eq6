@@ -7,34 +7,37 @@
 <body>
 <div>
     <h1 class="bg-primary text-center">Listado de Metodos de pagos</h1>
-     {% if current_user.is_authenticated() %}
-    <a href="/usuarios/agregarNuevaTarjeta/{{current_user.idUsuario}}" class="btn btn-danger mb-3">
+
+    <a href="/usuarios/agregarNuevaTarjeta" class="btn btn-danger mb-3">
          <span class="glyphicon glyphicon-plus-sign"></span>
         Agregar Nueva Tarjeta
     </a>
       {% endif %}
 
-    <table class="table table-bordered table-hover justify-content-center" id="tablaCategorias">
+    <table class="table table-bordered " >
          <th>idUsuario</th>
+
         <th>noTarjeta</th>
+
         <th>Saldo</th>
+
         <th>banco</th>
+
         <th>año</th>
+
         <th>mes</th>
+
         <th>CCV</th>
-    {% if current_user.is_authenticated  %}
-            <th>Ver</th>
-        {% endif %}
-        {% for cat in Tarjetas %}
+
             <tr>
-                 <th>idUsuario</th>
-        <th>noTarjeta</th>
-        <th>Saldo</th>
-        <th>banco</th>
-        <th>año</th>
-        <th>mes</th>
-        <th>CCV</th>
-                {% if current_user.is_authenticated %}
+                 <th>{{tarjeta.idUsuario}}</th>
+        <th>{{tarjeta.noTarjeta}}</th>
+        <th>{{tarjeta.Saldo}}</th>
+        <th>{{tarjeta.banco}}</th>
+        <th>{{tarjeta.año}}</th>
+        <th>{{tarjeta.mes}}</th>
+        <th>{{tarjeta.CCV}}</th>
+
                     <td>
                         <a href="/Tarjeta/{{cat.idTarjeta}}">
                             <span class="glyphicon glyphicon-eye-open"></span>

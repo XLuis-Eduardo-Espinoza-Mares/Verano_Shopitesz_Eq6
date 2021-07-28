@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<link rel="stylesheet" href="{{url_for('static',filename='css/estiloRegistrar.css')}}">
+<form action="/Tarjeta/agregar" method="post">
+    <section class="form-register">
+        <h4>Formulario tarjeta</h4>
+        <input class="controls" type="text" name="noTarjeta" placeholder="Ingrese su Nombre Completo" required>
+        <input class="controls" type="text" name="banco" placeholder="Ingrese el nombre del banco de la tarjeta" required>
+        <input class="controls" type="text" name="mes" placeholder="Ingrese el mes" required>
+        <input class="controls" type="text" name="año" placeholder="Ingrese el año" required>
+        <input class="controls" type="text" name="CCV" placeholder="Ingrese los 3 digitos de la tarjeta" required>
+        <input class="controls" type="text" name="saldo" placeholder="Ingrese el saldo" required>
+        <div class="wrap">
+
+        </div>
+
+        <input class="botons" type="submit" value="Registrar">
+    </section>
+</form>
+
+</body>
+</html>
