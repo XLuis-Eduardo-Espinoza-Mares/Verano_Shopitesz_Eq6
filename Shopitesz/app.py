@@ -1,12 +1,12 @@
 from datetime import timedelta
 from flask import Flask,render_template,request,redirect,url_for,flash,session,abort
 from flask_bootstrap import Bootstrap
-from modelo.Dao import db,Categoria,Producto,Usuario,Tarjeta
+from modelo.Dao import db,Categoria,Producto,Usuario,Tarjeta,Pedido
 from flask_login import login_required,login_user,logout_user,current_user,LoginManager
 import json
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:Cadete0420@localhost/shopitesz'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopiteszpractica:Shopit3sz.123@localhost/shopiteszpractica'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.secret_key='Cl4v3'
 
@@ -202,8 +202,11 @@ def saldoTarjeta():
 def ticket():
     return render_template('Tarjeta/Ticket.html')
 
+
+
+
 # CRUD Categorías
-@app.route('/categorias')
+@app.route('/Categorias')
 def consultaCategorias():
     cat=Categoria()
     return render_template('categorias/consultaGeneral.html',categorias=cat.consultaGeneral())
@@ -212,7 +215,102 @@ def consultaCategorias():
 def consultarImagenCategoria(id):
     cat=Categoria()
     return cat.consultarImagen(id)
+
+@app.route('/Categorias/nueva')
+# @login_required
+def nuevaCategoria():
+    # if current_user.is_authenticated and current_user.is_admin():
+            return render_template('categorias/agregarCategoria.html')
+    # else:
+    #     abort(404)
+
+@app.route('/Categorias/agregar',methods=['post'])
+# @login_required
+def agregarCategoria():
+    try:
+        # if current_user.is_authenticated:
+            # if current_user.is_admin():
+                try:
+                    cat=Categoria()
+                    cat.nombre=request.form['nombre']
+                    cat.imagen=request.files['imagen'].stream.read()
+                    cat.estatus='Activa'
+                    cat.agregar()
+                    flash('¡ Categoria agregada con exito !')
+                except:
+                    flash('¡ Error al agregar la categoria !')
+                return redirect(url_for('consultaCategoria'))
+            # else:
+            #     abort(404)
+
+        # else:
+        #     return redirect(url_for('mostrar_login'))
+    except:
+        abort(500)
+
+
+@app.route('/Categorias/<int:id>')
+# @login_required
+def consultarCategoria(id):
+    # if current_user.is_authenticated and current_user.is_admin():
+        cat=Categoria()
+        return render_template('categorias/editarCategoria.html',cat=cat.consultaIndividuall(id))
+    # else:
+    #     return redirect(url_for('mostrar_login'))
+
+
+@app.route('/Categorias/editar',methods=['POST'])
+# @login_required
+def editarCategoria():
+    # if current_user.is_authenticated and current_user.is_admin():
+        try:
+            cat=Categoria()
+            cat.idCategoria=request.form['id']
+            cat.nombre=request.form['nombre']
+            imagen=request.files['imagen'].stream.read()
+            if imagen:
+                cat.imagen=imagen
+            cat.estatus=request.values.get("estatus","Inactiva")
+            cat.editar()
+            flash('¡ Categoria editada con exito !')
+        except:
+            flash('¡ Error al editar la categoria !')
+
+        return redirect(url_for('consultaCategorias'))
+    # else:
+    #     return redirect(url_for('mostrar_login'))
+
+@app.route('/Categorias/eliminar/<int:id>')
+# @login_required
+def eliminarCategoria(id):
+    # if current_user.is_authenticated and current_user.is_admin():
+        try:
+            categoria=Categoria()
+            #categoria.eliminar(id)
+            categoria.eliminacionLogica(id)
+            flash('Categoria eliminada con exito')
+        except:
+            flash('Error al eliminar la categoria')
+        return redirect(url_for('consultaCategorias'))
+    # else:
+    #     return redirect(url_for('mostrar_login'))
 #FIN Categorías
+
+
+#CRUD Pedidos
+@app.route('/pedidos')
+def consultaPedidos():
+    ped=Pedido()
+    return render_template('pedidos/consultaGeneral.html',pedidos=ped.consultaGeneral())
+
+@app.route('/pedidos/consultarImagen/<int:id>')
+def consultarImagenPedido(id):
+    ped=Pedido()
+    return ped.consultarImagen(id)
+#FIN Pedidos
+
+
+
 
 
 #incio de CRUD DE PRODUCTOS

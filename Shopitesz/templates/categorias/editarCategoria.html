@@ -1,0 +1,87 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+<div>
+    <h1 class="bg-primary bg-lg text-center">Edición de Categorias</h1>
+    <form action="/Categorias/editar" method="post" enctype="multipart/form-data" style=background-color:#FBEEE6>
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="number" name="id" value="{{cat.idCategoria}}" readonly class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" required maxlength="60" placeholder="Nombre de Categoria" class="form-control" value="{{cat.nombre}}">
+        </div>
+        <div class="form-control">
+            <label for="estatus">Estatus:</label>
+            {% if cat.estatus=='Activa' %}
+                <input type="checkbox" name="estatus" value="Activa" checked>
+            {% else %}
+                <input type="checkbox" name="estatus" value="Activa">
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label>Imagen:</label>
+            <input type="file" name="imagen" placeholder="Imagen de la Categoria" class="form-control">
+            <a href="#" data-toggle="modal" data-target="#imagen">
+                <span class="glyphicon glyphicon-eye-open"></span>Ver Imagen
+            </a>
+        </div>
+            <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+                Guardar
+            </button>
+            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#borrar">
+                <span class="glyphicon glyphicon-trash"></span>
+                Eliminar
+            </a>
+            <a href="/Categorias" class="btn btn-info">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                Cancelar
+            </a>
+    </form>
+    <!-- Modal para ver la imagen-->
+<div id="imagen" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Imagen de la categoria: <b>{{cat.nombre}}</b></h4>
+      </div>
+      <div class="modal-body">
+        <img src="/Categorias/consultarImagen/{{cat.idCategoria}}" width="200px" height="150px">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+ <!-- Modal para ver el cuadro de dialogo de eliminar-->
+<div id="borrar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Eliminación de Categorias</h4>
+      </div>
+      <div class="modal-body">
+        <p>¿ Estas seguro de eliminar la categoria:<b>{{cat.nombre}} ?</b> </p>
+      </div>
+      <div class="modal-footer">
+          <a class="btn btn-primary" href="/Categorias/eliminar/{{cat.idCategoria}}">Aceptar</a>
+          <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+{% endblock %}
