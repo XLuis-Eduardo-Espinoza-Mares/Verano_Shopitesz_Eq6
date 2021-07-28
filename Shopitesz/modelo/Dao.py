@@ -28,6 +28,7 @@ class Categoria(db.Model):
 
     def editar(self):
         db.session.merge(self)
+        db.session.merge(self)
         db.session.commit()
 
     def eliminar(self,id):

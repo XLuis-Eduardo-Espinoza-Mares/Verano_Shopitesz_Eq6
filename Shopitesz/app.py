@@ -77,15 +77,6 @@ def login():
     else:
         abort(404)
 
-@app.route('/Usuarios/<int:id>')
-@login_required
-def usuarioIndividual(id):
-    if current_user.is_admin():
-        usuario = Usuario()
-        return render_template('usuarios/consultaIndividual.html',usuario=usuario.consultaIndividual(id))
-    else:
-        abort(404)
-
 
 @app.route("/validarSesion")
 def validarSesion():
