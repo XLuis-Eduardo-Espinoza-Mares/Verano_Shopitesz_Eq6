@@ -6,7 +6,7 @@ from flask_login import login_required,login_user,logout_user,current_user,Login
 import json
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:Cadete0420@localhost/shopitesz'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:JoseKun@localhost/shopitesz'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.secret_key='Cl4v3'
 
@@ -92,6 +92,13 @@ def consultarProductos():
     producto=Producto()
     cat = Categoria()
     return render_template("productos/consultaGeneral.html",productos=producto.consultaGeneral(),categorias=cat.consultaGeneral())
+
+@app.route("/productos/Insertar")
+def InsertarProductos():
+    producto=Producto()
+
+    return render_template("productos/Insertar.html", productos=producto.agregar())
+
 
 
 #CRUD Tarjetas
@@ -206,6 +213,119 @@ def consultarImagenCategoria(id):
     cat=Categoria()
     return cat.consultarImagen(id)
 #FIN Categorías
+
+
+#incio de CRUD DE PRODUCTOS
+@app.route('/productos/consultarEspecificaciones/<int:id>')
+def consultarEspecificionesProducto(id):
+    prod=Producto()
+    return prod.consultarEspecificaciones(id)
+
+@app.route('/productos/consultarNombre/<int:id>')
+def consultarNombreProducto(id):
+    prod=Producto()
+    return prod.consultarNombre(id)
+
+@app.route('/productos/consultarImagen/<int:id>')
+def consultarImagenProducto(id):
+    prod=Producto()
+    return prod.consultarImagen(id)
+
+@app.route('/productos/consultarprecioVenta/<int:id>')
+def consultarprecioVenta(id):
+    prod=Producto()
+    return prod.consultarprecioVenta(id)
+
+@app.route('/productos/consultarexistencia/<int:id>')
+def consultarexistencia(id):
+    prod=Producto()
+    return prod.consultarexistencia(id)
+
+@app.route('/productos/nuevo')
+def nuevoProducto():
+            cat = Categoria()
+            return render_template('productos/agregar.html', cat=cat.consultaGeneral())
+
+@app.route("/productos/agregar",methods=['post'])
+def agregarProducto():
+                try:
+                    prod=nuevoProducto();
+                    prod.idCategoria=request.form['Categoria']
+                    prod.nombre=request.form['nombre']
+                    prod.descripcion=request.form['descripcion']
+                    prod.precioVenta=request.form['precioventa']
+                    prod.existencia=request.form['existencia']
+                    prod.foto=request.files['foto'].stream.read()
+                    prod.especificaciones=request.files['especificaciones'].stream.read()
+                    prod.estatus ='Activo'
+                    prod.agregar()
+                    flash('!Producto agregado con exito!')
+                except:
+                    flash('! Error al agregar producto !')
+                return redirect(url_for('consultarProductos'))
+
+
+@app.route('/productos/<int:id>')
+def consultaProductos(id):
+        prod=Producto()
+        cat=Categoria()
+        return render_template('productos/editar.html',prod=prod.consultaIndividuall(id),cat=cat.consultaGeneral())
+
+
+@app.route('/productos/editar',methods=['POST'])
+
+def editarProducto():
+
+        try:
+            prod=Producto()
+            prod.idProducto = request.form['id']
+            prod.idCategoria=request.form['Categoria']
+            prod.nombre=request.form['nombre']
+            prod.descripcion = request.form['descripcion']
+            prod.precioVenta = request.form['precioVenta']
+            prod.existencia = request.form['existencia']
+            especificaciones=request.files['especificaciones'].stream.read()
+            foto=request.files['foto'].stream.read()
+            if foto:
+                prod.foto = foto
+            if especificaciones:
+                prod.especificaciones = especificaciones
+            prod.estatus = request.form['estatus']
+            prod.editar()
+            flash('! Producto editado con éxito !')
+        except:
+            flash('! Error al editar el producto !')
+
+        return redirect(url_for('consultarProductos'))
+
+
+
+@app.route('/productos/eliminar/<int:id>')
+def eliminarProductos(id):
+
+        try:
+            prod=Producto()
+            prod.eliminacionLogica(id)
+            flash('Producto eliminado con exito')
+        except:
+            flash('Error al eliminar el producto')
+
+        return redirect(url_for('consultarProductos'))
+
+
+@app.route('/productos/eliminacionfisica/<int:id>')
+
+def eliminacionfisicaproducto(id):
+
+        try:
+            prod=Producto()
+            prod.eliminar(id)
+            flash('Producto eliminado')
+        except:
+            flash('Error al eliminar Producto')
+        return redirect((url_for('consultarProductos')))
+
+#Fin Cru de productos
 
 if __name__=='__main__':
     db.init_app(app)#Inicializar la BD - pasar la configuración de la url de la BD
