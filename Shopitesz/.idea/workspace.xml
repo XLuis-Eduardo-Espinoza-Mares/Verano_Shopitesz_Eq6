@@ -27,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="157" column="41" lean-forward="true" selection-start-line="157" selection-start-column="41" selection-end-line="157" selection-end-column="41" />
+            <state relative-caret-position="1236">
+              <caret line="148" column="12" lean-forward="true" selection-start-line="148" selection-start-column="12" selection-end-line="148" selection-end-column="12" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -90,8 +90,8 @@
         <option value="$PROJECT_DIR$/templates/productos/consultaGeneral.html" />
         <option value="$PROJECT_DIR$/templates/Tarjeta/Tarjeta.html" />
         <option value="$PROJECT_DIR$/templates/Tarjeta/Edictar.html" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/templates/Tarjeta/tarjetaregistrada.html" />
+        <option value="$PROJECT_DIR$/app.py" />
       </list>
     </option>
   </component>
@@ -229,12 +229,12 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21130952" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21130952" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985119" visible="true" weight="0.26350245" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4985119" visible="true" weight="0.26350245" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28805238" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -470,8 +470,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="157" column="41" lean-forward="true" selection-start-line="157" selection-start-column="41" selection-end-line="157" selection-end-column="41" />
+        <state relative-caret-position="1236">
+          <caret line="148" column="12" lean-forward="true" selection-start-line="148" selection-start-column="12" selection-end-line="148" selection-end-column="12" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>

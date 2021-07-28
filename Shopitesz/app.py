@@ -93,6 +93,7 @@ def consultarProductos():
     cat = Categoria()
     return render_template("productos/consultaGeneral.html",productos=producto.consultaGeneral(),categorias=cat.consultaGeneral())
 
+
 #CRUD Tarjetas
 
 @app.route("/tarjeta")
@@ -188,6 +189,7 @@ def saldoTarjeta():
         msg = {"estatus": "error", "mensaje": "Debes iniciar sesion"}
         return json.dumps(msg)
 #Fin CRUD Tarjetas
+
 
 @app.route("/ticket")
 def ticket():
