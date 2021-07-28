@@ -1,5 +1,7 @@
 {% extends 'comunes/base.html' %}
 {% block contenido %}
+
+
 <link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="{{url_for('static',filename='css/estilostarjetas.css')}}">
 	<div class="contenedor">
@@ -111,10 +113,14 @@
 
 			</div>
 
+
+
+
 			<div class="grupo SALDO">
 				<label for="inputNumero">SALDO</label>
-				<input type="text" id="inputNumero1" maxlength="15" autocomplete="off">
+				<input type="text" name="Saldo" required class="form-control">
 			</div>
+
 
 			<button type="submit" class="btn-enviar"><a href="/ticket">Enviar</a></button>
 		</form>
