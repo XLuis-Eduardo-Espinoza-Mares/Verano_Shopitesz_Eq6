@@ -16,10 +16,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/Tarjeta/Edictar.html">
+        <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="20" selection-start-column="20" selection-end-column="20" />
+            <state relative-caret-position="159">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,7 +78,6 @@
         <option value="$PROJECT_DIR$/templates/comunes/base.html" />
         <option value="$PROJECT_DIR$/templates/usuarios/registrarCuenta.html" />
         <option value="$PROJECT_DIR$/templates/productos/consultaGeneral.html" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/templates/usuarios/login.html" />
         <option value="$PROJECT_DIR$/templates/Tarjeta/tarjetaregistrada.html" />
         <option value="$PROJECT_DIR$/templates/Tarjeta/registrartarjeta.html" />
@@ -84,12 +86,13 @@
         <option value="$PROJECT_DIR$/templates/Tarjeta/registrarTarjeta.html" />
         <option value="$PROJECT_DIR$/templates/Tarjeta/Tarjeta.html" />
         <option value="$PROJECT_DIR$/templates/Tarjeta/Edictar.html" />
+        <option value="$PROJECT_DIR$/app.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="420" />
-    <option name="y" value="102" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-215" />
+    <option name="y" value="227" />
     <option name="width" value="813" />
     <option name="height" value="596" />
   </component>
@@ -218,15 +221,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-215" y="227" width="813" height="596" extended-state="1" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17857143" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30967742" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.6710311" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985119" weight="0.22258593" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4985119" visible="true" weight="0.2937365" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28805238" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -439,16 +441,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="56" lean-forward="true" selection-start-line="55" selection-start-column="48" selection-end-line="56" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/Tarjeta/tarjetaregistrada.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -515,7 +507,17 @@
     <entry file="file://$PROJECT_DIR$/templates/Tarjeta/Edictar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="20" selection-start-column="20" selection-end-column="20" />
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
