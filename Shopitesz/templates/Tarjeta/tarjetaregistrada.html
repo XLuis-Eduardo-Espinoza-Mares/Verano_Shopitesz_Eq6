@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>registrar</title>
+</head>
+<body>
+<div>
+    <h1 class="bg-primary text-center">Listado de Metodos de pagos</h1>
+     {% if current_user.is_authenticated() %}
+    <a href="/usuarios/agregarNuevaTarjeta/{{current_user.idUsuario}}" class="btn btn-danger mb-3">
+         <span class="glyphicon glyphicon-plus-sign"></span>
+        Agregar Nueva Tarjeta
+    </a>
+      {% endif %}
+
+    <table class="table table-bordered table-hover justify-content-center" id="tablaCategorias">
+         <th>idUsuario</th>
+        <th>noTarjeta</th>
+        <th>Saldo</th>
+        <th>banco</th>
+        <th>año</th>
+        <th>mes</th>
+        <th>CCV</th>
+    {% if current_user.is_authenticated  %}
+            <th>Ver</th>
+        {% endif %}
+        {% for cat in Tarjetas %}
+            <tr>
+                 <th>idUsuario</th>
+        <th>noTarjeta</th>
+        <th>Saldo</th>
+        <th>banco</th>
+        <th>año</th>
+        <th>mes</th>
+        <th>CCV</th>
+                {% if current_user.is_authenticated %}
+                    <td>
+                        <a href="/Tarjeta/{{cat.idTarjeta}}">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </a>
+                    </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
