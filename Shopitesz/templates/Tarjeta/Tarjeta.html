@@ -1,5 +1,7 @@
 {% extends 'comunes/base.html' %}
 {% block contenido %}
+
+
 <link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="{{url_for('static',filename='css/estilostarjetas.css')}}">
 	<div class="contenedor">
@@ -111,13 +113,32 @@
 
 			</div>
 
+
+
+
 			<div class="grupo SALDO">
 				<label for="inputNumero">SALDO</label>
-				<input type="text" id="inputNumero1" maxlength="15" autocomplete="off">
+				<input type="text" name="Saldo" required class="form-control">
 			</div>
 
+			<button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+                Guardar
+            </button>
+           <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#borrar">
+                <span class="glyphicon glyphicon-trash"></span>
+                Eliminar
+            </a>
+            <a href="/Usuarios/verTarjetas/{{current_user.idUsuario}}'" class="btn btn-info">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                Cancelar
+            </a>
+
+
 			<button type="submit" class="btn-enviar"><a href="/ticket">Enviar</a></button>
+
 		</form>
+
 	</div>
 
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
