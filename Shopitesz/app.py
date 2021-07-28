@@ -7,7 +7,7 @@ from flask_login import login_required,login_user,logout_user,current_user,Login
 import json
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:Cadete0420@localhost/shopitesz'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:Shopitesz.123@localhost/shopitesz'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.secret_key='Cl4v3'
 
@@ -77,15 +77,59 @@ def login():
     else:
         abort(404)
 
+@app.route('/Usuarios/todos')
+@login_required
+def ConsultaUsuarios():
+    if current_user.is_admin():
+        usuario = Usuario()
+        return render_template('usuarios/consultaGeneral.html', usuarios=usuario.consultaGeneral())
+    else:
+        abort(404)
+
+@app.route('/Usuarios/verPerfil')
+@login_required
+def verperfil():
+    return render_template('usuarios/VerPerfil.html')
+
+@app.route('/Usuarios/Editar')
+@login_required
+def Editar():
+    return render_template('usuarios/Editar.html')
+
+@app.route('/Usuarios/editarPerfil')
+@login_required
+def editarPerfil():
+    try:
+
+        usuario = Usuario()
+        usuario.direccion = request.form['direccion']
+        usuario.telefono = request.form['telefono']
+        usuario.email = request.form['correo']
+        usuario.password = request.form['password']
+        usuario.editar()
+        flash('¡ Usuario modificado con exito !')
+        redirect('/Usuarios/verPerfil')
+    except:
+        flash('¡ Error al modificar al usuario !')
+
+@app.route('/Usuarios/cerrarSesion')
+@login_required
+def cerrarSesion():
+    logout_user()
+    return redirect('/validarSesion')
 
 @app.route("/validarSesion")
 def validarSesion():
     return render_template('usuarios/login.html')
 
+@app.route("/compra")
+def compra():
+    return render_template('carrito/compra.html')
+
+
 @app.route("/Registrarse")
 def Registrarse():
     return render_template('usuarios/registrarCuenta.html')
-
 
 @app.route("/productos")
 def consultarProductos():
@@ -93,8 +137,6 @@ def consultarProductos():
     producto=Producto()
     cat = Categoria()
     return render_template("productos/consultaGeneral.html",productos=producto.consultaGeneral(),categorias=cat.consultaGeneral())
-
-
 
 @app.route("/tarjeta")
 def tarjeta():
