@@ -1,0 +1,44 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+
+<div>
+    <h1 class="bg-primary text-center">Listado de Categorias</h1>
+
+    <a href="/Categorias/nueva" class="btn btn-success">
+         <span class="glyphicon glyphicon-plus-sign"></span>
+        Agregar Categoria
+    </a>
+
+    <table class="table table-bordered">
+        <th>ID</th>
+        <th>NOMBRE</th>
+
+         <th>DIRRECCIONES</th>
+
+        <th>TELEFONO</th>
+
+        <th>EMIL</th>
+
+        <th>PASSWORD</th>
+
+        <th>TIPO</th>
+
+        <th>ESTATUS</th>
+
+        {% for usuario in usuarios %}
+            <tr>
+                <td>{{usuario.idCategoria}}</td>
+                <td>{{usuario.nombreCompleto}}</td>
+                <td>{{usuario.direccion}}</td>
+                <td>{{usuario.telefono}}</td>
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.password_hash}}</td>
+                <td>{{usuario.tipo}}</td>
+                <td>{{usuario.estatus}}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+<link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="stylesheet" href="{{url_for('static',filename='css/estiloVerPerfil.css')}}">
+
+    <section class="seccion-perfil-usuario">
+            <div class="perfil-usuario-body">
+                <div class="perfil-usuario-bio">
+                    <h3 class="titulo">{{current_user.nombreCompleto}}</h3>
+                    <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="perfil-usuario-footer">
+                    <ul class="lista-datos">
+                        <li><i class="icono fas fa-map-signs"></i> Direccion de usuario: {{current_user.direccion}}</li>
+                        <li><i class="icono fas fa-phone-alt"></i> Telefono: {{current_user.telefono}}</li>
+                        <li><i class="icono fas fa-building"></i> Cargo: {{current_user.tipo}}</li>
+                    </ul>
+                    <ul class="lista-datos">
+                        <li><i class="icono fas fa-map-marker-alt"></i> Contraseña: {{current_user.password_hash}}</li>
+                        <li><i class="icono fas fa-user-check"></i> Registro: {{current_user.estatus}}</li>
+                        <li><i class="icono fas fa-share-alt"></i> Correo: {{current_user.email}}</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+{% endblock %}
