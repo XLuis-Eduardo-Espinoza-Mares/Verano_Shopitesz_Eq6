@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends 'comunes/base.html' %}
+{% block navbar %}
+    {{super()}}
+    {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block contenido %}
 <div>
 
     <h1 class="bg-primary text-center">Editar Tarjeta</h1>
-    <form action="/tarjeta/editar/{{current_user.idUsuario}}" method="post" enctype="multipart/form-data">
+    <form action="/tarjeta/editar/{{current_user.idUsuario}}" method="POST" onsubmit="return validarTarjetas(this)" enctype="multipart/form-data">
         <div class="form-group">
             <label for="ID"> idTarjeta: </label>
             <input type="number" name="ID"   class="form-control" value="{{tar.idTarjeta}}" readonly >
@@ -14,6 +15,10 @@
         <div class="form-group">
             <label for="IDU"> idUsuario: </label>
             <input type="number" name="IDU"   class="form-control" value="{{current_user.idUsuario}}"readonly>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre Usuario: </label>
+            <input type="text" name="nombre"   class="form-control" value="{{current_user.nombreCompleto}}"readonly>
         </div>
         <div class="form-group">
             <label for="noTarjeta">noTarjeta:</label>
@@ -71,6 +76,16 @@
 
 
 </div>
+
+<div id="notificaciones">
+
+</div>
+
+{% endblock %}
+{% block scripts %}
+{{super()}}
+    <script src="{{url_for('static',filename='js/Tarjetas.js')}}"></script>
+{% endblock %}
 
 
 </head>
