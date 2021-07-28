@@ -1,0 +1,16 @@
+table{
+    background-color: white;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td{
+    padding: 20px;
+}
+
+thead{
+    background-color:   #246355;
+    border-bottom: solid 5px #0F362D;
+    color: white;
+}
