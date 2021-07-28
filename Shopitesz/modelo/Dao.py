@@ -97,7 +97,6 @@ class Usuario(UserMixin,db.Model):
     password_hash=Column(String(128),nullable=False)
     tipo=Column(String,nullable=False)
     estatus=Column(String,nullable=False)
-    genero=Column(String,nullable=False)
 
     @property #Implementa el metodo Get (para acceder a un valor)
     def password(self):
