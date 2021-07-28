@@ -93,11 +93,6 @@ def consultarProductos():
     cat = Categoria()
     return render_template("productos/consultaGeneral.html",productos=producto.consultaGeneral(),categorias=cat.consultaGeneral())
 
-@app.route("/productos/Insertar")
-def InsertarProductos():
-    producto=Producto()
-
-    return render_template("productos/Insertar.html", productos=producto.agregar())
 
 
 
@@ -216,10 +211,10 @@ def consultarImagenCategoria(id):
 
 
 #incio de CRUD DE PRODUCTOS
-@app.route('/productos/consultarEspecificaciones/<int:id>')
-def consultarEspecificionesProducto(id):
+@app.route('/productos/consultarEspecificaciones/<string:especificaciones>')
+def consultarEspecificionesProducto(String):
     prod=Producto()
-    return prod.consultarEspecificaciones(id)
+    return prod.consultarEspecificaciones(String)
 
 @app.route('/productos/consultarNombre/<int:id>')
 def consultarNombreProducto(id):
@@ -231,20 +226,24 @@ def consultarImagenProducto(id):
     prod=Producto()
     return prod.consultarImagen(id)
 
-@app.route('/productos/consultarprecioVenta/<int:id>')
-def consultarprecioVenta(id):
+@app.route('/productos/consultarprecioVenta/<string:precioVenta>')
+def consultarprecioVenta(String):
     prod=Producto()
-    return prod.consultarprecioVenta(id)
+    return prod.consultarprecioVenta(String)
 
-@app.route('/productos/consultarexistencia/<int:id>')
-def consultarexistencia(id):
+@app.route('/productos/consultarexistencia/<string:existencia>')
+def consultarexistencia(String):
     prod=Producto()
-    return prod.consultarexistencia(id)
+    return prod.consultarexistencia(String)
 
 @app.route('/productos/nuevo')
 def nuevoProducto():
             cat = Categoria()
             return render_template('productos/agregar.html', cat=cat.consultaGeneral())
+
+@app.route('/productos/Revisar')
+def revisarProducto():
+            return render_template('productos/ConsultaProducto.html')
 
 @app.route("/productos/agregar",methods=['post'])
 def agregarProducto():
@@ -302,7 +301,6 @@ def editarProducto():
 
 @app.route('/productos/eliminar/<int:id>')
 def eliminarProductos(id):
-
         try:
             prod=Producto()
             prod.eliminacionLogica(id)
