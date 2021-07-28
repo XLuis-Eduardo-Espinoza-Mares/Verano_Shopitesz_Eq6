@@ -15,21 +15,25 @@
       {% endif %}
 
     <table class="table table-bordered table-hover justify-content-center" id="tablaCategorias">
-        <th>ID</th>
-        <th>NoTarjeta</th>
+         <th>idUsuario</th>
+        <th>noTarjeta</th>
         <th>Saldo</th>
-        <th>Banco</th>
-        <th>Estatus</th>
+        <th>banco</th>
+        <th>año</th>
+        <th>mes</th>
+        <th>CCV</th>
     {% if current_user.is_authenticated  %}
             <th>Ver</th>
         {% endif %}
         {% for cat in Tarjetas %}
             <tr>
-                <td>{{cat.idTarjeta}}</td>
-                <td>{{cat.noTarjeta}}</td>
-                <td>{{cat.saldo}}</td>
-                <td>{{cat.banco}}</td>
-                <td>{{cat.estatus}}</td>
+                 <th>idUsuario</th>
+        <th>noTarjeta</th>
+        <th>Saldo</th>
+        <th>banco</th>
+        <th>año</th>
+        <th>mes</th>
+        <th>CCV</th>
                 {% if current_user.is_authenticated %}
                     <td>
                         <a href="/Tarjeta/{{cat.idTarjeta}}">
