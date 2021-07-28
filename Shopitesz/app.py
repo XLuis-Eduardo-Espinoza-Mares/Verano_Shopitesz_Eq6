@@ -6,7 +6,7 @@ from flask_login import login_required,login_user,logout_user,current_user,Login
 import json
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopiteszpractica:Shopit3sz.123@localhost/shopiteszpractica'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:Cadete0420@localhost/shopitesz'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.secret_key='Cl4v3'
 
