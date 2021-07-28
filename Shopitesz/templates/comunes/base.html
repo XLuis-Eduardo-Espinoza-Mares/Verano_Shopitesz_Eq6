@@ -12,7 +12,7 @@
 <header class="header">
       <nav class="nav">
         <img class="op" src="{{url_for('static',filename='img/shop-window.svg')}}" alt="Bootstrap" width="32" height="32">
-        <a href="/" class="logo nav-link">Shopitesz</a>
+        <a class="logo nav-link">Shopitesz</a>
         <button class="nav-toggle" aria-label="Abrir menú">
           <i><img class="op" src="{{url_for('static',filename='img/list.svg')}}" alt="Bootstrap" width="32" height="32"></i>
         </button>
@@ -20,9 +20,16 @@
           <li class="nav-menu-item">
             <a href="/" class="nav-menu-link nav-link">Home</a>
           </li>
+            {% if current_user.is_authenticated and current_user.is_vendedor() %}
           <li class="nav-menu-item">
             <a href="/categorias" class="nav-menu-link nav-link">Categorias</a>
           </li>
+            {% endif %}
+            {% if current_user.is_authenticated and current_user.is_admin() %}
+          <li class="nav-menu-item">
+            <a href="/categorias" class="nav-menu-link nav-link">Categorias</a>
+          </li>
+            {% endif %}
           <li class="nav-menu-item">
             <a href="/productos" class="nav-menu-link nav-link">Productos</a>
           </li>
@@ -52,13 +59,29 @@
                                         Compra</a>
                                 </div>
           </li>
-          <li class="nav-menu-item">
-            <a href="/validarSesion" class="nav-menu-link nav-link nav-menu-link_active">
-              <img class="op" src="{{url_for('static',filename='img/file-person.svg')}}" alt="Bootstrap" width="32" height="32">
-              Acceder
-            </a
-            >
-          </li>
+            {% if current_user.is_authenticated and current_user.is_vendedor() %}
+                <li class="nav-menu-item">
+                    <div class="login-box">
+                        <img src="{{url_for('static',filename='img/Zorro.png')}}" class="avatars nav-link dropdown-toggle img-fluid nav-menu-link nav-link" alt="Avatar Image" height="70px" width="70px" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div id="Usuario" class="dropdown-menu" aria-labelledby="navbarCollapse">
+                                    <a href="#" id="verPerfil" class="btn btn-primary btn-block">Ver Perfil</a>
+                                    <a href="#" id="EditarPerfil" class="btn btn-primary btn-block">Editar Perfil</a>
+                                    {% if current_user.is_authenticated and current_user.is_admin() %}
+                                    <a href="#" id="VerPerfiles" class="btn btn-primary btn-block">Todos los Perfiles</a>
+                                    {% endif %}
+                                    <a href="#" id="CerrarSecion" class="btn btn-danger btn-block">Cerrar Secion</a>
+                                </div>
+                    </div>
+                </li>
+            {% endif %}
+            {% if not current_user.is_authenticated and current_user.is_vendedor() %}
+                <li class="nav-menu-item">
+                    <a href="/validarSesion" class="nav-menu-link nav-link nav-menu-link_active">
+                    <img class="op" src="{{url_for('static',filename='img/file-person.svg')}}" alt="Bootstrap" width="32" height="32">
+                    Acceder
+                    </a>
+                </li>
+            {% endif %}
         </ul>
       </nav>
     </header>
