@@ -7,6 +7,8 @@ app = Flask(__name__)
 Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:Cadete0420@localhost/shopitesz'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+
+
 @app.route("/")
 def inicio():
     #return "Bienvenido a la tienda en linea Shipitesz
@@ -78,6 +80,8 @@ def consultarImagenCategoria(id):
     cat=Categoria()
     return cat.consultarImagen(id)
 #FIN Categorías
+
+
 
 
 
