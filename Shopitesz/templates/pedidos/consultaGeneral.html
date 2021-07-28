@@ -1,0 +1,57 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+
+<div>
+    <h1 class="bg-primary text-center">Tus pedidos</h1>
+
+    <a href="/Pedidos/nueva" class="btn btn-success">
+         <span class="glyphicon glyphicon-plus-sign"></span>
+        Agregar Pedido
+    </a>
+
+    <table class="table table-bordered" style=background-color:#FBEEE6>
+        <th>ID</th>
+        <th>Comprador</th>
+        <th>Vendedor</th>
+        <th>Tarjeta</th>
+        <th>Fecha de REGISTRO</th>
+        <th>Fecha de ATENCIÓN</th>
+        <th>Fecha de RECEPCIÓN</th>
+        <th>Fecha de CIERRE</th>
+
+        <th>TOTAL</th>
+
+         <th>ESTATUS</th>
+
+        <th>Ver</th>
+
+        {% for ped in pedidos %}
+            <tr>
+                <td>{{ped.idPedido}}</td>
+                <td>{{ped.idComprador}}</td>
+                <td>{{ped.idVendedor}}</td>
+                <td>{{ped.idTarjeta}}</td>
+                <td>{{ped.fechaRegistro}}</td>
+
+                    <td>{{ped.fechaAtencion}}</td>
+
+                    <td>{{ped.fechaRecepcion}}</td>
+                    <td>{{ped.fechaCierre}}</td>
+                    <td>{{ped.total}}</td>
+                    <td>{{ped.estatus}}</td>
+
+
+                <!--<td><img src="/Categorias/consultarImagen/{{ped.idPedido}}" width="100px" height="80px"></td>-->
+
+                    <td>
+                        <a href="/Pedidos/{{ped.idPedido}}">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </a>
+                    </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
