@@ -96,21 +96,45 @@ def verperfil():
 def Editar():
     return render_template('usuarios/Editar.html')
 
-@app.route('/Usuarios/editarPerfil')
+@app.route('/Usuarios/editarPerfil',methods=['POST'])
 @login_required
 def editarPerfil():
     try:
 
         usuario = Usuario()
+        usuario.idUsuario = current_user.idUsuario
+        usuario.nombreCompleto = current_user.nombreCompleto
         usuario.direccion = request.form['direccion']
         usuario.telefono = request.form['telefono']
-        usuario.email = request.form['correo']
+        usuario.email = current_user.email
         usuario.password = request.form['password']
+        if current_user.is_admin():
+            usuario.estatus = request.form['estatus']
+            usuario.tipo = request.form['Tipo']
+        else:
+            usuario.estatus = current_user.estatus
+            usuario.tipo = current_user.tipo
         usuario.editar()
         flash('¡ Usuario modificado con exito !')
-        redirect('/Usuarios/verPerfil')
+        return render_template('usuarios/VerPerfil.html')
     except:
         flash('¡ Error al modificar al usuario !')
+        return render_template('usuarios/VerPerfil.html')
+
+@app.route('/Usuarios/eliminar/<int:id>')
+@login_required
+def eliminarPerfil(id):
+    if current_user.is_authenticated and current_user.idUsuario == id:
+        try:
+            usuario = Usuario()
+            usuario.eliminacionLogica(id)
+            logout_user()
+            flash('Usuario eliminado con exito')
+        except:
+            flash('Error al eliminar el usuario')
+        return redirect(url_for('inicio'))
+    else:
+        abort(404)
 
 @app.route('/Usuarios/cerrarSesion')
 @login_required
