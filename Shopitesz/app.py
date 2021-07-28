@@ -86,6 +86,10 @@ def validarSesion():
 def Registrarse():
     return render_template('usuarios/registrarCuenta.html')
 
+@app.route("/compra")
+def compra():
+    return render_template('carrito/compra.html')
+
 
 @app.route("/productos")
 def consultarProductos():
@@ -94,7 +98,14 @@ def consultarProductos():
     cat = Categoria()
     return render_template("productos/consultaGeneral.html",productos=producto.consultaGeneral(),categorias=cat.consultaGeneral())
 
-
+@app.route('/Usuarios/<int:id>')
+@login_required
+def usuarioIndividual(id):
+    if current_user.is_admin():
+        usuario = Usuario()
+        return render_template('usuarios/consultaIndividual.html',usuario=usuario.consultaIndividual(id))
+    else:
+        abort(404)
 
 @app.route("/tarjeta")
 def tarjeta():

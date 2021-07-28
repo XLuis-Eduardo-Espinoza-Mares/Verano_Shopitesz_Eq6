@@ -12,7 +12,7 @@
 <header class="header">
       <nav class="nav">
         <img class="op" src="{{url_for('static',filename='img/shop-window.svg')}}" alt="Bootstrap" width="32" height="32">
-        <a href="/" class="logo nav-link">Shopitesz</a>
+        <a class="logo nav-link">Shopitesz</a>
         <button class="nav-toggle" aria-label="Abrir menú">
           <i><img class="op" src="{{url_for('static',filename='img/list.svg')}}" alt="Bootstrap" width="32" height="32"></i>
         </button>
@@ -66,7 +66,9 @@
                         <div id="Usuario" class="dropdown-menu" aria-labelledby="navbarCollapse">
                                     <a href="#" id="verPerfil" class="btn btn-primary btn-block">Ver Perfil</a>
                                     <a href="#" id="EditarPerfil" class="btn btn-primary btn-block">Editar Perfil</a>
+                                    {% if current_user.is_authenticated and current_user.is_admin() %}
                                     <a href="#" id="VerPerfiles" class="btn btn-primary btn-block">Todos los Perfiles</a>
+                                    {% endif %}
                                     <a href="#" id="CerrarSecion" class="btn btn-danger btn-block">Cerrar Secion</a>
                                 </div>
                     </div>

@@ -46,16 +46,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Shopitesz/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-478">
-              <caret line="66" column="17" lean-forward="true" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
+            <state relative-caret-position="153">
+              <caret line="90" column="42" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="42" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Shopitesz/templates/carrito/compra.html">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -70,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shopitesz/templates/comunes/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1156">
-              <caret line="68" column="117" selection-start-line="68" selection-start-column="117" selection-end-line="68" selection-end-column="117" />
+            <state relative-caret-position="243">
+              <caret line="57" column="48" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -105,12 +110,12 @@
         <option value="$PROJECT_DIR$/Shopitesz/templates/usuarios/login.html" />
         <option value="$PROJECT_DIR$/Shopitesz/static/js/usuario.js" />
         <option value="$PROJECT_DIR$/Shopitesz/modelo/Dao.py" />
-        <option value="$PROJECT_DIR$/Shopitesz/app.py" />
         <option value="$PROJECT_DIR$/Shopitesz/templates/usuarios/registrarCuenta.html" />
         <option value="$PROJECT_DIR$/Shopitesz/templates/imagen.html" />
         <option value="$PROJECT_DIR$/Shopitesz/templates/usuarios/a.html" />
         <option value="$PROJECT_DIR$/Shopitesz/static/css/estilo.css" />
         <option value="$PROJECT_DIR$/Shopitesz/templates/comunes/base.html" />
+        <option value="$PROJECT_DIR$/Shopitesz/app.py" />
       </list>
     </option>
   </component>
@@ -155,6 +160,13 @@
               <item name="Verano_Shopitesz_Eq6" type="462c0819:PsiDirectoryNode" />
               <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Verano_Shopitesz_Eq6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Verano_Shopitesz_Eq6" type="462c0819:PsiDirectoryNode" />
+              <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="carrito" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Verano_Shopitesz_Eq6" type="b2602c69:ProjectViewProjectNode" />
@@ -388,16 +400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Shopitesz/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-478">
-          <caret line="66" column="17" lean-forward="true" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Shopitesz/static/css/estilo.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -405,10 +407,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Shopitesz/templates/carrito/compra.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Shopitesz/templates/comunes/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="68" column="117" selection-start-line="68" selection-start-column="117" selection-end-line="68" selection-end-column="117" />
+        <state relative-caret-position="243">
+          <caret line="57" column="48" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shopitesz/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="90" column="42" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
