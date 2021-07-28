@@ -104,13 +104,11 @@ def tarjeta():
 def verTarjetas(id):
     tar=Tarjeta()
     return render_template("/tarjetas/tarjetaregistrada.html",Tarjetas=tar.consultaGeneral(id))
-
 @app.route('/usuarios/agregarNuevaTarjeta/<int:id>')
 @login_required
 def agregarTarjeta(id):
     if current_user.is_authenticated :
         return render_template("/tarjetas/tarjetas.html")
-
 @app.route("/tarjetas/agregar/<int:id>",methods=['post'])
 @login_required
 def subirtarjeta(id):
@@ -135,7 +133,6 @@ def subirtarjeta(id):
     except:
         #abort(500)
         return render_template("/")
-
 @app.route('/Tarjeta/<int:id>')
 @login_required
 def EditarTarjetas(id):
@@ -164,7 +161,6 @@ def editandoTarjeta(id):
         return render_template("/tarjetas/tarjetaregistrada.html",Tarjetas=tar.consultaGeneral(id))
     else:
         return redirect(url_for('mostrar_login'))
-
 @app.route('/tarjeta/eliminar/<int:id>')
 @login_required
 def eliminarTarjeta(id):
