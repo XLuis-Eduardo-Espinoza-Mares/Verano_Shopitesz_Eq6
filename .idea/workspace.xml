@@ -13,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shopitesz/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="107" column="51" selection-start-line="107" selection-start-column="51" selection-end-line="107" selection-end-column="51" />
+            <state relative-caret-position="243">
+              <caret line="111" column="51" selection-start-line="111" selection-start-column="51" selection-end-line="111" selection-end-column="51" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -28,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shopitesz/templates/usuarios/consultaGeneral.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+            <state relative-caret-position="34">
+              <caret line="2" column="76" selection-start-line="2" selection-start-column="76" selection-end-line="2" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -37,8 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shopitesz/templates/usuarios/VerPerfil.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+            <state relative-caret-position="226">
+              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -46,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shopitesz/templates/usuarios/registrarCuenta.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="98" lean-forward="true" selection-start-line="10" selection-start-column="77" selection-end-line="10" selection-end-column="98" />
+            <state relative-caret-position="34">
+              <caret line="2" column="87" lean-forward="true" selection-start-line="2" selection-end-line="2" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -55,8 +55,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shopitesz/templates/usuarios/Editar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+            <state relative-caret-position="141">
+              <caret line="44" column="71" selection-start-line="44" selection-start-column="71" selection-end-line="44" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Shopitesz/static/css/estiloConsulta.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="36" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -64,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shopitesz/modelo/Dao.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="133" column="23" lean-forward="true" selection-start-line="133" selection-start-column="23" selection-end-line="133" selection-end-column="23" />
+            <state relative-caret-position="51">
+              <caret line="92" column="13" lean-forward="true" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="13" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -85,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shopitesz/templates/comunes/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="93" column="36" selection-start-line="93" selection-start-column="36" selection-end-line="93" selection-end-column="117" />
+            <state relative-caret-position="192">
+              <caret line="91" column="53" selection-start-line="91" selection-start-column="53" selection-end-line="91" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -120,26 +129,27 @@
         <option value="$PROJECT_DIR$/Shopitesz/templates/usuarios/login.html" />
         <option value="$PROJECT_DIR$/Shopitesz/static/js/usuario.js" />
         <option value="$PROJECT_DIR$/Shopitesz/modelo/Dao.py" />
-        <option value="$PROJECT_DIR$/Shopitesz/templates/usuarios/registrarCuenta.html" />
         <option value="$PROJECT_DIR$/Shopitesz/templates/imagen.html" />
         <option value="$PROJECT_DIR$/Shopitesz/templates/usuarios/a.html" />
         <option value="$PROJECT_DIR$/Shopitesz/static/css/estilo.css" />
-        <option value="$PROJECT_DIR$/Shopitesz/templates/usuarios/consultaGeneral.html" />
         <option value="$PROJECT_DIR$/Shopitesz/templates/usuarios/verPerfil.html" />
         <option value="$PROJECT_DIR$/Shopitesz/templates/as.py" />
         <option value="$PROJECT_DIR$/Shopitesz/templates/as.html" />
         <option value="$PROJECT_DIR$/Shopitesz/static/css/estiloVerPerfil.css" />
-        <option value="$PROJECT_DIR$/Shopitesz/templates/usuarios/VerPerfil.html" />
         <option value="$PROJECT_DIR$/Shopitesz/templates/usuarios/EditarPerfil.html" />
+        <option value="$PROJECT_DIR$/Shopitesz/templates/usuarios/VerPerfil.html" />
+        <option value="$PROJECT_DIR$/Shopitesz/templates/usuarios/registrarCuenta.html" />
         <option value="$PROJECT_DIR$/Shopitesz/templates/comunes/base.html" />
-        <option value="$PROJECT_DIR$/Shopitesz/templates/usuarios/Editar.html" />
         <option value="$PROJECT_DIR$/Shopitesz/app.py" />
+        <option value="$PROJECT_DIR$/Shopitesz/templates/usuarios/Editar.html" />
+        <option value="$PROJECT_DIR$/Shopitesz/templates/usuarios/consultaGeneral.html" />
+        <option value="$PROJECT_DIR$/Shopitesz/static/css/estiloConsulta.css" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="634" />
+    <option name="y" value="79" />
     <option name="width" value="699" />
     <option name="height" value="744" />
   </component>
@@ -148,6 +158,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -165,6 +176,13 @@
               <item name="Verano_Shopitesz_Eq6" type="462c0819:PsiDirectoryNode" />
               <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Verano_Shopitesz_Eq6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Verano_Shopitesz_Eq6" type="462c0819:PsiDirectoryNode" />
+              <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Verano_Shopitesz_Eq6" type="b2602c69:ProjectViewProjectNode" />
@@ -225,7 +243,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -292,30 +309,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="634" y="79" width="699" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20907739" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3289689" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info active="true" anchor="bottom" id="Inspection Results" order="11" visible="true" weight="0.3289689" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20907739" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.42511347" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -333,7 +330,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
+    </layout>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Shopitesz/static/css/bootstrap.css.map">
@@ -410,13 +407,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Shopitesz/templates/as.html" />
-    <entry file="file://$PROJECT_DIR$/Shopitesz/templates/usuarios/consultaGeneral.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Shopitesz/templates/usuarios/EditarPerfil.html" />
     <entry file="file://$PROJECT_DIR$/Shopitesz/static/css/estiloVerPerfil.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1768">
@@ -424,58 +415,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Shopitesz/templates/usuarios/EditarPerfil.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="14" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Shopitesz/templates/usuarios/VerPerfil.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        <state relative-caret-position="226">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Shopitesz/templates/comunes/base.html">
+    <entry file="file://$PROJECT_DIR$/Shopitesz/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="93" column="36" selection-start-line="93" selection-start-column="36" selection-end-line="93" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Shopitesz/templates/usuarios/registrarCuenta.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="98" lean-forward="true" selection-start-line="10" selection-start-column="77" selection-end-line="10" selection-end-column="98" />
+        <state relative-caret-position="243">
+          <caret line="111" column="51" selection-start-line="111" selection-start-column="51" selection-end-line="111" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Shopitesz/modelo/Dao.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="133" column="23" lean-forward="true" selection-start-line="133" selection-start-column="23" selection-end-line="133" selection-end-column="23" />
+        <state relative-caret-position="51">
+          <caret line="92" column="13" lean-forward="true" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="13" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Shopitesz/templates/usuarios/Editar.html">
+    <entry file="file://$PROJECT_DIR$/Shopitesz/templates/usuarios/registrarCuenta.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        <state relative-caret-position="34">
+          <caret line="2" column="87" lean-forward="true" selection-start-line="2" selection-end-line="2" selection-end-column="87" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Shopitesz/app.py">
+    <entry file="file://$PROJECT_DIR$/Shopitesz/templates/usuarios/Editar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="107" column="51" selection-start-line="107" selection-start-column="51" selection-end-line="107" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="141">
+          <caret line="44" column="71" selection-start-line="44" selection-start-column="71" selection-end-line="44" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shopitesz/templates/comunes/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="91" column="53" selection-start-line="91" selection-start-column="53" selection-end-line="91" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shopitesz/templates/usuarios/consultaGeneral.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="76" selection-start-line="2" selection-start-column="76" selection-end-line="2" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shopitesz/static/css/estiloConsulta.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="36" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="36" />
         </state>
       </provider>
     </entry>

@@ -1,13 +1,8 @@
 {% extends 'comunes/base.html' %}
 {% block contenido %}
-
+<link rel="stylesheet" href="{{url_for('static',filename='css/estiloConsulta.css')}}">
 <div>
     <h1 class="bg-primary text-center">Listado de Categorias</h1>
-
-    <a href="/Categorias/nueva" class="btn btn-success">
-         <span class="glyphicon glyphicon-plus-sign"></span>
-        Agregar Categoria
-    </a>
 
     <table class="table table-bordered">
         <th>ID</th>
@@ -18,8 +13,6 @@
         <th>TELEFONO</th>
 
         <th>EMIL</th>
-
-        <th>PASSWORD</th>
 
         <th>TIPO</th>
 
@@ -32,7 +25,6 @@
                 <td>{{usuario.direccion}}</td>
                 <td>{{usuario.telefono}}</td>
                 <td>{{usuario.email}}</td>
-                <td>{{usuario.password_hash}}</td>
                 <td>{{usuario.tipo}}</td>
                 <td>{{usuario.estatus}}</td>
 

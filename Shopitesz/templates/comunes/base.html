@@ -76,9 +76,9 @@
                     <div class="login-box">
                         <img src="{{url_for('static',filename='img/Zorro.png')}}" class="avatars nav-link dropdown-toggle img-fluid nav-menu-link nav-link" alt="Avatar Image" height="70px" width="70px" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div id="CUsuario" class="dropdown-menu" aria-labelledby="navbarCollapse">
-                                    <a href="#" id="CverPerfil" class="btn btn-primary btn-block">Ver Perfil</a>
-                                    <a href="#" id="CEditarPerfil" class="btn btn-primary btn-block">Editar Perfil</a>
-                                    <a href="#" id="CCerrarSecion" class="btn btn-danger btn-block">Cerrar Secion</a>
+                                    <a href="/Usuarios/verPerfil" id="CverPerfil" class="btn btn-primary btn-block">Ver Perfil</a>
+                                    <a href="/Usuarios/Editar" id="CEditarPerfil" class="btn btn-primary btn-block">Editar Perfil</a>
+                                    <a href="/Usuarios/cerrarSesion" id="CCerrarSecion" class="btn btn-danger btn-block">Cerrar Secion</a>
                                 </div>
                     </div>
                 </li>
@@ -88,11 +88,11 @@
                     <div class="login-box">
                         <img src="{{url_for('static',filename='img/Zorro.png')}}" class="avatars nav-link dropdown-toggle img-fluid nav-menu-link nav-link" alt="Avatar Image" height="70px" width="70px" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div id="AUsuario" class="dropdown-menu" aria-labelledby="navbarCollapse">
-                                    <a href="#" id="AverPerfil" class="btn btn-primary btn-block">Ver Perfil</a>
-                                    <a href="#" id="AEditarPerfil" class="btn btn-primary btn-block">Editar Perfil</a>
-                                    <a href="#" id="AVerPerfiles" class="btn btn-primary btn-block">Todos los Perfiles</a>
-                                    <a href="#" id="ACerrarSecion" class="btn btn-danger btn-block">Cerrar Secion</a>
-                                </div>
+                            <a href="/Usuarios/verPerfil" id="AverPerfil" class="btn btn-primary btn-block">Ver Perfil</a>
+                            <a href="/Usuarios/Editar" id="AEditarPerfil" class="btn btn-primary btn-block">Editar Perfil</a>
+                            <a href="/Usuarios/todos" id="AVerPerfiles" class="btn btn-primary btn-block">Todos los Perfiles</a>
+                            <a href="/Usuarios/cerrarSesion" id="ACerrarSecion" class="btn btn-danger btn-block">Cerrar Secion</a>
+                        </div>
                     </div>
                 </li>
             {% endif %}
