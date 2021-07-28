@@ -41,7 +41,7 @@
 					</div>
 					<div class="grupo" id="ccv">
 						<p class="label">CCV</p>
-						<p class="ccv"></p>
+						<p class="ccv" > </p>
 					</div>
 				</div>
 				<p class="leyenda">PRESERVANDO LA MONEDA NACIONAL Y CONTRIBUYENDO A MEJORAR EL BIENESTAR ECONOMICO DE LA REPUBLICA MEXICANA.</p>
@@ -63,29 +63,28 @@
 					<label for="inputCCV">Elige una opción de Tarjeta</label>
 				</div>
 				<select name="OS">
-          <option selected value="0">----------</option>
             <optgroup label="Tarjeta de crédito">
-            <option value="1">Básica American Express</option>
-            <option value="2">Santander Ligth</option>
-            <option value="3">HSBC Air </option>
-		    <option value="4">HSBC Platinum </option>
-		    <option value="5">Stori </option>
+            <option name="Tipo" value="Básica American Express" >Básica American Express</option>
+            <option name="Tipo" value="Santander Ligth">Santander Ligth</option>
+            <option name="Tipo" value="HSBC Air">HSBC Air </option>
+		    <option name="Tipo" value="HSBC Platinum">HSBC Platinum </option>
+		    <option name="Tipo" value="Stori">Stori </option>
    </optgroup>
    <optgroup label="tarjeta de debito">
-       <option value="10">Paypal</option>
-       <option value="11">DISCOVER</option>
-       <option value="12">MASTERCARD</option>
-	   <option value="13">VISA</option>
+       <option name="Tipo" value="Paypal">Paypal</option>
+       <option name="Tipo" value="DISCOVER">DISCOVER</option>
+       <option name="Tipo" value="MASTERCARD">MASTERCARD</option>
+	   <option name="Tipo" value="VISA">VISA</option>
    </optgroup>
         </select>
 
 			<div class="grupo">
 				<label for="inputNumero">Número Tarjeta</label>
-				<input type="text" id="inputNumero" maxlength="19" autocomplete="off">
+				<input type="text" id="inputNumero"  name="Tarjeta" maxlength="19" autocomplete="off">
 			</div>
 			<div class="grupo">
 				<label for="inputNombre">Nombre</label>
-				<input type="text" id="inputNombre" maxlength="19" autocomplete="off">
+				<input type="text" id="inputNombre" maxlength="19" value="{{current_user.nombreCompleto}}" autocomplete="off">
 			</div>
 			<div class="flexbox">
 				<div class="grupo expira">
@@ -93,13 +92,13 @@
 					<div class="flexbox">
 						<div class="grupo-select">
 							<select name="mes" id="selectMes">
-								<option disabled selected>Mes</option>
+								<option disabled selected name="mes">Mes</option>
 							</select>
 							<i class="fas fa-angle-down"></i>
 						</div>
 						<div class="grupo-select">
 							<select name="year" id="selectYear">
-								<option disabled selected>Año</option>
+								<option disabled selected name="año">Año</option>
 							</select>
 							<i class="fas fa-angle-down"></i>
 						</div>
@@ -108,7 +107,7 @@
 
 				<div class="grupo ccv">
 					<label for="inputCCV">CCV</label>
-					<input type="text" id="inputCCV" maxlength="3">
+					<input type="text" id="inputCCV" maxlength="3" name="CCV">
 				</div>
 
 			</div>
@@ -118,29 +117,35 @@
 
 			<div class="grupo SALDO">
 				<label for="inputNumero">SALDO</label>
-				<input type="text" name="Saldo" required class="form-control">
+				<input class="controls form-control" type="text" name="Saldo"  required>
 			</div>
 
-			<button type="submit" class="btn btn-primary">
+			<a href="#" class="btn btn-primary">
                 <span class="glyphicon glyphicon-floppy-disk"></span>
                 Guardar
-            </button>
+            </a>
            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#borrar">
                 <span class="glyphicon glyphicon-trash"></span>
                 Eliminar
             </a>
-            <a href="/Usuarios/verTarjetas/{{current_user.idUsuario}}'" class="btn btn-info">
+            <a href="#" class="btn btn-info">
                 <span class="glyphicon glyphicon-arrow-left"></span>
-                Cancelar
+                Editar
             </a>
-
-
-			<button type="submit" class="btn-enviar"><a href="/ticket">Enviar</a></button>
 
 		</form>
 
 	</div>
-
+<form action="/Tarjetas/Agrega" method="post">
+	<input class="controls" type="text" name="NombreTarjeta" placeholder="NombreTarjeta" required>
+	<input class="controls" type="text" name="noTarjeta" placeholder="noTarjeta" required>
+	<input class="controls" type="text" name="Nombre" placeholder="Nombre" required>
+	<input class="controls" type="text" name="Mes" placeholder="Mes" required>
+	<input class="controls" type="text" name="Año" placeholder="Año" required>
+	<input class="controls" type="text" name="ccv" placeholder="ccv" required>
+	<input class="controls" type="text" name="saldos" placeholder="saldo" required>
+	<input class="botons" type="submit" value="Guardar">
+</form>
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 	<script src="{{url_for('static',filename='js/jstarjeta.js')}}"></script>
 
