@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 <link rel="stylesheet" href="{{url_for('static',filename='css/estiloVerPerfil.css')}}">
-
+<form action="/Usuarios/editarPerfil" method="post">
     <section class="seccion-perfil-usuario">
             <div class="perfil-usuario-body">
                 <div class="perfil-usuario-bio">
@@ -27,26 +27,26 @@
                             <div class="radio">
                                 <h4>Tipo</h4>
                                 <label><input class="cont" type="radio" name="Tipo" value="Vendedor">Vendedor</label>
-                                <label><input class="cont" type="radio" name="Tipo" value="Comprador" checked>Cliente</label>
+                                <label><input class="cont" type="radio" name="Tipo" value="Comprador">Cliente</label>
                                 <label><input class="cont" type="radio" name="Tipo" value="Administrador" checked>Administrador</label>
                             </div>
                         {% endif %}
-                        <li><a href="/Usuarios/editarPerfil" id="AEditarPerfil" class="btn btn-primary btn-block">Editar Perfil</a></li>
+                        <li><input class="botons btn btn-primary btn-block" type="submit" value="Editar Perfil"></li>
                     </ul>
                     <ul class="lista-datos">
                         <li><i class="icono fas fa-map-marker-alt"></i> Contraseña:</li>
                         <input class="controls" type="password" name="password" placeholder="Ingrese Nueva Contraseña" required>
                         <li><i class="icono fas fa-user-check"></i> Registro: {{current_user.estatus}}</li>
                         {% if current_user.is_authenticated and current_user.is_admin() %}
-                        <input class="controls" type="text" name="estatus" placeholder="{{current_user.direccion}}" required>
+                        <input class="controls" type="text" name="estatus" placeholder="{{current_user.estatus}}" required>
                         {% endif %}
-                        <li><i class="icono fas fa-share-alt"></i> Correo:</li>
-                        <input class="controls" type="text" name="correo" placeholder="{{current_user.email}}" required>
+                        <li><i class="icono fas fa-share-alt"></i> Correo: {{current_user.email}}</li>
                         {% if current_user.is_authenticated and current_user.is_admin() %}
-                        <li><a href="#" id="ACerrarSecion" class="btn btn-danger btn-block">Eliminar Perfil</a></li>
+                        <li><a href="/Usuarios/eliminar/{{current_user.idUsuario}}" id="ACerrarSecion" class="btn btn-danger btn-block">Eliminar Perfil</a></li>
                         {% endif %}
                     </ul>
                 </div>
             </div>
         </section>
+</form>
 {% endblock %}
