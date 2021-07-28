@@ -1,8 +1,7 @@
 from datetime import timedelta
-
 from flask import Flask,render_template,request,redirect,url_for,flash,session,abort
 from flask_bootstrap import Bootstrap
-from modelo.Dao import db,Categoria,Producto,Usuario
+from modelo.Dao import db,Categoria,Producto,Usuario,Tarjeta
 from flask_login import login_required,login_user,logout_user,current_user,LoginManager
 import json
 app = Flask(__name__)
@@ -94,7 +93,83 @@ def consultarProductos():
     cat = Categoria()
     return render_template("productos/consultaGeneral.html",productos=producto.consultaGeneral(),categorias=cat.consultaGeneral())
 
+#CRUD Tarjetas
+@app.route('/Usuarios/verTarjetas/<int:id>')
+def verTarjetas(id):
+    tar=Tarjeta()
+    return render_template("/tarjetas/tarjetaregistrada.html",Tarjeta=tar.consultaGeneral(id))
 
+@app.route('/usuarios/agregarNuevaTarjeta/<int:id>')
+def agregarTarjeta(id):
+    if current_user.is_authenticated :
+        return render_template("/tarjetas/tarjetas.html")
+
+@app.route("/tarjetas/agregar/<int:id>",methods=['post'])
+def subirtarjeta(id):
+    try:
+        if current_user.is_authenticated:
+                try:
+                    tar=Tarjeta()
+                    tar.idUsuario=request.form['ID']
+                    tar.noTarjeta=request.form['noTarjeta']
+                    tar.saldo=request.form['Saldo']
+                    tar.banco=request.form['Banco']
+                    tar.año=request.form['año']
+                    tar.mes=request.form['mes']
+                    tar.CCV=request.form['CCV']
+                    tar.agregar()
+                    flash('!tarjeta agregada con exito¡')
+                except:
+                    flash('! Error al agregar tarjeta¡')
+                return render_template("/tarjetas/tarjetaregistrada.html",Tarjetas=tar.consultaGeneral(id))
+        else:
+            return redirect(url_for('mostrar_login'))
+    except:
+        #abort(500)
+        return render_template("/")
+
+@app.route('/Tarjeta/<int:id>')
+def EditarTarjetas(id):
+    if current_user.is_authenticated():
+        tar=Tarjeta()
+        return render_template('tarjetas/editar.html', tar=tar.consulta(id))
+    else:
+        return redirect(url_for('mostrar_login'))
+@app.route('/tarjeta/editar/<int:id>',methods=['POST'])
+def editandoTarjeta(id):
+    if current_user.is_authenticated:
+        try:
+            tar=Tarjeta()
+            tar.idTarjeta=request.form['ID']
+            tar.idUsuario=request.form['IDU']
+            tar.noTarjeta=request.form['noTarjeta']
+            tar.saldo=request.form['Saldo']
+            tar.banco=request.form['Banco']
+            tar.año = request.form['año']
+            tar.mes = request.form['mes']
+            tar.CCV = request.form['CCV']
+            tar.editar()
+            flash('! Tarjeta editada con exito')
+        except:
+            flash('! Error al editar el producto')
+        return render_template("/tarjetas/tarjetaregistrada.html",Tarjetas=tar.consultaGeneral(id))
+    else:
+        return redirect(url_for('mostrar_login'))
+
+@app.route('/tarjeta/eliminar/<int:id>')
+def eliminarTarjeta(id):
+    if  current_user.is_authenticated():
+        try:
+            tar=Tarjeta()
+            tar.eliminar(id)
+            flash('Tarjeta Eliminada')
+        except:
+            flash('Error al eliminar tarjeta')
+        return redirect((url_for('verperfil')))
+    else:
+        return redirect(url_for('mostrar_login'))
+
+#Fin CRUD Tarjetas
 
 @app.route("/tarjeta")
 def tarjeta():
