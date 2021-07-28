@@ -94,29 +94,37 @@ def consultarProductos():
     return render_template("productos/consultaGeneral.html",productos=producto.consultaGeneral(),categorias=cat.consultaGeneral())
 
 #CRUD Tarjetas
+
+@app.route("/tarjeta")
+def tarjeta():
+    return render_template('Tarjeta/Tarjeta.html')
+
 @app.route('/Usuarios/verTarjetas/<int:id>')
+@login_required
 def verTarjetas(id):
     tar=Tarjeta()
-    return render_template("/tarjetas/tarjetaregistrada.html",Tarjeta=tar.consultaGeneral(id))
+    return render_template("/tarjetas/tarjetaregistrada.html",Tarjetas=tar.consultaGeneral(id))
 
 @app.route('/usuarios/agregarNuevaTarjeta/<int:id>')
+@login_required
 def agregarTarjeta(id):
     if current_user.is_authenticated :
         return render_template("/tarjetas/tarjetas.html")
 
 @app.route("/tarjetas/agregar/<int:id>",methods=['post'])
+@login_required
 def subirtarjeta(id):
     try:
         if current_user.is_authenticated:
                 try:
-                    tar=Tarjeta()
-                    tar.idUsuario=request.form['ID']
-                    tar.noTarjeta=request.form['noTarjeta']
-                    tar.saldo=request.form['Saldo']
-                    tar.banco=request.form['Banco']
-                    tar.año=request.form['año']
-                    tar.mes=request.form['mes']
-                    tar.CCV=request.form['CCV']
+                    tar = Tarjeta()
+                    tar.idUsuario = request.form['ID']
+                    tar.noTarjeta = request.form['noTarjeta']
+                    tar.saldo = request.form['Saldo']
+                    tar.banco = request.form['Banco']
+                    tar.año = request.form['año']
+                    tar.mes = request.form['mes']
+                    tar.CCV = request.form['CCV']
                     tar.agregar()
                     flash('!tarjeta agregada con exito¡')
                 except:
@@ -129,6 +137,7 @@ def subirtarjeta(id):
         return render_template("/")
 
 @app.route('/Tarjeta/<int:id>')
+@login_required
 def EditarTarjetas(id):
     if current_user.is_authenticated():
         tar=Tarjeta()
@@ -136,15 +145,15 @@ def EditarTarjetas(id):
     else:
         return redirect(url_for('mostrar_login'))
 @app.route('/tarjeta/editar/<int:id>',methods=['POST'])
+@login_required
 def editandoTarjeta(id):
     if current_user.is_authenticated:
         try:
-            tar=Tarjeta()
-            tar.idTarjeta=request.form['ID']
-            tar.idUsuario=request.form['IDU']
-            tar.noTarjeta=request.form['noTarjeta']
-            tar.saldo=request.form['Saldo']
-            tar.banco=request.form['Banco']
+            tar = Tarjeta()
+            tar.idUsuario = request.form['ID']
+            tar.noTarjeta = request.form['noTarjeta']
+            tar.saldo = request.form['Saldo']
+            tar.banco = request.form['Banco']
             tar.año = request.form['año']
             tar.mes = request.form['mes']
             tar.CCV = request.form['CCV']
@@ -157,6 +166,7 @@ def editandoTarjeta(id):
         return redirect(url_for('mostrar_login'))
 
 @app.route('/tarjeta/eliminar/<int:id>')
+@login_required
 def eliminarTarjeta(id):
     if  current_user.is_authenticated():
         try:
@@ -169,11 +179,19 @@ def eliminarTarjeta(id):
     else:
         return redirect(url_for('mostrar_login'))
 
+@app.route('/tarjeta/saldo')
+@login_required
+def saldoTarjeta():
+    if current_user.is_authenticated and current_user.is_comprador():
+        tarjeta = Tarjeta()
+        tarjeta = tarjeta.consultaGeneral(current_user.idUsuario)
+        for t in tarjeta:
+            dict_tarjeta = {"idTarjeta": t.idTarjeta, "saldo": t.saldo}
+        return json.dumps(dict_tarjeta)
+    else:
+        msg = {"estatus": "error", "mensaje": "Debes iniciar sesion"}
+        return json.dumps(msg)
 #Fin CRUD Tarjetas
-
-@app.route("/tarjeta")
-def tarjeta():
-    return render_template('Tarjeta/Tarjeta.html')
 
 @app.route("/ticket")
 def ticket():
