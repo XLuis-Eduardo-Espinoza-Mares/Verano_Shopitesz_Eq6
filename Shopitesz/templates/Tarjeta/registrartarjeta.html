@@ -6,23 +6,60 @@
 </head>
 <body>
 
-<link rel="stylesheet" href="{{url_for('static',filename='css/estiloRegistrar.css')}}">
-<form action="/Tarjeta/agregar" method="post">
-    <section class="form-register">
-        <h4>Formulario tarjeta</h4>
-        <input class="controls" type="text" name="noTarjeta" placeholder="Ingrese su Nombre Completo" required>
-        <input class="controls" type="text" name="banco" placeholder="Ingrese el nombre del banco de la tarjeta" required>
-        <input class="controls" type="text" name="mes" placeholder="Ingrese el mes" required>
-        <input class="controls" type="text" name="año" placeholder="Ingrese el año" required>
-        <input class="controls" type="text" name="CCV" placeholder="Ingrese los 3 digitos de la tarjeta" required>
-        <input class="controls" type="text" name="saldo" placeholder="Ingrese el saldo" required>
-        <div class="wrap">
+{% extends 'comunes/base.html' %}
+{% block navbar %}
+    {{super()}}
+    {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block contenido %}
+{{super()}}
+<div>
+    <h1 class="bg-primary text-center">Listado de Metodos de pagos</h1>
+     {% if current_user.is_authenticated() %}
+    <a href="/usuarios/agregarNuevaTarjeta/{{current_user.idUsuario}}" class="btn btn-danger mb-3">
+         <span class="glyphicon glyphicon-plus-sign"></span>
+        Agregar Nueva Tarjeta
+    </a>
+      {% endif %}
 
-        </div>
+    <table class="table table-bordered table-hover justify-content-center" id="tablaCategorias">
+        <th>idUsuario</th>
 
-        <input class="botons" type="submit" value="Registrar">
-    </section>
-</form>
+        <th>noTarjeta</th>
+
+        <th>Saldo</th>
+
+        <th>banco</th>
+
+        <th>año</th>
+
+        <th>mes</th>
+
+        <th>CCV</th>
+    {% if current_user.is_authenticated  %}
+            <th>Ver</th>
+        {% endif %}
+        {% for cat in Tarjetas %}
+            <tr>
+                <th>{{tarjeta.idUsuario}}</th>
+        <th>{{tarjeta.noTarjeta}}</th>
+        <th>{{tarjeta.Saldo}}</th>
+        <th>{{tarjeta.banco}}</th>
+        <th>{{tarjeta.año}}</th>
+        <th>{{tarjeta.mes}}</th>
+        <th>{{tarjeta.CCV}}</th>
+
+                    <td>
+                        <a href="/Tarjeta/{{cat.idTarjeta}}">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </a>
+                    </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
 
 </body>
 </html>
