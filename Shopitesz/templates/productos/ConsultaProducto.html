@@ -1,0 +1,27 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/estilos2.css')}}">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+	<script src="{{url_for('static',filename='js/jquery-3.2.1.js')}}"></script>
+	<script src="{{url_for('static',filename='js/script.js')}}"></script>
+    <div class="wrap">
+		<h1>PRODUCTOS</h1>
+			<section class="products-list">
+				{% for prod in productos %}
+                    <div class="product-item" category="{{prod.categoria.nombre}}">
+                        <img src="/productos/consultarImagen/{{prod.idProducto}}" width="100px" height="80px">
+					    <a href="#">{{prod.nombre}}</a>
+				    </div>
+                    <div class="product-item" category="{{prod.categoria.nombre}}">
+					    <a href="/productos/consultarprecioVenta/{{prod.idProducto}}">{{prod.precioVenta}}</a>
+				    </div>
+                        <div class="product-item" category="{{prod.categoria.nombre}}">
+					    <a href="/productos/consultarEspecificaciones/{{prod.idProducto}}">{{prod.especificaciones}}</a>
+				    </div>
+                        <div class="product-item" category="{{prod.categoria.nombre}}">
+					    <a href="/productos/consultarexistencia/{{prod.idProducto}}">{{prod.existencia}}</a>
+				    </div>
+                {% endfor %}
+			</section>
+		</div>
+{% endblock %}
