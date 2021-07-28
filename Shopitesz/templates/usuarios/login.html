@@ -1,19 +1,20 @@
 {% extends 'comunes/base.html' %}
 {% block contenido %}
     <link rel="stylesheet" href="{{url_for('static',filename='css/estiloLogin.css')}}">
-
+    <form action="/Usuarios/validarSesion" method="post">
     <div class="login-box">
       <img src="{{url_for('static',filename='img/Zorro.png')}}" class="avatar" alt="Avatar Image">
       <h1>Login Here</h1>
       <form>
         <!-- USERNAME INPUT -->
         <label for="username">Username</label>
-        <input type="text" placeholder="Enter Username" required>
+        <input type="text" placeholder="Enter Username" name="correo" required>
         <!-- PASSWORD INPUT -->
         <label for="password">Password</label>
-        <input type="password" placeholder="Enter Password" required>
+        <input type="password" placeholder="Enter Password" name="password" required>
           <input type="submit" value="Log In">
         <a href="/Registrarse">No tengo una cuenta?</a>
       </form>
     </div>
+    </form>
 {% endblock %}

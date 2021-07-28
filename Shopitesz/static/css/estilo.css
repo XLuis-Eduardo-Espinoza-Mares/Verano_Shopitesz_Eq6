@@ -11,6 +11,14 @@ body {
   background-position: center;
 }
 
+.login-box .avatars {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  top: 5px;
+  left: calc(50% - 50px);
+}
+
 .header {
   background-color: #0769e9;
   height: 80px;

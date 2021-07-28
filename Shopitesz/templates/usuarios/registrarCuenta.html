@@ -1,26 +1,26 @@
 {% extends 'comunes/base.html' %}
 {% block contenido %}
 <link rel="stylesheet" href="{{url_for('static',filename='css/estiloRegistrar.css')}}">
-  <section class="form-register">
-    <h4>Formulario Registro</h4>
-    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre Completo" required>
-    <input class="controls" type="text" name="direccion" id="direccion" placeholder="Ingrese su Dirección" required>
-    <input class="controls" type="tel" name="telefono" id="telefono" placeholder="Ingrese su Telefono" required>
-    <input class="controls" type="correo" name="correo" id="correo" placeholder="Ingrese su Correo" required>
-    <input class="controls" type="password" name="password" id="password" placeholder="Ingrese su Contraseña" required>
-     <input class="controls" type="password" name="password" id="password1" placeholder="Ingrese su Contraseña Nuevamente" required>
-    <div class="wrap">
-    <from action="" class="formulario">
-      <div class="radio">
-        <h4>Tipo</h4>
-        <input class="cont" type="radio" name="Tipo" id="Vendedor"><label for="proveedor">Proveedor</label>
-        <input class="cont" type="radio" name="Tipo" id="Cliente"><label for="Cliente">Cliente</label>
-      </div>
-    </from>
-    </div>
-    <input class="controls" type="text" name="estatus" id="estatus" placeholder="Ingrese su Estatus" required>
-    <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
-    <p><a href="/validarSesion">Ya tengo una cuenta?</a></p>
-    <input class="botons" type="submit" value="Registrar">
-  </section>
+<form action="/Usuarios/agregar" method="post">
+    <section class="form-register">
+        <h4>Formulario Registro</h4>
+        <input class="controls" type="text" name="nombres" placeholder="Ingrese su Nombre Completo" required>
+        <input class="controls" type="text" name="direccion" placeholder="Ingrese su Dirección" required>
+        <input class="controls" type="text" name="telefono" placeholder="Ingrese su Telefono" required>
+        <input class="controls" type="email" name="correo" placeholder="Ingrese su Correo" required>
+        <input class="controls" type="password" name="password" placeholder="Ingrese su Contraseña" required>
+        <div class="wrap">
+            <from action="" class="formulario">
+                <div class="radio">
+                    <h4>Tipo</h4>
+                    <label><input class="cont" type="radio" name="Tipo" value="Vendedor">Vendedor</label>
+                    <label><input class="cont" type="radio" name="Tipo" value="Comprador" checked>Cliente</label>
+                </div>
+            </from>
+        </div>
+        <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+        <p><a href="/validarSesion">Ya tengo una cuenta?</a></p>
+        <input class="botons" type="submit" value="Registrar">
+    </section>
+</form>
 {% endblock %}
