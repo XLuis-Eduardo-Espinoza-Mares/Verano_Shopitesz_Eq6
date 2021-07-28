@@ -227,7 +227,7 @@ def nuevaCategoria():
 @app.route('/Categorias/agregar',methods=['post'])
 # @login_required
 def agregarCategoria():
-    try:
+    # try:
         # if current_user.is_authenticated:
             # if current_user.is_admin():
                 try:
@@ -236,17 +236,17 @@ def agregarCategoria():
                     cat.imagen=request.files['imagen'].stream.read()
                     cat.estatus='Activa'
                     cat.agregar()
-                    flash('¡ Categoria agregada con exito !')
+                    flash('Categoria agregada con exito')
                 except:
-                    flash('¡ Error al agregar la categoria !')
-                return redirect(url_for('consultaCategoria'))
+                    flash('Error al agregar la categoria')
+                return redirect(url_for('consultaCategorias'))
             # else:
             #     abort(404)
 
         # else:
         #     return redirect(url_for('mostrar_login'))
-    except:
-        abort(500)
+    # except:
+    #     abort(500)
 
 
 @app.route('/Categorias/<int:id>')
@@ -328,6 +328,12 @@ def consultarNombreProducto(id):
 def consultarImagenProducto(id):
     prod=Producto()
     return prod.consultarImagen(id)
+
+@app.route('/productos/consultarSpecs/<int:id>')
+def consultarImgProSpecs(id):
+    prod=Producto()
+    return prod.consultarEspecificaciones(id)
+
 
 @app.route('/productos/consultarprecioVenta/<int:id>')
 def consultarprecioVenta(id):
