@@ -41,6 +41,58 @@ class Categoria(db.Model):
         cat.estatus='Inactiva'
         cat.editar()
 
+
+class Pedido(db.Model):
+    __tablename__='Pedidos'
+    idPedido = Column(Integer, primary_key=True)
+    idComprador = Column(Integer, ForeignKey('Usuarios.idUsuario'))
+    idVendedor = Column(Integer, ForeignKey('Usuarios.idUsuario'))
+    idTarjeta = Column(Integer, ForeignKey('Tarjetas.idTarjeta'))
+    fechaRegistro =Column(String,nullable=False)
+    fechaAtencion =Column(String,nullable=False)
+    fechaRecepcion =Column(String,nullable=False)
+    fechaCierre =Column(String,nullable=False)
+    total =Column(Float,nullable=False)
+    estatus =Column(String,nullable=False)
+
+    def consultaGeneral(self):
+        return self.query.all()
+        #return self.query.filter(Categoria.estatus=='Activa').all()
+
+    def consultaIndividuall(self,id):
+        return Categoria.query.get(id)
+
+    def consultarImagen(self,id):
+        return self.consultaIndividuall(id).imagen
+
+    # class Pedido(db.Model):
+    #     __tablename__ = 'Pedidos'
+    #     idPedido = Column(Integer, primary_key=True, nullable=False)
+    #     idComprador = Column(Integer, ForeignKey('Usuarios.idUsuario'), nullable=False)
+    #     idVendedor = Column(Integer, ForeignKey('Usuarios.idUsuario'), nullable=False)
+    #     idTarjeta = Column(Integer, ForeignKey('Tarjetas.idTarjeta'),nullable=False)
+    #     fechaRegistro = Column(String, nullable=False)
+    #     fechaAtencion = Column(String, nullable=False)
+    #     fechaRecepcion = Column(String, nullable=False)
+    #     fechaCierre = Column(String, nullable=False)
+    #     total = Column(Float, nullable=False)
+    #     estatus = Column(String, nullable=False)
+    #
+    #     def editar(self):
+    #         db.session.merge(self)
+    #         db.session.commit()
+    #
+    #     def consultaIndividual(self, id):
+    #         return self.query.get(id)
+    #
+    #     def agregar(self):
+    #         db.session.add(self)
+    #         db.session.commit()
+    #
+    #     def consultaGeneral(self, id):
+    #         return self.query.filter(Pedido.idComprador== id and Pedido.idVendedor==id).all()
+
+
 class Producto(db.Model):
     __tablename__='Productos'
     idProducto=Column(Integer,primary_key=True)
@@ -226,33 +278,6 @@ class Carrito(db.Model):
         db.session.delete(carrito)
         db.session.commit()
 
-
-class Pedido(db.Model):
-    __tablename__ = 'Pedidos'
-    idPedido = Column(Integer, primary_key=True, nullable=False)
-    idComprador = Column(Integer, ForeignKey('Usuarios.idUsuario'), nullable=False)
-    idVendedor = Column(Integer, ForeignKey('Usuarios.idUsuario'), nullable=False)
-    idTarjeta = Column(Integer, ForeignKey('Tarjetas.idTarjeta'),nullable=False)
-    fechaRegistro = Column(String, nullable=False)
-    fechaAtencion = Column(String, nullable=False)
-    fechaRecepcion = Column(String, nullable=False)
-    fechaCierre = Column(String, nullable=False)
-    total = Column(Float, nullable=False)
-    estatus = Column(String, nullable=False)
-
-    def editar(self):
-        db.session.merge(self)
-        db.session.commit()
-
-    def consultaIndividual(self, id):
-        return self.query.get(id)
-
-    def agregar(self):
-        db.session.add(self)
-        db.session.commit()
-
-    def consultaGeneral(self, id):
-        return self.query.filter(Pedido.idComprador== id and Pedido.idVendedor==id).all()
 
 class Paqueteria(db.Model):
     __tablename__='PAQUETERIAS'

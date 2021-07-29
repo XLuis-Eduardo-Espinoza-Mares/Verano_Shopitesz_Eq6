@@ -1,0 +1,20 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+
+<div>
+    <h1 class="bg-primary text-center">Registro de Categorias</h1>
+    <form action="/Categorias/agregar" method="post" enctype="multipart/form-data" style=background-color:#FBEEE6>
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" required maxlength="60" placeholder="Nombre de Categoria" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Imagen:</label>
+            <input type="file" name="imagen" placeholder="Imagen de la Categoria" class="form-control">
+        </div>
+            <button type="submit" class="btn btn-primary">Registrar</button>
+            <a href="/Categorias" class="btn btn-danger">Cancelar</a>
+    </form>
+</div>
+
+{% endblock %}
