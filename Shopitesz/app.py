@@ -6,7 +6,7 @@ from flask_login import login_required,login_user,logout_user,current_user,Login
 import json
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:Cadete0420@localhost/shopitesz'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:JoseKun@localhost/shopitesz'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.secret_key='Cl4v3'
 
@@ -91,7 +91,7 @@ def consultarProductos():
     #return "Retorna la lista de productos"
     producto=Producto()
     cat = Categoria()
-    return render_template("productos/consultaGeneral.html",productos=producto.consultaGeneral(),categorias=cat.consultaGeneral())
+    return render_template("productos/consultaGeneral.html", productos=producto.consultaGeneral(),categorias=cat.consultaGeneral())
 
 
 
@@ -107,11 +107,13 @@ def tarjeta():
 def verTarjetas(id):
     tar=Tarjeta()
     return render_template("/tarjetas/tarjetaregistrada.html",Tarjetas=tar.consultaGeneral(id))
+
 @app.route('/usuarios/agregarNuevaTarjeta/<int:id>')
 @login_required
 def agregarTarjeta(id):
     if current_user.is_authenticated :
         return render_template("/tarjetas/tarjetas.html")
+
 @app.route("/tarjetas/agregar/<int:id>",methods=['post'])
 @login_required
 def subirtarjeta(id):
@@ -209,6 +211,10 @@ def consultarImagenCategoria(id):
     return cat.consultarImagen(id)
 #FIN Categorías
 
+@app.route('/productos/revisar')
+def VerProducto():
+    producto = Producto()
+    return render_template('productos/consultaProducto.html')
 
 #incio de CRUD DE PRODUCTOS
 @app.route('/productos/consultarEspecificaciones/<string:especificaciones>')
@@ -236,14 +242,11 @@ def consultarexistencia(String):
     prod=Producto()
     return prod.consultarexistencia(String)
 
-@app.route('/productos/nuevo')
-def nuevoProducto():
-            cat = Categoria()
-            return render_template('productos/agregar.html', cat=cat.consultaGeneral())
 
-@app.route('/productos/Revisar')
-def revisarProducto():
-            return render_template('productos/ConsultaProducto.html')
+@app.route('/productos/Agregar')
+def nuevoProducto():
+            prop=Producto()
+            return render_template('productos/Insertar.html', prop=prop.agregar())
 
 @app.route("/productos/agregar",methods=['post'])
 def agregarProducto():
@@ -263,7 +266,6 @@ def agregarProducto():
                     flash('! Error al agregar producto !')
                 return redirect(url_for('consultarProductos'))
 
-
 @app.route('/productos/<int:id>')
 def consultaProductos(id):
         prod=Producto()
@@ -272,7 +274,6 @@ def consultaProductos(id):
 
 
 @app.route('/productos/editar',methods=['POST'])
-
 def editarProducto():
 
         try:

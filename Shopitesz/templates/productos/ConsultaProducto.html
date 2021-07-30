@@ -3,25 +3,46 @@
 <link rel="stylesheet" href="{{url_for('static',filename='css/estilos2.css')}}">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
 	<script src="{{url_for('static',filename='js/jquery-3.2.1.js')}}"></script>
-	<script src="{{url_for('static',filename='js/script.js')}}"></script>
+	<form action="/productos/" method="post" enctype="multipart/form-data">
     <div class="wrap">
 		<h1>PRODUCTOS</h1>
-			<section class="products-list">
-				{% for prod in productos %}
-                    <div class="product-item" category="{{prod.categoria.nombre}}">
-                        <img src="/productos/consultarImagen/{{prod.idProducto}}" width="100px" height="80px">
-					    <a href="#">{{prod.nombre}}</a>
-				    </div>
-                    <div class="product-item" category="{{prod.categoria.nombre}}">
-					    <a href="/productos/consultarprecioVenta/{{prod.idProducto}}">{{prod.precioVenta}}</a>
-				    </div>
-                        <div class="product-item" category="{{prod.categoria.nombre}}">
-					    <a href="/productos/consultarEspecificaciones/{{prod.idProducto}}">{{prod.especificaciones}}</a>
-				    </div>
-                        <div class="product-item" category="{{prod.categoria.nombre}}">
-					    <a href="/productos/consultarexistencia/{{prod.idProducto}}">{{prod.existencia}}</a>
-				    </div>
-                {% endfor %}
-			</section>
-		</div>
+		<table class="table table-bordered">
+        <th>ID DEL PRODUCTO</th>
+		<th>ID DE LA CATEGORIA</th>
+        <th>NOMBRE</th>
+
+			<th>DESCRIPCION</th>
+
+        <th>PRECIO DE VENTA</th>
+
+        <th>EXISTENCIA</th>
+
+        <th>FOTO</th>
+
+        <th>ESPECIFICACIONES</th>
+
+		<th>ESTATUS</th>
+
+        {% for producto in Producto %}
+            <tr>
+                <td>{{producto.idProducto}}</td>
+				<td>{{producto.idCategoria}}</td>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.descripcion}}</td>
+                <td>{{producto.precioVenta}}</td>
+                <td>{{producto.existencia}}</td>
+                <td>{{producto.foto}}</td>
+                <td>{{producto.especificaciones}}</td>
+				<td>{{producto.estatus}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="/productos/agregar" class="btn btn-success">
+         <span class="glyphicon glyphicon-plus-sign"></span>
+        Agregar categoria
+    </a>
+		    <a href="/productos/Editar" class="btn btn-success">
+         <span class="glyphicon glyphicon-plus-sign"></span>
+        Editar categoria/Eliminar
+    </a>
 {% endblock %}
