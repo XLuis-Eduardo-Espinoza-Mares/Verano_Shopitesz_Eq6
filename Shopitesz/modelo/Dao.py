@@ -178,12 +178,13 @@ class Tarjeta(db.Model):
     CCV = Column(Integer, nullable=False)
     nombrePersona = Column(String, nullable=False)
 
-    def consultaGeneral(self,id):
-        return self.query.filter(Tarjeta.idUsuario==id).all()
+    def consultaGeneral(self):
+        return self.query.all()
 
     def agregar(self):
         db.session.add(self)
         db.session.commit()
+
     def consulta(self, id):
         return Tarjeta.query.get(id)
 
@@ -205,8 +206,8 @@ class Carrito(db.Model):
     cantidad = Column(Integer, nullable=False)
     estatus = Column(String, nullable=False)
 
-    def consultaGeneral(self,id):
-        return self.query.filter(Carrito.idUsuario==id).all()
+    def consultaGeneral(self):
+        return self.query.all()
 
     def editar(self):
         db.session.merge(self)
@@ -228,11 +229,11 @@ class Carrito(db.Model):
         db.session.commit()
 
 
+
 class Pedido(db.Model):
     __tablename__ = 'Pedidos'
     idPedido = Column(Integer, primary_key=True, nullable=False)
     idComprador = Column(Integer, ForeignKey('Usuarios.idUsuario'), nullable=False)
-    idVendedor = Column(Integer, ForeignKey('Usuarios.idUsuario'), nullable=False)
     idTarjeta = Column(Integer, ForeignKey('Tarjetas.idTarjeta'),nullable=False)
     fechaRegistro = Column(String, nullable=False)
     fechaAtencion = Column(String, nullable=False)

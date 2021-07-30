@@ -1,0 +1,52 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+<link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="stylesheet" href="{{url_for('static',filename='css/estiloVerPerfil.css')}}">
+<script src="{{url_for('static',filename='js/EditarPerfiles.js')}}"></script>
+<form action="/Usuarios/editarPerfil" method="post">
+    <section class="seccion-perfil-usuario">
+            <div class="perfil-usuario-body">
+                <div class="perfil-usuario-bio">
+                    <h3 class="titulo">{{usuario.nombreCompleto}}</h3>
+                    <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="perfil-usuario-footer">
+                    <input class="controls" type="hidden" name="id" value="{{usuario.idUsuario}}" required>
+                    <input class="controls" type="hidden" name="nombre" value="{{usuario.nombreCompleto}}" required>
+                    <input class="controls" type="hidden" name="email" value="{{usuario.email}}" required>
+                    <ul class="lista-datos">
+                        <li><i class="icono fas fa-map-signs"></i> Direccion de usuario:</li>
+                        <input class="controls" type="text" name="direccion" placeholder="{{usuario.direccion}}" value="{{usuario.direccion}}" required>
+                        <li><i class="icono fas fa-phone-alt"></i> Telefono:</li>
+                        <input class="controls" type="text" name="telefono" placeholder="{{usuario.telefono}}" value="{{usuario.telefono}}" required>
+                        <li><i class="icono fas fa-building"></i> Cargo: {{usuario.tipo}}</li>
+                            <div class="radio">
+                                <h4>Tipo</h4>
+                                <label><input class="cont" type="radio" name="Tipo" value="Vendedor">Vendedor</label>
+                                <label><input class="cont" type="radio" name="Tipo" value="Comprador">Cliente</label>
+                                <label><input class="cont" type="radio" name="Tipo" value="Administrador" checked>Administrador</label>
+                            </div>
+                        <li><input class="botons btn btn-primary btn-block" type="submit" value="Editar Perfil"></li>
+                    </ul>
+                    <ul class="lista-datos">
+                        <li><i class="icono fas fa-map-marker-alt"></i> Contraseña:</li>
+                        <input class="controls" type="password" name="password" id="password" placeholder="Ingrese Nueva Contraseña" required>
+                        <li><i class="icono fas fa-user-check"></i> Registro: {{usuario.estatus}}
+                        {% if current_user.is_authenticated and current_user.is_admin() %}
+                        {% if usuario.estatus=='Activo' %}
+                        <input type="checkbox" name="estatus" value="Activo" checked>
+                        {% else %}
+                        <input type="checkbox" name="estatus" value="Activo">
+                        {% endif %}
+                        {% endif %}
+                        </li>
+                        <li><i class="icono fas fa-share-alt"></i> Correo: {{usuario.email}}</li>
+                        <li><a href="/Usuarios/eliminar/{{usuario.idUsuario}}" id="ACerrarSecion" class="btn btn-danger btn-block">Eliminar Perfil</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+</form>
+{% endblock %}

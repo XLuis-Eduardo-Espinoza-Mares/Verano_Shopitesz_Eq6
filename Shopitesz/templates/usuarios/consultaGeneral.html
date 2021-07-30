@@ -5,7 +5,6 @@
     <h1 class="bg-primary text-center">Listado de Categorias</h1>
 
     <table class="table table-bordered">
-        <th>ID</th>
         <th>NOMBRE</th>
 
          <th>DIRRECCIONES</th>
@@ -18,15 +17,20 @@
 
         <th>ESTATUS</th>
 
+        <th>VER PERFIL</th>
+
         {% for usuario in usuarios %}
             <tr>
-                <td>{{usuario.idCategoria}}</td>
                 <td>{{usuario.nombreCompleto}}</td>
                 <td>{{usuario.direccion}}</td>
                 <td>{{usuario.telefono}}</td>
                 <td>{{usuario.email}}</td>
                 <td>{{usuario.tipo}}</td>
                 <td>{{usuario.estatus}}</td>
+                <td><a href="/Usuarios/{{usuario.idUsuario}}">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </a>
+                </td>
 
             </tr>
         {% endfor %}

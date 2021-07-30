@@ -9,10 +9,19 @@
 		<h1>Escoge un producto</h1>
 		<div class="store-wrapper">
 			<div class="category_list">
+				{% if current_user.is_vendedor() and current_user.is_admin() %}
+				<a href="/productos/nuevo" class="category_item">Agregar Producto
+				{% endif %}
+            </a>
+				{% if current_user.is_authenticated and current_user.is_admin() %}
+                	<a href="/productos/nuevo" class="category_item">
+							Agregar Producto</a>
+				{% endif %}
 				<a href="#" class="category_item" category="all">Todo</a>
                 {% for cat in categorias %}
 					{% if cat.estatus=='Activa' %}
-                		<a href="#" class="category_item" category="{{cat.nombre}}">{{cat.nombre}}</a>
+					<a href="#" class="category_item" category="{{cat.nombre}}">{{cat.nombre}}</a>
+
 					{% endif %}
                 {% endfor %}
 			</div>
@@ -48,7 +57,7 @@
 						<a href="/productos/comprador/{{prod.idProducto}}"></a>
 						<a href="/productos/comprador/{{prod.idProducto}}">{{prod.descripcion}}</a>
 						<a href="/productos/comprador/{{prod.idProducto}}">Precio: ${{prod.precioVenta}}0</a>
-						<a href="/productos/{{prod.idProducto}}">Existencia: {{prod.existencia}} unidades</a>
+						<a href="/productos/comprador/{{prod.idProducto}}">Existencia: {{prod.existencia}} unidades</a>
 				    </div>
 				{% endif %}
 				{% endif %}

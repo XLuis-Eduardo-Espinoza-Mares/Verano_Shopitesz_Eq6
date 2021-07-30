@@ -1,0 +1,17 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/estiloDescripcion.css')}}">
+ <div class="parrafo">
+    <H1>
+        CAMISA "GAMER" UNISEX C,M,G
+    </H1>
+    <img src="{{url_for('static',filename='img/GAMERCAMISA.jpg')}}" width="300" height="300"> <!--Aqui va la imagen de una camisa android-->
+    <h2>Esta camisa representa uno de los mejores estilos del mundo en diversos tamaños
+    </h2>
+    <br><br>
+    <form action="/CAMISAGAMER" method="post">
+
+        <button type="submit" class="btn-enviar"><a href="/pedidos">Hacer Pedido</a></button>
+    </form>
+ </div>
+{% endblock %}

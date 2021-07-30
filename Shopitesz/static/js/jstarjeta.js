@@ -66,18 +66,6 @@ formulario.inputNumero.addEventListener('keyup', (e) => {
 		logoMarca.innerHTML = '';
 	}
 
-	if(valorInput[0] == 4){
-		logoMarca.innerHTML = '';
-		const imagen = document.createElement('img');
-		imagen.src = 'img/logos/visa.png';
-		logoMarca.appendChild(imagen);
-	} else if(valorInput[0] == 5){
-		logoMarca.innerHTML = '';
-		const imagen = document.createElement('img');
-		imagen.src = 'img/logos/mastercard.png';
-		logoMarca.appendChild(imagen);
-	}
-
 	// Volteamos la tarjeta para que el usuario vea el frente.
 	mostrarFrente();
 });
@@ -126,6 +114,7 @@ formulario.selectYear.addEventListener('change', (e) => {
 // * Select Banco
 formulario.selectBanco.addEventListener('change', (e) => {
 	document.getElementById("NombreTarjeta").value=e.target.value;
+	document.getElementById("NombreTarjetas").innerHTML=e.target.value;
 });
 
 // * CCV

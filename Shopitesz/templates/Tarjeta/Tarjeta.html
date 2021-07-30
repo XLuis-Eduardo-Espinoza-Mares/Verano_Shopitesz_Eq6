@@ -10,7 +10,8 @@
 		<section class="tarjeta" id="tarjeta">
 			<div class="delantera">
 				<div class="logo-marca" id="logo-marca">
-					 <img src="{{url_for('static',filename='img/logos/HSBC-Platinum.jpg')}}" alt="">
+                    <a></a>
+                    <p class="nombre" id="NombreTarjetas">Básica American Express</p>
 				</div>
 				<img src="{{url_for('static',filename='img/chip-tarjeta.png')}}" class="chip" alt="">
 				<div class="datos">
@@ -42,7 +43,7 @@
 				<div class="datos">
 					<div class="grupo" id="firma">
 						<p class="label">Firma</p>
-						<div class="firma"><p></p></div>
+						<div class="firma"><p>{{current_user.nombreCompleto}}</p></div>
 					</div>
 					<div class="grupo" id="ccv">
 						<p class="label">CCV</p>
@@ -62,7 +63,7 @@
 		</div>
 
 		<!-- Formulario -->
-		<form action="/productos/editar" method="post" enctype="multipart/form-data" id="formulario-tarjeta" class="formulario-tarjeta">
+		<form action="" id="formulario-tarjeta" class="formulario-tarjeta">
 
 			<div class="grupo ccv">
 					<label for="inputCCV">Elige una opción de Tarjeta</label>
@@ -118,7 +119,7 @@
 			</div>
 			<div class="grupo">
 				<label for="inputSaldo">Saldo</label>
-				<input type="text" id="inputSaldo" maxlength="5" autocomplete="off">
+				<input type="text" id="inputSaldo" maxlength="10" autocomplete="off">
 			</div>
 
 		</form>

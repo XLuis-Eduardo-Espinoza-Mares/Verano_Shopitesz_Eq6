@@ -2,12 +2,12 @@ from datetime import timedelta
 
 from flask import Flask,render_template,request,redirect,url_for,flash,session,abort
 from flask_bootstrap import Bootstrap
-from modelo.Dao import db,Categoria,Producto,Usuario, Tarjeta
+from modelo.Dao import db,Categoria,Producto,Usuario ,Tarjeta, Envio, Paqueteria, Pedido, Carrito, DetallePedidos
 from flask_login import login_required,login_user,logout_user,current_user,LoginManager
 import json
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:Cadete0420@localhost/shopitesz'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:Shopitesz.123@localhost/shopitesz'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.secret_key='Cl4v3'
 
@@ -64,7 +64,7 @@ def login():
             else:
                 logout_user()
                 flash('Cuenta inactiva')
-                return redirect(url_for('mostrar_login'))
+                return redirect(url_for('validarSesion'))
         else:
             flash('Nombre de usuario o contraseña incorrectos')
             return redirect(url_for('validarSesion'))
@@ -89,7 +89,7 @@ def verperfil():
 @login_required
 def usuarioIndividual(id):
         usuario = Usuario()
-        return render_template('usuarios/consultaIndividual.html',usuario=usuario.consultaIndividual(id))
+        return render_template('usuarios/EditarPerfiles.html',usuario=usuario.consultaIndividual(id))
 
 @app.route('/Usuarios/Editar')
 @login_required
@@ -100,41 +100,47 @@ def Editar():
 @login_required
 def editarPerfil():
     try:
-
         usuario = Usuario()
-        usuario.idUsuario = current_user.idUsuario
-        usuario.nombreCompleto = current_user.nombreCompleto
+        usuario.idUsuario = request.form['id']
+        usuario.nombreCompleto = request.form['nombre']
         usuario.direccion = request.form['direccion']
         usuario.telefono = request.form['telefono']
-        usuario.email = current_user.email
+        usuario.email = request.form['email']
         usuario.password = request.form['password']
-        if current_user.is_admin():
-            usuario.estatus = request.form['estatus']
-            usuario.tipo = request.form['Tipo']
+        if current_user.is_admin:
+            usuario.estatus = request.values.get("estatus","Inactivo")
         else:
-            usuario.estatus = current_user.estatus
-            usuario.tipo = current_user.tipo
+            usuario.estatus = request.form['estatus']
+        usuario.tipo = request.form['Tipo']
         usuario.editar()
         flash('¡ Usuario modificado con exito !')
-        return render_template('usuarios/VerPerfil.html')
+        return redirect(url_for('ConsultaUsuarios'))
     except:
         flash('¡ Error al modificar al usuario !')
-        return render_template('usuarios/VerPerfil.html')
+        return redirect(url_for('validarSesion'))
 
 @app.route('/Usuarios/eliminar/<int:id>')
 @login_required
 def eliminarPerfil(id):
-    if current_user.is_authenticated and current_user.idUsuario == id:
+    if current_user.idUsuario == id:
         try:
             usuario = Usuario()
             usuario.eliminacionLogica(id)
             logout_user()
             flash('Usuario eliminado con exito')
+            return redirect(url_for('validarSesion'))
         except:
             flash('Error al eliminar el usuario')
-        return redirect(url_for('inicio'))
+            return redirect(url_for('validarSesion'))
     else:
-        abort(404)
+        try:
+            usuario = Usuario()
+            usuario.eliminacionLogica(id)
+            flash('Usuario eliminado con exito')
+            return redirect(url_for('ConsultaUsuarios'))
+        except:
+            flash('Error al eliminar el usuario')
+            return redirect(url_for('validarSesion'))
 
 @app.route('/Usuarios/cerrarSesion')
 @login_required
@@ -148,6 +154,7 @@ def validarSesion():
     return render_template('usuarios/login.html')
 
 @app.route("/compra")
+@login_required
 def compra():
     return render_template('carrito/compra.html')
 
@@ -155,6 +162,92 @@ def compra():
 @app.route("/Registrarse")
 def Registrarse():
     return render_template('usuarios/registrarCuenta.html')
+
+#CURD PEDIDOS
+@app.route('/Pedidos/editarPedidos',methods = ["POST"])
+@login_required
+def modPedidos():
+    if current_user.is_authenticated :
+        try:
+            ped=Pedido()
+            ped.idComprador = '2'
+            ped.idTarjeta='1'
+            ped.fechaRegistro = 'fecha'
+            ped.fechaAtencion = 'fechaAtencion'
+            ped.fechaRecepcion = 'fechaRecepcion'
+            ped.fechaCierre = 'fechaCierre'
+            ped.total = '10'
+            ped.estatus = 'estatus'
+            ped.editar()
+            flash('! Pedido editada con exito')
+            return redirect(url_for('consultarProductos'))
+        except:
+            flash('! Error al editar el pedido ')
+            return redirect(url_for('validarSesion'))
+
+#FIN PEDIDOS
+
+#CRUD Carrito
+
+@app.route('/carrito/agregar',methods = ["POST"])
+@login_required
+def agregarProductoCarrito():
+    if current_user.is_authenticated and current_user.is_comprador():
+        carrito=Carrito()
+        carrito.idProducto=request.form['id']
+        carrito.idUsuario=current_user.idUsuario
+        carrito.cantidad=request.form['cantidad']
+        carrito.fecha=request.form['fecha']
+        carrito.estatus='pendiente'
+        carrito.agregar()
+        return redirect(url_for('consultarProductos'))
+    else:
+        return redirect(url_for('validarSesion'))
+
+@app.route('/Todocarritos')
+@login_required
+def consultaGeneralC():
+    if current_user.is_authenticated:
+        producto = Producto()
+        usuario = Usuario()
+        carrito = Carrito()
+        return render_template('carrito/compra.html',carritos=carrito.consultaGeneral(), productos=producto.consultaGeneral(), usuarios=usuario.consultaGeneral())
+    else:
+        return redirect(url_for('validarSesion'))
+
+@app.route('/Carrito/verCarrito/ed/<int:id>')
+@login_required
+def VerCarrrito(id):
+    if current_user.is_authenticated:
+        producto = Producto()
+        usuario = Usuario()
+        tarjeta = Tarjeta()
+        carrito = Carrito()
+        return render_template('carrito/Vercarrito.html',carrito=carrito.consultaIndividual(id),
+                               productos=producto.consultaGeneral(), usuarios=usuario.consultaGeneral(),
+                               tarjetas=tarjeta.consultaGeneral())
+    else:
+        return redirect(url_for('validarSesion'))
+
+
+@app.route('/carrito/eliminacionfisica/<int:id>')
+@login_required
+def eliminacionfisicaCarrito(id):
+    if current_user.is_authenticated and current_user.is_comprador():
+        try:
+            carrito=Carrito()
+            carrito.eliminar(id)
+            flash('carrito eliminado')
+            return redirect(url_for('consultaGeneralC'))
+        except:
+            flash('Error al eliminar Producto')
+            return redirect(url_for('validarSesion'))
+    else:
+        return redirect(url_for('validarSesion'))
+
+
+#FIN Carrito
+
 #CRUD Productos
 @app.route("/productos")
 def consultarProductos():
@@ -255,13 +348,14 @@ def editarProducto():
     else:
         return redirect(url_for('validarSesion'))
 
+
 @app.route('/productos/eliminar/<int:id>')
 @login_required
 def eliminarProductos(id):
     if current_user.is_authenticated and current_user.is_admin:
         try:
             prod=Producto()
-            prod.eliminacionLogica(id)
+            prod.eliminar(id)
             flash('Producto eliminado con exito')
             return redirect(url_for('consultarProductos'))
         except:
@@ -274,6 +368,7 @@ def eliminarProductos(id):
 @app.route("/tarjeta")
 def tarjeta():
     return render_template('Tarjeta/Tarjeta.html')
+
 #CRUD Tarjetas
 @app.route("/Tarjetas/Agrega",methods=['post'])
 @login_required
@@ -295,14 +390,62 @@ def subirtarjeta():
     except:
         flash('! Error al agregar tarjeta¡')
 
-@app.route('/Tarjeta/<int:id>')
+@app.route('/ConsultaTarjeta')
 @login_required
-def EditarTarjetas(id):
+def ConsultaTarjetas():
     if current_user.is_authenticated():
         tar=Tarjeta()
-        return render_template('tarjetas/Tarjetas.html', tar=tar.consulta(id))
+        return render_template('Tarjeta/Tarjetas.html', tarjetas=tar.consultaGeneral())
     else:
-        return redirect(url_for('mostrar_login'))
+        return redirect(url_for('validarSesion'))
+
+@app.route('/Tarjeta/<int:id>')
+@login_required
+def VerTarjetas(id):
+    if current_user.is_authenticated():
+        tar=Tarjeta()
+        return render_template('Tarjeta/EditarTarjeta.html', tar=tar.consulta(id))
+    else:
+        return redirect(url_for('validarSesion'))
+
+@app.route('/tarjeta/editar/<int:id>',methods=['POST'])
+@login_required
+def editandoTarjeta(id):
+    if current_user.is_authenticated:
+        try:
+            tar=Tarjeta()
+            tar.idTarjeta=request.form['id']
+            tar.idUsuario=current_user.idUsuario
+            tar.saldo = request.form['saldos']
+            tar.banco = request.form['NombreTarjeta']
+            tar.mes = request.form["Mes"]
+            tar.año = request.form['Año']
+            tar.CCV = request.form['ccv']
+            tar.nombrePersona = request.form['Nombre']
+            tar.editar()
+            flash('! Tarjeta editada con exito')
+            return redirect(url_for('ConsultaTarjetas'))
+        except:
+            flash('! Error al editar el producto')
+    else:
+        return redirect(url_for('validarSesion'))
+
+
+@app.route('/Tarjeta/eliminar/<int:id>')
+@login_required
+def eliminarTarjeta(id):
+    if  current_user.is_authenticated():
+        try:
+            tar=Tarjeta()
+            tar.eliminar(id)
+            flash('Tarjeta Eliminada')
+            return redirect(url_for('ConsultaTarjetas'))
+        except:
+            flash('Error al eliminar tarjeta')
+        return redirect((url_for('verperfil')))
+    else:
+        return redirect(url_for('validarSesion'))
+
 
 #Fin Tarjetas
 
@@ -370,11 +513,12 @@ def editarCategoria():
 def eliminarCategoria(id):
         try:
             categoria=Categoria()
-            categoria.eliminacionLogica(id)
+            categoria.eliminar(id)
             flash('Categoria eliminada con exito')
+            return redirect(url_for('consultaCategorias'))
         except:
             flash('Error al eliminar la categoria')
-        return redirect(url_for('consultaCategorias'))
+        return redirect(url_for('validarSesion'))
 #FIN Categorías
 
 if __name__=='__main__':

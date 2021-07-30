@@ -1,16 +1,19 @@
 {% extends 'comunes/base.html' %}
 {% block contenido %}
+
 <div>
     <h1 class="bg-primary bg-lg text-center">Pedir de Productos</h1>
-    <form action="" method="post" enctype="multipart/form-data" class="formulario-tarjeta" style=background-color:#FBEEE6>
+    <form action="/carrito/agregar" method="post" enctype="multipart/form-data" class="formulario-tarjeta" style=background-color:#FBEEE6>
         <div class="form-group">
             <label>ID:</label>
-            <input type="number" name="id" value="{{prod.idProducto}}" readonly class="form-control">
+            <input type="number" value="{{prod.idProducto}}" name="id" readonly class="form-control">
         </div>
         <div>
             {% for cat in categorias %}
             {% if cat.idCategoria==prod.idCategoria %}
-            <p>Categoria: {{cat.nombre}}</p>
+            <div class="form-group">
+            <label>Categoria: {{cat.nombre}}</label>
+            </div>
             {% endif %}
             {% endfor %}
         </div>
@@ -41,10 +44,15 @@
         <div class="form-group">
             <label>Estatus: {{prod.estatus}}</label>
         </div>
-            <button type="submit" class="btn btn-primary">
-                <span class="glyphicon glyphicon-floppy-disk"></span>
-                Pedir
-            </button>
+            <div>
+                <label>Cantidad</label>
+                <input type="number"  placeholder="nm"  name="cantidad" />
+            </div>
+        <div>
+            <label>Fecha</label>
+            <input type="date"  placeholder="nm"  name="fecha" />
+        </div>
+            <input type="submit" class="btn btn-primary" value="Añadir Carrito" />
             <a href="/productos" class="btn btn-info">
                 <span class="glyphicon glyphicon-arrow-left"></span>
                 Regresar

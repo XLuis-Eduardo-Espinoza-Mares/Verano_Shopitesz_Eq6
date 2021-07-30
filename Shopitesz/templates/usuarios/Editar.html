@@ -11,15 +11,19 @@
                     <p class="texto">        Lo que buscas, aquí lo encuentras, ¡No batalles! Se parte del cambio. </p>
                 </div>
                 <div class="perfil-usuario-footer">
+                    <input class="controls" type="hidden" name="id" value="{{current_user.idUsuario}}" required>
+                    <input class="controls" type="hidden" name="nombre" value="{{current_user.nombreCompleto}}" required>
+                    <input class="controls" type="hidden" name="email" value="{{current_user.email}}" required>
+                    {% if not current_user.is_admin() %}
+                    <input class="controls" type="hidden" name="Tipo" value="{{current_user.estatus}}" required>
+                    <input class="controls" type="hidden" name="email" value="{{current_user.tipo}}" required>
+                    {% endif %}
                     <ul class="lista-datos">
                         <li><i class="icono fas fa-map-signs"></i> Direccion de usuario:</li>
                         <input class="controls" type="text" name="direccion" placeholder="{{current_user.direccion}}" required>
                         <li><i class="icono fas fa-phone-alt"></i> Telefono:</li>
                         <input class="controls" type="text" name="telefono" placeholder="{{current_user.telefono}}" required>
-                        {% if current_user.is_authenticated and current_user.is_vendedor() %}
-                        <li><i class="icono fas fa-building"></i> Cargo: {{current_user.tipo}}</li>
-                        {% endif %}
-                        {% if current_user.is_authenticated and current_user.is_comprador() %}
+                        {% if not current_user.is_admin() %}
                         <li><i class="icono fas fa-building"></i> Cargo: {{current_user.tipo}}</li>
                         {% endif %}
                         {% if current_user.is_authenticated and current_user.is_admin() %}
@@ -35,14 +39,17 @@
                     <ul class="lista-datos">
                         <li><i class="icono fas fa-map-marker-alt"></i> Contraseña:</li>
                         <input class="controls" type="password" name="password" placeholder="Ingrese Nueva Contraseña" required>
-                        <li><i class="icono fas fa-user-check"></i> Registro: {{current_user.estatus}}</li>
+                        <li><i class="icono fas fa-user-check"></i> Registro: {{current_user.estatus}}
                         {% if current_user.is_authenticated and current_user.is_admin() %}
-                        <input class="controls" type="text" name="estatus" placeholder="{{current_user.estatus}}" required>
+                        {% if current_user.estatus=='Activo' %}
+                        <input type="checkbox" name="estatus" value="Activo" checked>
+                        {% else %}
+                        <input type="checkbox" name="estatus" value="Activo">
                         {% endif %}
+                        {% endif %}
+                        </li>
+
                         <li><i class="icono fas fa-share-alt"></i> Correo: {{current_user.email}}</li>
-                        {% if current_user.is_authenticated and current_user.is_admin() %}
-                        <li><a href="/Usuarios/eliminar/{{current_user.idUsuario}}" id="ACerrarSecion" class="btn btn-danger btn-block">Eliminar Perfil</a></li>
-                        {% endif %}
                     </ul>
                 </div>
             </div>
