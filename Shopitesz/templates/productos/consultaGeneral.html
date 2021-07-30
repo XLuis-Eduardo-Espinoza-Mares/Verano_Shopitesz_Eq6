@@ -23,16 +23,16 @@
 			</section>
 		</div>
 				{% if current_user.is_authenticated and current_user.is_vendedor() %}
-		<h3>Revisar productos:</h3>
-		<a href="/productos/revisar">
-			<img src="static/img/Botones/boton.jpg" width="100px" height="80px">
-		</a>
+    <a href="/productos/revisar" class="btn btn-success">
+         <span class="glyphicon glyphicon-plus-sign"></span>
+        Revisar Productos
+    </a>
 		{% endif %}
 		{% if current_user.is_authenticated and current_user.is_admin() %}
-    	 <h3>Revisar productos:</h3>
-		<a href="/productos/revisar">
-			<img src="static/img/Botones/boton.jpg" width="100px" height="80px">
-		</a>
+    <a href="/productos/revisar" class="btn btn-success">
+         <span class="glyphicon glyphicon-plus-sign"></span>
+        Revisar Productos:
+    </a>
 		{% endif %}
 	</div>
 
