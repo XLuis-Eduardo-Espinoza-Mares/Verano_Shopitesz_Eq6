@@ -1,94 +1,48 @@
 {% extends 'comunes/base.html' %}
 {% block contenido %}
-<div>
-    <h1 class="bg-primary bg-lg text-center">Pedir de Productos</h1>
-    <form action="" method="post" enctype="multipart/form-data" class="formulario-tarjeta" style=background-color:#FBEEE6>
-        <div class="form-group">
-            <label>ID:</label>
-            <input type="number" name="id" value="{{prod.idProducto}}" readonly class="form-control">
-        </div>
-        <div>
-            {% for cat in categorias %}
-            {% if cat.idCategoria==prod.idCategoria %}
-            <p>Categoria: {{cat.nombre}}</p>
-            {% endif %}
-            {% endfor %}
-        </div>
-        <div class="form-group">
-            <label>Nombre: {{prod.nombre}}</label>
-        </div>
-        <div class="form-group">
-            <label>Descripcion: {{prod.descripcion}}</label>
-        </div>
-        <div class="form-group">
-            <label>Precio: {{prod.precioVenta}}</label>
-        </div>
-        <div class="form-group">
-            <label>Existencias: {{prod.existencia}}</label>
-        </div>
-        <div class="form-group">
-            <label>Imagen:</label>
-            <a href="#" data-toggle="modal" data-target="#imagen">
-                <span class="glyphicon glyphicon-eye-open"></span>Ver Imagen
-            </a>
-        </div>
-        <div class="form-group">
-            <label>Espesificaciones:</label>
-            <a href="#" data-toggle="modal" data-target="#pdf">
-                <span class="glyphicon glyphicon-eye-open"></span>Ver PDF
-            </a>
-        </div>
-        <div class="form-group">
-            <label>Estatus: {{prod.estatus}}</label>
-        </div>
-            <button type="submit" class="btn btn-primary">
-                <span class="glyphicon glyphicon-floppy-disk"></span>
-                Pedir
-            </button>
-            <a href="/productos" class="btn btn-info">
-                <span class="glyphicon glyphicon-arrow-left"></span>
-                Regresar
-            </a>
-    </form>
-    <!-- Modal para ver la imagen-->
-<div id="imagen" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+<link rel="stylesheet" href="{{url_for('static',filename='css/estilos2.css')}}">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+	<script src="{{url_for('static',filename='js/jquery-3.2.1.js')}}"></script>
+	<form action="/productos/" method="post" enctype="multipart/form-data">
+    <div class="wrap">
+		<h1>PRODUCTOS</h1>
+		<table class="table table-bordered">
+        <th>ID DEL PRODUCTO</th>
+		<th>ID DE LA CATEGORIA</th>
+        <th>NOMBRE</th>
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Imagen del Producto: <b>{{prod.nombre}}</b></h4>
-      </div>
-      <div class="modal-body">
-        <img src="/productos/consultarImagen/{{prod.idProducto}}" width="200px" height="150px">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
+			<th>DESCRIPCION</th>
 
-  </div>
-</div>
+        <th>PRECIO DE VENTA</th>
 
-    <div id="pdf" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+        <th>EXISTENCIA</th>
 
-    #Modal content-
-    <div class="modal-content">
-          <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">PDF del producto: <b>{{prod.nombre}}</b></h4>
-          </div>
-          <div class="modal-body">
-              <object class="pdfview" type="application/pdf" data="/productos/consultarPDF/{{prod.idProducto}}"></object>
+        <th>FOTO</th>
 
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-          </div>
-      </div>
-  </div>
-    </div>
-</div>
+        <th>ESPECIFICACIONES</th>
+
+		<th>ESTATUS</th>
+
+        {% for producto in Producto %}
+            <tr>
+                <td>{{producto.idProducto}}</td>
+				<td>{{producto.idCategoria}}</td>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.descripcion}}</td>
+                <td>{{producto.precioVenta}}</td>
+                <td>{{producto.existencia}}</td>
+                <td>{{producto.foto}}</td>
+                <td>{{producto.especificaciones}}</td>
+				<td>{{producto.estatus}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="/productos/agregar" class="btn btn-success">
+         <span class="glyphicon glyphicon-plus-sign"></span>
+        Agregar categoria
+    </a>
+		    <a href="/productos/Editar" class="btn btn-success">
+         <span class="glyphicon glyphicon-plus-sign"></span>
+        Editar categoria/Eliminar
+    </a>
 {% endblock %}
