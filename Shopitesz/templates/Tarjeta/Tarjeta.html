@@ -21,7 +21,12 @@
 					<div class="flexbox">
 						<div class="grupo" id="nombre">
 							<p class="label">Nombre Tarjeta</p>
+							{% if not current_user.is_authenticated %}
 							<p class="nombre">########</p>
+							{% endif %}
+							{% if current_user.is_authenticated %}
+							<p class="nombre">{{current_user.nombreCompleto}}</p>
+							{% endif %}
 						</div>
 
 						<div class="grupo" id="expiracion">
@@ -57,30 +62,30 @@
 		</div>
 
 		<!-- Formulario -->
-		<form action="" id="formulario-tarjeta" class="formulario-tarjeta">
+		<form action="/productos/editar" method="post" enctype="multipart/form-data" id="formulario-tarjeta" class="formulario-tarjeta">
 
 			<div class="grupo ccv">
 					<label for="inputCCV">Elige una opción de Tarjeta</label>
 				</div>
-				<select name="OS">
+			<select name="banco" id="selectBanco">
             <optgroup label="Tarjeta de crédito">
-            <option name="Tipo" value="Básica American Express" >Básica American Express</option>
-            <option name="Tipo" value="Santander Ligth">Santander Ligth</option>
-            <option name="Tipo" value="HSBC Air">HSBC Air </option>
-		    <option name="Tipo" value="HSBC Platinum">HSBC Platinum </option>
-		    <option name="Tipo" value="Stori">Stori </option>
-   </optgroup>
-   <optgroup label="tarjeta de debito">
-       <option name="Tipo" value="Paypal">Paypal</option>
-       <option name="Tipo" value="DISCOVER">DISCOVER</option>
-       <option name="Tipo" value="MASTERCARD">MASTERCARD</option>
-	   <option name="Tipo" value="VISA">VISA</option>
-   </optgroup>
-        </select>
+            	<option name="Básica American Express" >Básica American Express</option>
+            	<option name="Santander Ligth">Santander Ligth</option>
+            	<option name="HSBC Air">HSBC Air </option>
+		    	<option name="HSBC Platinum">HSBC Platinum </option>
+		    	<option name="Stori">Stori </option>
+   			</optgroup>
+   			<optgroup label="tarjeta de debito">
+       			<option name="Paypal">Paypal</option>
+       			<option name="DISCOVER">DISCOVER</option>
+       			<option name="MASTERCARD">MASTERCARD</option>
+	   			<option name="VISA">VISA</option>
+   			</optgroup>
+        	</select>
 
 			<div class="grupo">
 				<label for="inputNumero">Número Tarjeta</label>
-				<input type="text" id="inputNumero"  name="Tarjeta" maxlength="19" autocomplete="off">
+				<input type="text" id="inputNumero" maxlength="19" autocomplete="off">
 			</div>
 			<div class="grupo">
 				<label for="inputNombre">Nombre</label>
@@ -92,13 +97,13 @@
 					<div class="flexbox">
 						<div class="grupo-select">
 							<select name="mes" id="selectMes">
-								<option disabled selected name="mes">Mes</option>
+								<option disabled selected>Mes</option>
 							</select>
 							<i class="fas fa-angle-down"></i>
 						</div>
 						<div class="grupo-select">
 							<select name="year" id="selectYear">
-								<option disabled selected name="año">Año</option>
+								<option disabled selected>Año</option>
 							</select>
 							<i class="fas fa-angle-down"></i>
 						</div>
@@ -107,44 +112,27 @@
 
 				<div class="grupo ccv">
 					<label for="inputCCV">CCV</label>
-					<input type="text" id="inputCCV" maxlength="3" name="CCV">
+					<input type="text" id="inputCCV" maxlength="3">
 				</div>
 
 			</div>
-
-
-
-
-			<div class="grupo SALDO">
-				<label for="inputNumero">SALDO</label>
-				<input class="controls form-control" type="text" name="Saldo"  required>
+			<div class="grupo">
+				<label for="inputSaldo">Saldo</label>
+				<input type="text" id="inputSaldo" maxlength="5" autocomplete="off">
 			</div>
-
-			<a href="#" class="btn btn-primary">
-                <span class="glyphicon glyphicon-floppy-disk"></span>
-                Guardar
-            </a>
-           <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#borrar">
-                <span class="glyphicon glyphicon-trash"></span>
-                Eliminar
-            </a>
-            <a href="#" class="btn btn-info">
-                <span class="glyphicon glyphicon-arrow-left"></span>
-                Editar
-            </a>
 
 		</form>
 
 	</div>
-<form action="/Tarjetas/Agrega" method="post">
-	<input class="controls" type="text" name="NombreTarjeta" placeholder="NombreTarjeta" required>
-	<input class="controls" type="text" name="noTarjeta" placeholder="noTarjeta" required>
-	<input class="controls" type="text" name="Nombre" placeholder="Nombre" required>
-	<input class="controls" type="text" name="Mes" placeholder="Mes" required>
-	<input class="controls" type="text" name="Año" placeholder="Año" required>
-	<input class="controls" type="text" name="ccv" placeholder="ccv" required>
-	<input class="controls" type="text" name="saldos" placeholder="saldo" required>
-	<input class="botons" type="submit" value="Guardar">
+<form action="/Tarjetas/Agrega" method="post" class="Agregar">
+	<input class="numero" type="hidden" name="NombreTarjeta" placeholder="NombreTarjeta" id="NombreTarjeta" value="Básica American Express" required>
+	<input class="controls" type="hidden" name="noTarjeta" placeholder="noTarjeta" id="noTarteja" required>
+	<input class="controls" type="hidden" name="Nombre" placeholder="Nombre" id="NombrePersona" value="{{current_user.nombreCompleto}}" required>
+	<input class="controls" type="hidden" name="Mes" placeholder="Mes" id="mes" required>
+	<input class="controls" type="hidden" name="Año" placeholder="Año" id="año" required>
+	<input class="controls" type="hidden" name="ccv" placeholder="ccv" id="CCCV" required>
+	<input class="controls" type="hidden" name="saldos" placeholder="saldo" id="saldo" required>
+	<input class="btn btn-primary" type="submit" value="Agregar">
 </form>
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 	<script src="{{url_for('static',filename='js/jstarjeta.js')}}"></script>
