@@ -7,7 +7,7 @@ from flask_login import login_required,login_user,logout_user,current_user,Login
 import json
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:Shopitesz.123@localhost/shopitesz'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://user_shopitesz:Cadete0420@localhost/shopitesz'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.secret_key='Cl4v3'
 
@@ -91,10 +91,20 @@ def usuarioIndividual(id):
         usuario = Usuario()
         return render_template('usuarios/EditarPerfiles.html',usuario=usuario.consultaIndividual(id))
 
-@app.route('/Usuarios/Editar')
+@app.route('/Envio')
 @login_required
-def Editar():
-    return render_template('usuarios/Editar.html')
+def Envio():
+    env=Envios()
+    return render_template('usuarios/Editar.html',envios=env.consultaGeneral())
+
+@app.route('/Paqueteria')
+def Paqueteria():
+    paq=Paqueteria()
+    return render_template('Paqueterias/consultaPaqueterias.html',paqueterias=paq.consultaGeneral())
+
+@app.route('/Envios')
+def Envios():
+    return render_template('Envios/consultaEnvios.html')
 
 @app.route('/Usuarios/editarPerfil',methods=['POST'])
 @login_required
@@ -164,26 +174,43 @@ def Registrarse():
     return render_template('usuarios/registrarCuenta.html')
 
 #CURD PEDIDOS
-@app.route('/Pedidos/editarPedidos',methods = ["POST"])
+@app.route('/Pedidos/verPedidos',methods = ["POST"])
 @login_required
-def modPedidos():
+def GuardarPedidos():
     if current_user.is_authenticated :
         try:
             ped=Pedido()
-            ped.idComprador = '2'
-            ped.idTarjeta='1'
-            ped.fechaRegistro = 'fecha'
-            ped.fechaAtencion = 'fechaAtencion'
-            ped.fechaRecepcion = 'fechaRecepcion'
-            ped.fechaCierre = 'fechaCierre'
-            ped.total = '10'
-            ped.estatus = 'estatus'
-            ped.editar()
+            ped.idComprador = request.form['idUsuario']
+            ped.idTarjeta=request.form['idTarjeta']
+            ped.fechaRegistro = request.form['fecha']
+            ped.fechaAtencion = request.form['fechaAtencion']
+            ped.fechaRecepcion = request.form['fechaRecepcion']
+            ped.fechaCierre = request.form['fechaCierre']
+            ped.total = request.form['total']
+            ped.estatus = request.form['estatus']
+            ped.agregar()
             flash('! Pedido editada con exito')
             return redirect(url_for('consultarProductos'))
         except:
             flash('! Error al editar el pedido ')
             return redirect(url_for('validarSesion'))
+
+@app.route('/Pedidos/verpedidos')
+@login_required
+def verPedidos():
+    pedido = Pedido()
+    return render_template("pedidos/consultaGeneral.html", pedidos=pedido.consultaGeneral())
+
+@app.route('/Pedido/pedidos/<int:id>')
+@login_required
+def verPedido(id):
+    try:
+        pedido=Pedido()
+        carrito=Carrito()
+        return render_template('carrito/pagDetallesPedidos.html',pedidos=pedido.consultaIndividual(id), carritos=carrito.consultaGeneral)
+    except:
+        flash('! Error al editar el producto !')
+
 
 #FIN PEDIDOS
 

@@ -4,10 +4,6 @@
 <div>
     <h1 class="bg-primary text-center">Tus pedidos</h1>
 
-    <a href="/Pedidos/nueva" class="btn btn-success">
-         <span class="glyphicon glyphicon-plus-sign"></span>
-        Agregar Pedido
-    </a>
 
     <table class="table table-bordered" style=background-color:#FBEEE6>
         <th>ID</th>
@@ -39,10 +35,8 @@
                     <td>{{ped.estatus}}</td>
 
 
-                <!--<td><img src="/Categorias/consultarImagen/{{ped.idPedido}}" width="100px" height="80px"></td>-->
-
                     <td>
-                        <a href="/Pedidos/{{ped.idPedido}}">
+                        <a href="/Pedido/pedidos/{{ped.idPedido}}">
                             <span class="glyphicon glyphicon-eye-open"></span>
                         </a>
                     </td>

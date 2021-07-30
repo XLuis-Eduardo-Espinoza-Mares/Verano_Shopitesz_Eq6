@@ -25,63 +25,38 @@
                             <table class="table" id="lista-compra" >
                                 <thead>
                                 <tr>
-                                        <td scope="col">cat.idCarrito</td>
-                                        <td scope="col">Nombre</td>
-                                        <td scope="col">Precio</td>
+                                        <td scope="col">Id</td>
+                                        <td scope="col">IdUsuario</td>
+                                        <td scope="col">IdProducto</td>
+                                        <td scope="col">Fecha</td>
                                         <td scope="col">Cantidad</td>
-                                        <td scope="col">Sub Total</td>
-                                        <td scope="col">Comprar</td>
+                                        <td scope="col">Estatus</td>
+                                        <td scope="col">Ver</td>
                                         <td scope="col">Eliminar</td>
                                 </tr>
-                                {% for prod in productos %}
                                 {% for car in carritos %}
+                                <tr>
+                                    <td>{{car.idCarrito}}</td>
+                                    <td>{{car.idCarrito}}</td>
+                                    <td>{{car.idCarrito}}</td>
+                                    <td>{{car.idCarrito}}</td>
+                                    <td>{{car.idCarrito}}</td>
+                                    <td>{{car.idCarrito}}</td>
+                                    <td><a href="/Categorias/">
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    </a><a href="/productos" class="btn btn-info btn-block">Ver</a></td>
+                                    <td><a href="/carrito/eliminacionfisica/{{car.idCarrito}}" class="borrar-producto fas fa-times-circle"></a></td>
 
-                                    <tr>
-                                        {% if car.idProducto==prod.idProducto %}
-                                        <td><img src="/productos/consultarImagen/{{prod.idProducto}}" width="100px" height="80px"></td>
-                                        <td>{{prod.nombre}}</td>
-                                        <td>{{prod.precioVenta}}</td>
-                                        <td>{{car.cantidad}}</td>
+                                </tr>
+                                {% endfor %}
 
-                                        {% endif %}
-                                        <td id="subtotales"><p id="noTarteja"></p>({{car.cantidad}}*{{prod.precioVenta}})</td>
-                                        <td><a href="/Carrito/verCarrito/ed/{{car.idCarrito}}" class="btn btn-success btn-block" id="procesar-compra">Realizar compra</a></td>
-                                        <td><a href="/carrito/eliminacionfisica/{{car.idCarrito}}" class="borrar-producto fas fa-times-circle"></a></td>
-                                    </tr>
-                                {% endfor %}
-                                {% endfor %}
                                 </thead>
                                 <tbody >
 
                                 </tbody>
-                                <tr>
-                                    <th colspan="4" scope="col" class="text-right">SUB TOTAL :</th>
-                                    <th scope="col">
-                                        <p id="subtotal"></p>
-                                    </th>
-                                    <!-- <th scope="col"></th> -->
-                                </tr>
-                                <tr>
-                                    <th colspan="4" scope="col" class="text-right">IGV :</th>
-                                    <th scope="col">
-                                        <p id="igv"></p>
-                                    </th>
-                                    <!-- <th scope="col"></th> -->
-                                </tr>
-                                <tr>
-                                    <th colspan="4" scope="col" class="text-right">TOTAL :</th>
-                                    <th scope="col">
-                                        <input id="total" name="monto" class="font-weight-bold border-0" readonly style="background-color: white;"></input>
-                                    </th>
-                                    <!-- <th scope="col"></th> -->
-                                </tr>
-
                             </table>
                         </div>
 
-                        <div class="row justify-content-center" id="loaders">
-                            <img id="cargando" src="{{url_for('static',filename='img/cargando.gif')}}" width="220">
-                        </div>
 
                         <div class="row justify-content-between">
                             <div class="col-md-4 mb-2">

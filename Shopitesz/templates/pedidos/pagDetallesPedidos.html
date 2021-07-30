@@ -1,24 +1,66 @@
 {% extends 'comunes/base.html' %}
 {% block contenido %}
-<link rel="stylesheet" href="{{url_for('static',filename='css/estiloDescripcion.css')}}">
-<div class="parrafo">
-    <H1>
-        Detalles del pedido
-    </H1>
-    <form>
-        <img src=".\..\static\img\playeraISC.jpg" width="10%" height="10%"><br>
-        <!--<label for="idDetalle">idDetalle: 0001</label><br>-->
-        <label for="idPedido">Pedido: 0001</label><br>
-        <label for="idProducto">Producto: playera0001</label><br>
-        <label for="precio">precio: 599.00</label><br>
-        <label for="cantidadPedida">Cantidad pedida: 1</label><br>
-        <label for="cantidadEnviada">Cantidad enviada: 1</label><br>
-        <label for="cantidadAceptada">Cantidad Aceptada: 1</label><br>
-        <label for="cantidadRechazada">Cantidad rechazada: 0</label><br>
-        <label for="subtotal">subtotal: 599.00</label><br>
-        <label for="status">Estatus: Finalizada</label><br>
-        <label for="comentario">Comentario: El producto llegó antes de lo esperado!</label><br>
-        <button type="submit" class="btn-enviar"><a href="/tarjeta">Pagar</a></button>
+
+<div>
+    <h1 class="bg-primary bg-lg text-center">Confirmar Pedido</h1>
+    <form action="/Pedidos/verPedidos" method="post" enctype="multipart/form-data" id="formulario-tarjeta" class="formulario-tarjeta" style=background-color:#FBEEE6>
+        <div class="form-group">
+            <label>ID Producto:</label>
+            {% for usu in usuarios %}
+            {% for carrito in carritos %}
+            {% if carrito.idUsuario==pedidos.idUsuario %}
+            <input type="number" value="{{carrito.idProducto}}" name="idUsuario" readonly class="form-control">
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            <label>Total: </label>
+            <input type="number" value="{{pedido.total}}" name="total">
+        </div>
+
+        <div class="form-group">
+            <label>Cantidad Pedida: {{carrito.cantidad}}</label>
+            {% for usu in usuarios %}
+            {% for carrito in carritos %}
+            {% if carrito.idUsuario==pedidos.idUsuario %}
+            <input type="text" value="{{carrito.cantidad}}" name="cantidad">
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label>Cantidad Enviada: </label>
+            {% for usu in usuarios %}
+            {% for carrito in carritos %}
+            {% if carrito.idUsuario==pedido.idUsuario %}
+            <input type="text" value="{{carrito.cantidad}}" name="enviada">
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label>Cantidad Aceptada: </label>
+            <input type="number" value="" name="aceptada">
+        </div>
+        <div class="form-group">
+            <label>Cantidad Rechazada: </label>
+            <input type="number" value="" name="rechazada">
+        </div>
+        <div class="form-group">
+            <label>SubTotal: {{pedido.total}}</label>
+            <input type="number" value="{{pedido.total}}" name="total">
+        </div>
+        <div class="form-group">
+            <label>Total: {{pedido.total}}</label>
+            <input type="number" value="{{pedido.total}}" name="total">
+        </div>
+        <div class="form-group">
+            <label>Comentario: </label>
+            <input type="text" value="" name="comemtario">
+        </div>
     </form>
-    </div>
+</div>
+<script src="{{url_for('static',filename='js/jsproductos.js')}}"></script>
 {% endblock %}

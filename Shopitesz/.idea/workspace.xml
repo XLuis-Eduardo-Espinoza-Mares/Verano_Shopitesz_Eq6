@@ -9,21 +9,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/Tarjeta/Edictar.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="20" selection-start-column="20" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="177" column="36" lean-forward="true" selection-start-line="177" selection-start-column="36" selection-end-line="177" selection-end-column="36" />
+            <state relative-caret-position="153">
+              <caret line="9" column="80" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="80" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -31,53 +22,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modelo/Dao.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/js/productos.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="243" lean-forward="true" selection-start-line="243" selection-end-line="243" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/carrito/Vercarrito.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="167" selection-start-line="5" selection-start-column="167" selection-end-line="5" selection-end-column="167" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/productos/nuevoProducto.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="37" column="14" lean-forward="true" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
-              <folding>
-                <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/productos/editarProductos.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="75" column="12" selection-start-line="75" selection-start-column="12" selection-end-line="77" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/jsproductos.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+            <state relative-caret-position="298">
+              <caret line="109" column="48" selection-start-line="109" selection-start-column="48" selection-end-line="109" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -95,15 +44,6 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>pedid</find>
-      <find>producto</find>
-      <find>carrito</find>
-      <find>usu</find>
-      <find>cate</find>
-      <find>cantidad</find>
-      <find>current</find>
-      <find>Tarjeta</find>
-      <find>pedidos</find>
-      <find>categoria</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -134,35 +74,36 @@
         <option value="$PROJECT_DIR$/static/css/estiloTicket.css" />
         <option value="$PROJECT_DIR$/templates/main.html" />
         <option value="$PROJECT_DIR$/templates/pedidos/pagPedidos.html" />
+        <option value="$PROJECT_DIR$/modelo/Dao.py" />
         <option value="$USER_HOME$/Downloads/Navegacion con tabs/Navegacion con tabs/index.html" />
         <option value="$PROJECT_DIR$/static/css/estilo.css" />
         <option value="$PROJECT_DIR$/static/css/estiloPrincipal.css" />
         <option value="$PROJECT_DIR$/templates/principal.html" />
+        <option value="$PROJECT_DIR$/templates/comunes/base.html" />
         <option value="$PROJECT_DIR$/templates/usuarios/registrarCuenta.html" />
+        <option value="$PROJECT_DIR$/templates/productos/consultaGeneral.html" />
         <option value="$PROJECT_DIR$/templates/usuarios/login.html" />
         <option value="$PROJECT_DIR$/templates/Tarjeta/tarjetaregistrada.html" />
         <option value="$PROJECT_DIR$/templates/Tarjeta/registrartarjeta.html" />
         <option value="$PROJECT_DIR$/templates/Tarjeta/consultaTarjeta.html" />
         <option value="$PROJECT_DIR$/templates/Tarjeta/errores.html" />
         <option value="$PROJECT_DIR$/templates/Tarjeta/registrarTarjeta.html" />
-        <option value="$PROJECT_DIR$/templates/Tarjeta/Tarjeta.html" />
         <option value="$PROJECT_DIR$/templates/Tarjeta/Edictar.html" />
-        <option value="$PROJECT_DIR$/templates/comunes/base.html" />
-        <option value="$PROJECT_DIR$/templates/carrito/compra.html" />
-        <option value="$PROJECT_DIR$/templates/productos/nuevoProducto.html" />
-        <option value="$PROJECT_DIR$/static/js/jsproductos.js" />
-        <option value="$PROJECT_DIR$/templates/productos/consultaGeneral.html" />
-        <option value="$PROJECT_DIR$/modelo/Dao.py" />
-        <option value="$PROJECT_DIR$/templates/carrito/Vercarrito.html" />
+        <option value="$PROJECT_DIR$/templates/usuarios/consultaGeneral.html" />
+        <option value="$PROJECT_DIR$/templates/Tarjeta/Tarjeta.html" />
+        <option value="$PROJECT_DIR$/templates/usuarios/Editar.html" />
+        <option value="$PROJECT_DIR$/templates/Envios/envios.html" />
+        <option value="$PROJECT_DIR$/templates/Paqueterias/paqueteria.html" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/static/js/productos.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="635" />
-    <option name="y" value="93" />
-    <option name="width" value="699" />
-    <option name="height" value="744" />
+    <option name="x" value="-215" />
+    <option name="y" value="227" />
+    <option name="width" value="813" />
+    <option name="height" value="596" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -170,6 +111,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,64 +122,28 @@
             <path>
               <item name="Shopitesz" type="b2602c69:ProjectViewProjectNode" />
               <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
-              <item name="modelo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Shopitesz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Shopitesz" type="b2602c69:ProjectViewProjectNode" />
               <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Shopitesz" type="b2602c69:ProjectViewProjectNode" />
               <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="carrito" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Shopitesz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="comunes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Shopitesz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="pedidos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Shopitesz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="productos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Shopitesz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="Tarjeta" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Shopitesz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="usuarios" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Verano_Shopitesz_Eq7-main (1)/Verano_Shopitesz_Eq7-main" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Documentos/GitHub/Verano_Shopitesz_Eq6/Shopitesz" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -269,7 +175,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\ESPINOZA\PycharmProjects\Proyecto\venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\aj915\OneDrive\Documentos\GitHub\Verano_Shopitesz_Eq6\Shopitesz\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -315,7 +221,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24851191" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21726191" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -334,7 +240,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25744048" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21726191" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -354,6 +260,8 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/static/js/main.js" />
+    <entry file="file://$PROJECT_DIR$/templates/index.html" />
     <entry file="file://$PROJECT_DIR$/static/js/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -378,20 +286,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/productos/ProductosDescripcion/CAMISAANDROID.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="93" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/productos/ProductosDescripcion/CAMISAGAMER.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/productos/ProductosDescripcion/CAMISAANDROID.html" />
+    <entry file="file://$PROJECT_DIR$/templates/productos/ProductosDescripcion/CAMISAGAMER.html" />
     <entry file="file://$PROJECT_DIR$/static/css/estiloDescripcion.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -417,10 +313,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/productos/ProductosDescripcion/CAMISACARRERA.html">
+    <entry file="file://$PROJECT_DIR$/templates/productos/ProductosDescripcion/CAMISACARRERA.html" />
+    <entry file="file://$PROJECT_DIR$/templates/pedidos/pagPedidos.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="93" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="93" />
+        <state relative-caret-position="170">
+          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pedidos/pagDetallesPedidos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -444,7 +348,41 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/usuarios/edictar.html" />
-    <entry file="file://$PROJECT_DIR$/templates/categorias/ConsultaCategoría.html">
+    <entry file="file://$PROJECT_DIR$/templates/Categorias/ConsultaCategoría.html" />
+    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/Ticket.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1398" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/pedido.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/comunes/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1423">
+          <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Categorias/consultaGeneral.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/tarjetaregistrada.html" />
+    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/consultaTarjeta.html" />
+    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/errores.html" />
+    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/registrartarjeta.html" />
+    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/Edictar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/usuarios/VerPerfil.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/principal.html">
@@ -454,54 +392,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/Ticket.html">
+    <entry file="file://$PROJECT_DIR$/templates/usuarios/consultaGeneral.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1398" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/pedido.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/usuarios/VerPerfil.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/productos/Editar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2409" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/productos/Insertar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-403" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/categorias/consultaGeneral.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/tarjetaregistrada.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/consultaTarjeta.html" />
-    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/errores.html" />
-    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/Tarjeta.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/usuarios/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+        <state relative-caret-position="189">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
@@ -512,129 +406,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/usuarios/consultaGeneral.html">
+    <entry file="file://$PROJECT_DIR$/templates/usuarios/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="29" column="42" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="43" />
+        <state relative-caret-position="153">
+          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/registrartarjeta.html">
+    <entry file="file://$PROJECT_DIR$/templates/productos/Editar.html" />
+    <entry file="file://$PROJECT_DIR$/templates/productos/ConsultaProducto.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/productos/Insertar.html" />
+    <entry file="file://$PROJECT_DIR$/templates/productos/consultaGeneral.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="52" column="65" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
+        <state relative-caret-position="-80">
+          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/Tarjeta.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="976">
+          <caret line="71" column="12" lean-forward="true" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/usuarios/Editar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="49" column="18" lean-forward="true" selection-start-line="2" selection-end-line="51" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/comunes/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="72" column="26" lean-forward="true" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pedidos/pagDetallesPedidos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pedidos/pagPedidos.html">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+          <caret line="10" column="113" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="114" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pedidos/consultaGeneral.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-471" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/productos/ConsultaProducto.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/jsproductos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/carrito/compra.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="43" column="60" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/productos/nuevoProducto.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="37" column="14" lean-forward="true" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/productos/editarProductos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="75" column="12" selection-start-line="75" selection-start-column="12" selection-end-line="77" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/productos/consultaGeneral.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/templates/Prueba.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/modelo/Dao.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="243" lean-forward="true" selection-start-line="243" selection-end-line="243" />
+        <state relative-caret-position="119">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Tarjeta/Edictar.html">
+    <entry file="file://$PROJECT_DIR$/templates/Paqueterias/paqueteria.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" selection-start-column="20" selection-end-column="20" />
+        <state relative-caret-position="5">
+          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/carrito/Vercarrito.html">
+    <entry file="file://$PROJECT_DIR$/templates/Envios/envios.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="167" selection-start-line="5" selection-start-column="167" selection-end-line="5" selection-end-column="167" />
+        <state relative-caret-position="170">
+          <caret line="10" column="55" lean-forward="true" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#section#0;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="177" column="36" lean-forward="true" selection-start-line="177" selection-start-column="36" selection-end-line="177" selection-end-column="36" />
+        <state relative-caret-position="153">
+          <caret line="9" column="80" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="80" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/productos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="109" column="48" selection-start-line="109" selection-start-column="48" selection-end-line="109" selection-end-column="48" />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,45 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+
+<div>
+    <h1 class="bg-primary text-center">Envios</h1>
+
+    <a href="/Paqueterias/nueva" class="btn btn-success">
+         <span class="glyphicon glyphicon-plus-sign"></span>
+        Agregar Envio
+    </a>
+
+    <table class="table table-bordered" style=background-color:#FBEEE6>
+        <th>ID</th>
+        <th>idPedido</th>
+
+        <th>idPaqueteria</th>
+
+        <th>fechaEnvio</th>
+
+        <th>fechaEntrega</th>
+
+        <th>noGuia</th>
+
+        <th>pesoPaquete</th>
+        <th>precioGr</th>
+        <th>totalPagar</th>
+        <th>estatus</th>
+
+        {% for env in envios %}
+            <tr>
+                <td>{{env.idEnvio}}</td>
+                <td>{{env.idPedido}}</td>
+                    <td>{{env.idPaqueteria}}</td>
+                    <td>{{env.fechaEnvio}}</td>
+                    <td>{{env.fechaEntrega}}</td>
+                    <td>{{env.noGuia}}</td>
+                    <th>{{env.pesoPaquete}}</th>
+                    <th>{{env.precioGr}}</th>
+                    <th>{{env.totalPagar}}</th>
+                    <th>{{env.estatus}}</th>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

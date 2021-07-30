@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>envios</title>
+</head>
+<body>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../image/favicon.ico">
+
+    <title>Envios</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="../css/carousel.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+       $("#Formulario").submit(function( event ){
+		event.preventDefault();
+
+		$.ajax({
+			type: 'POST',
+			url: '../php/contacto2.php',
+			data: $(this).serialize(),
+			success: function(data){
+				$("#respuesta").slideDown();
+				$("#respuesta").html(data);
+                $('#respuesta2').modal('show');
+                document.getElementById('Formulario').reset();
+			}
+		});
+
+		return false;
+	});
+});
+    </script>
+  </head>
+<body>
+
+<!-- Content -->
+<section>
+    <div class="container">
+        <div class="container">
+            <h4>Shopitesz Envios</h4>
+            <div class="container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d7889.40621095499!2d-70.23299216136742!3d8.624475075086659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m0!4m3!3m2!1d8.626995899999999!2d-70.2301559!5e0!3m2!1ses-419!2sve!4v1456756695234" style="border:0" allowfullscreen="" frameborder="0" height="250" width="100%"></iframe>
+            </div>
+            <strong>Contactenos</strong><br><strong>Oficina de Shopitesz:</strong> 3513100666
+            <hr>
+        </div>
+        <div class="container">
+            <form role="form" id="Formulario" action="../php/contacto2.php" method="POST">
+                <div class="form-group">
+                    <label class="control-label" for="Nombre">ID Envios</label>
+                    <input type="text" class="form-control" id="Nombre1" name="Nombre" placeholder="ID" required autofocus />
+               </div>
+
+                <div>
+              <label class="control-label" for="Nombre">ID PEDIDO</label>
+                    <input type="text" class="form-control" id="Nombre2" name="Nombre" placeholder="ID" required autofocus />
+
+
+          <label class="control-label" for="Nombre">ID PAQUETERIA</label>
+                    <input type="text" class="form-control" id="Nombr3" name="Nombre" placeholder="ID" required autofocus />
+
+           </div>
+      <label for="start">FECHA ENVIO:</label>
+
+<input type="date" id="start1" name="trip-start"
+       value="2021-12-01"
+       min="2023-01-01" max="2023-12-31">
+
+          <label for="start">FECHA ENTREGA:</label>
+
+<input type="date" id="start" name="trip-start"
+       value="2021-01-01"
+       min="2023-01-01" max="2023-12-31">
+
+
+
+
+  <div class="form-group">
+                    <label class="control-label" for="Mensaje">NO.GUIA</label>
+                    <textarea rows="5" cols="30" class="form-control" id="Mensaje" name="Mensaje" placeholder="Introduzca su mensaje" required ></textarea>
+                </div>
+
+  <label class="control-label" for="Nombre">PESO DEL PAQUETE</label>
+                    <input type="text" class="form-control" id="Nombre4" name="Nombre" placeholder="Introduzca su nombre" required autofocus />
+                </div>
+
+
+           <label class="control-label" for="Nombre">PRECIO POR GRAMO</label>
+                    <input type="text" class="form-control" id="Nombre5" name="Nombre" placeholder="Introduzca su nombre" required autofocus />
+                </div>
+
+
+
+ <label class="control-label" for="Nombre">TOTAL DEL PAGO</label>
+                    <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Introduzca su nombre" required autofocus />
+                </div>
+
+
+
+ <label class="control-label" for="Mensaje">ESTATUS</label>
+
+<div>
+  <input type="radio" id="huey1" name="drone" value="huey"
+         checked>
+  <label for="huey">ACTIVO</label>
+</div>
+
+<div>
+  <input type="radio" id="huey" name="drone" value="huey"
+         checked>
+  <label for="huey">INATIVO</label>
+</div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Enviar">
+                    <input type="reset" class="btn btn-default" value="Limpiar">
+                </div>
+                <div id="respuesta" style="display: none;"></div>
+            </form>
+        </div>
+    </div>
+</section>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../js/jquery.min.js"><\/script>')</script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../js/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
+
+</body>
+</html>
