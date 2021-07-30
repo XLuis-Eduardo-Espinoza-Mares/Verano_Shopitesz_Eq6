@@ -1,0 +1,441 @@
+APP
+#CRUD Pedidos
+@app.route('/Pedidos')
+def consultaPedidos():
+    ped=Pedido()
+    return render_template('pedidos/consultaGeneral.html',pedidos=ped.consultaGeneral())
+
+@app.route('/Pedidos/nueva')
+# @login_required
+def nuevoPedido():
+    # if current_user.is_authenticated and current_user.is_admin():
+            return render_template('pedidos/agregarPedido.html')
+    # else:
+    #     abort(404)
+
+@app.route('/Pedidos/agregar',methods=['post'])
+# @login_required
+def agregarPedido():
+    # try:
+        # if current_user.is_authenticated:
+            # if current_user.is_admin():
+                try:
+                    ped = Pedido()
+                    ped.idPedido = request.form['idPedido']
+                    ped.idComprador = request.form['idComprador']
+                    ped.idVendedor = request.form['idVendedor']
+                    ped.idTarjeta = request.form['idTarjeta']
+                    ped.fechaRegistro = request.form['fechaRegistro']
+                    ped.fechaAtencion = request.form['fechaAtencion']
+                    ped.fechaRecepcion = request.form['fechaRecepcion']
+                    ped.fechaCierre = request.form['fechaCierre']
+                    ped.total = request.form['total']
+                    ped.estatus = request.form['en Proceso']
+                    ped.agregar()
+                    flash('Pedido realizado con exito')
+                except:
+                    flash('Error al agregar pedido')
+                return redirect(url_for('consultaPedidos'))
+            # else:
+            #     abort(404)
+
+        # else:
+        #     return redirect(url_for('mostrar_login'))
+    # except:
+    #     abort(500)
+@app.route('/Pedidos/<int:id>')
+# @login_required
+def consultarPedido(id):
+    # if current_user.is_authenticated and current_user.is_admin():
+        ped=Pedido()
+        return render_template('pedidos/editarPedido.html',ped=ped.consultaIndividuall(id))
+    # else:
+    #     return redirect(url_for('mostrar_login'))
+@app.route('/Pedidos/editar',methods=['POST'])
+# @login_required
+def editarPedido():
+    # if current_user.is_authenticated and current_user.is_admin():
+        try:
+            ped=Pedido()
+            ped.idPedido=request.form['idPedido']
+            ped.idComprador = request.form['idComprador']
+            ped.idVendedor = request.form['idVendedor']
+            ped.idTarjeta = request.form['idTarjeta']
+            ped.fechaRegistro = request.form['fechaRegistro']
+            ped.fechaAtencion = request.form['fechaAtencion']
+            ped.fechaRecepcion = request.form['fechaRecepcion']
+            ped.fechaCierre = request.form['fechaCierre']
+            ped.total = request.form['total']
+            ped.estatus=request.values.get("estatus","Archivado")
+            ped.editar()
+            flash('Pedido editado con exito')
+        except:
+            flash('Error al editar el Pedido')
+
+        return redirect(url_for('consultaPedidos'))
+    # else:
+    #     return redirect(url_for('mostrar_login'))
+@app.route('/Pedidos/eliminar/<int:id>')
+# @login_required
+def eliminarPedido(id):
+    # if current_user.is_authenticated and current_user.is_admin():
+        try:
+            pedido=Pedido()
+            pedido.eliminar(id)
+            # pedido.eliminacionLogica(id)
+            flash('Pedido eliminado con exito')
+        except:
+            flash('Error al eliminar el Pedido')
+        return redirect(url_for('consultaPedidos'))
+    # else:
+    #     return redirect(url_for('mostrar_login'))
+#FIN Pedidos
+
+
+#CRUD detallePedido
+@app.route('/detallePedido')
+def consultaDetallePedidos():
+    det=DetallePedido()
+    return render_template('detallesPedidos/consultaGeneral.html',detalles=det.consultaGeneral())
+@app.route('/detallePedido/nueva')
+# @login_required
+def nuevoDetalle():
+    # if current_user.is_authenticated and current_user.is_admin():
+            return render_template('detallesPedidos/agregarDetalle.html')
+    # else:
+    #     abort(404)
+@app.route('/detallePedido/agregar',methods=['post'])
+# @login_required
+def agregarDetalle():
+    # try:
+        # if current_user.is_authenticated:
+            # if current_user.is_admin():
+                try:
+                    det = DetallePedido()
+                    det.idDetalle = request.form['idDetalle']
+                    det.idPedido = request.form['idPedido']
+                    det.idProducto = request.form['idProducto']
+                    det.precio = request.form['precio']
+                    det.cantidadPedida = request.form['cantidadPedida']
+                    det.cantidadEnviada = request.form['cantidadEnviada']
+                    det.cantidadAceptada = request.form['cantidadAceptada']
+                    det.cantidadRechazada = request.form['cantidadRechazada']
+                    det.subtotal = request.form['subtotal']
+                    det.estatus = request.form['en Proceso']
+                    det.comentario = request.form['comentario']
+                    det.agregar()
+                    flash('Detalles del pedido agregados con exito')
+                except:
+                    flash('Error al agregar los detalles del pedido')
+                return redirect(url_for('consultaDetallePedidos'))
+            # else:
+            #     abort(404)
+
+        # else:
+        #     return redirect(url_for('mostrar_login'))
+    # except:
+    #     abort(500)
+@app.route('/detallePedido/<int:id>')
+# @login_required
+def consultarDetallePedido(id):
+    # if current_user.is_authenticated and current_user.is_admin():
+        det=DetallePedido()
+        return render_template('detallesPedidos/editarDetallePedido.html',det=det.consultaIndividuall(id))
+    # else:
+    #     return redirect(url_for('mostrar_login'))
+@app.route('/detallePedido/editar',methods=['POST'])
+# @login_required
+def editarDetallePedido():
+    # if current_user.is_authenticated and current_user.is_admin():
+        try:
+            det=DetallePedido()
+            det.idDetalle=request.form['idDetalle']
+            det.idPedido=request.form['idPedido']
+            det.idProducto = request.form['idProducto']
+            det.precio = request.form['precio']
+            det.cantidadPedida = request.form['cantidadPedida']
+            det.cantidadEnviada = request.form['cantidadEnviada']
+            det.cantidadAceptada = request.form['cantidadAceptada']
+            det.cantidadRechazada = request.form['cantidadRechazada']
+            det.subtotal = request.form['subtotal']
+            det.estatus=request.values.get("estatus","Archivado")
+            det.comentario = request.form['comentario']
+            det.editar()
+            flash('Detalles del Pedido editados con exito')
+        except:
+            flash('Error al editar los Detalles del Pedido')
+
+        return redirect(url_for('consultaDetallePedidos'))
+    # else:
+    #     return redirect(url_for('mostrar_login'))
+
+@app.route('/detallePedido/eliminar/<int:id>')
+# @login_required
+def eliminarDetalle(id):
+    # if current_user.is_authenticated and current_user.is_admin():
+        try:
+            detalle=DetallePedido()
+            detalle.eliminar(id)
+            # detalle.eliminacionLogica(id)
+            flash('Detalles del Pedido eliminados con exito')
+        except:
+            flash('Error al eliminar los Detalles del Pedido')
+        return redirect(url_for('consultaDetallePedidos'))
+    # else:
+    #     return redirect(url_for('mostrar_login'))
+
+#Fin CRUD DetallePedido
+
+
+DAO
+class Pedido(db.Model):
+    __tablename__='Pedidos'
+    idPedido = Column(Integer, primary_key=True)
+    idComprador = Column(Integer, ForeignKey('Usuarios.idUsuario'))
+    idVendedor = Column(Integer, ForeignKey('Usuarios.idUsuario'))
+    idTarjeta = Column(Integer, ForeignKey('Tarjetas.idTarjeta'))
+    fechaRegistro =Column(String,nullable=False)
+    fechaAtencion =Column(String,nullable=False)
+    fechaRecepcion =Column(String,nullable=False)
+    fechaCierre =Column(String,nullable=False)
+    total =Column(Float,nullable=False)
+    estatus =Column(String,nullable=False)
+    def consultaGeneral(self):
+        return self.query.all()
+        #return self.query.filter(Categoria.estatus=='Activa').all()
+    def consultaIndividuall(self,id):
+        return Pedido.query.get(id)
+    def agregar(self):
+        db.session.add(self)
+        db.session.commit()
+    def editar(self):
+        db.session.merge(self)
+        db.session.commit()
+    def eliminar(self, id):
+        ped = self.consultaIndividuall(id)
+        db.session.delete(ped)
+        db.session.commit()
+    def eliminacionLogica(self, id):
+        ped = self.consultaIndividuall(id)
+        ped.estatus = 'Finalizado'
+        ped.editar()
+
+
+class DetallePedido(db.Model):
+    __tablename__ = 'detallePedidos'
+    idDetalle = Column(Integer,primary_key=True)
+    idPedido = Column(Integer, ForeignKey('Pedidos.idPedido'))
+    idProducto = Column(Integer, ForeignKey('Productos.idProducto'))
+    precio = Column(Float, nullable=False)
+    cantidadPedida= Column(Integer, nullable=False)
+    cantidadEnviada = Column(Integer, nullable=False)
+    cantidadAceptada = Column(Integer, nullable=False)
+    cantidadRechazada = Column(Integer, nullable=False)
+    subtotal = Column(Float, nullable=False)
+    estatus = Column(String, nullable=False)
+    comentario=Column(String,nullable=False)
+    pedido = relationship('Pedido', backref='DetallePedidos', lazy='select')
+    def consultaGeneral(self):
+        return self.query.all()
+        #return self.query.filter(Categoria.estatus=='Activa').all()
+    def consultaIndividuall(self,id):
+        return DetallePedido.query.get(id)
+    def agregar(self):
+        db.session.add(self)
+        db.session.commit()
+    def editar(self):
+        db.session.merge(self)
+        db.session.commit()
+    def eliminar(self,id):
+        det=self.consultaIndividuall(id)
+        db.session.delete(det)
+        db.session.commit()
+    def eliminacionLogica(self,id):
+        det = self.consultaIndividuall(id)
+        det.estatus='Archivada'
+        det.editar()
+        
+        
+HTML editarDetallePedido        
+ {% extends 'comunes/base.html' %}
+{% block contenido %}
+<div>
+    <h1 class="bg-primary bg-lg text-center">Edición de Detalles del Pedido</h1>
+    <form action="/detallePedido/editar" method="post" enctype="multipart/form-data" style=background-color:#FBEEE6>
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="number" name="idDetalle" value="{{det.idDetalle}}" readonly class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="idPe">IDcomprador:</label>
+            <input type="number" name="idPedido" value="{{det.idPedido}}" readonly class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="idPr">IDvendedor:</label>
+            <input type="number" name="idProducto" value="{{det.idProducto}}" readonly class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="precio">Precio:</label>
+            <input type="float" name="precio" required maxlength="60" placeholder="Precio" class="form-control" value="{{det.precio}}">
+        </div>
+        <div class="form-group">
+            <label for="cantPe">Cantidad Pedida:</label>
+            <input type="number" name="cantidadPedida" required maxlength="60" placeholder="Cantidad Pedida" class="form-control" value="{{det.cantidadPedida}}">
+        </div>
+        <div class="form-group">
+            <label for="cantEn">cantidad Enviada:</label>
+            <input type="number" name="cantidadEnviada" required maxlength="60" placeholder="cantidad Enviada" class="form-control" value="{{det.cantidadEnviada}}">
+        </div>
+        <div class="form-group">
+            <label for="cantAc">Cantidad Aceptada:</label>
+            <input type="number" name="cantidadAceptada" required maxlength="60" placeholder="Cantidad Aceptada" class="form-control" value="{{det.cantidadAceptada}}">
+        </div>
+        <div class="form-group">
+            <label for="cantRe">Cantidad Rechazada:</label>
+            <input type="number" name="cantidadRechazada" required maxlength="60" placeholder="Cantidad Rechazada" class="form-control" value="{{det.cantidadRechazada}}">
+        </div>
+        <div class="form-group">
+            <label for="subtotal">Subtotal:</label>
+            <input type="float" name="subtotal" required maxlength="60" placeholder="Subtotal" class="form-control" value="{{det.subtotal}}">
+        </div>
+        <div class="form-control">
+            <label for="estatus">Estatus:</label>
+            {% if det.estatus=='Finalizado' %}
+                <input type="checkbox" name="estatus" value="en Proceso" checked>
+            {% else %}
+                <input type="checkbox" name="estatus" value="en Proceso">
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="comentario">Comentario:</label>
+            <input type="text" name="comentario" required maxlength="300" placeholder="Comentario" class="form-control" value="{{det.comentario}}">
+        </div>
+
+
+            <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+                Guardar
+            </button>
+            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#borrar">
+                <span class="glyphicon glyphicon-trash"></span>
+                Eliminar
+            </a>
+            <a href="/detallePedido" class="btn btn-info">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                Cancelar
+            </a>
+    </form>
+ <!-- Modal para ver el cuadro de dialogo de eliminar-->
+<div id="borrar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Eliminación de Detalles del Pedido</h4>
+      </div>
+      <div class="modal-body">
+        <p>¿ Estas seguro de eliminar los detalles de este pedido:<b>{{det.idDetalle}} ?</b> </p>
+      </div>
+      <div class="modal-footer">
+          <a class="btn btn-primary" href="/Detalle/eliminar/{{det.idDetalle}}">Aceptar</a>
+          <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+{% endblock %}
+
+
+
+HTML editar Pedido
+% extends 'comunes/base.html' %}
+{% block contenido %}
+<div>
+    <h1 class="bg-primary bg-lg text-center">Edición de Pedidos</h1>
+    <form action="/Pedidos/editar" method="post" enctype="multipart/form-data" style=background-color:#FBEEE6>
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="number" name="idPedido" value="{{ped.idPedido}}" readonly class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="idC">IDcomprador:</label>
+            <input type="number" name="idComprador" value="{{ped.idComprador}}" readonly class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="idV">IDvendedor:</label>
+            <input type="number" name="idVendedor" value="{{ped.idVendedor}}" readonly class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="idT">IDtarjeta:</label>
+            <input type="number" name="idTarjeta" value="{{ped.idTarjeta}}" readonly class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="fechaReg">Fecha de Registro:</label>
+            <input type="text" name="fechaRegistro" required maxlength="60" placeholder="Fecha de registro" class="form-control" value="{{ped.fechaRegistro}}">
+        </div>
+        <div class="form-group">
+            <label for="fechaAte">Fecha de Atencion:</label>
+            <input type="text" name="fechaAtencion" required maxlength="60" placeholder="Fecha de Atencion" class="form-control" value="{{ped.fechaAtencion}}">
+        </div>
+        <div class="form-group">
+            <label for="fechaRec">Fecha de Recepcion:</label>
+            <input type="text" name="fechaRecepcion" required maxlength="60" placeholder="Fecha de Recepcion" class="form-control" value="{{ped.fechaRecepcion}}">
+        </div>
+        <div class="form-group">
+            <label for="fechaCie">Fecha de Cierre:</label>
+            <input type="text" name="fechaCierre" required maxlength="60" placeholder="Fecha de Cierre" class="form-control" value="{{ped.fechaCierre}}">
+        </div>
+        <div class="form-group">
+            <label for="total">Total:</label>
+            <input type="float" name="total" required maxlength="60" placeholder="Total" class="form-control" value="{{ped.total}}">
+        </div>
+        <div class="form-control">
+            <label for="estatus">Estatus:</label>
+            {% if ped.estatus=='Finalizado' %}
+                <input type="checkbox" name="estatus" value="en Proceso" checked>
+            {% else %}
+                <input type="checkbox" name="estatus" value="en Proceso">
+            {% endif %}
+        </div>
+            <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+                Guardar
+            </button>
+            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#borrar">
+                <span class="glyphicon glyphicon-trash"></span>
+                Eliminar
+            </a>
+            <a href="/Pedidos" class="btn btn-info">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                Cancelar
+            </a>
+    </form>
+ <!-- Modal para ver el cuadro de dialogo de eliminar-->
+<div id="borrar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Eliminación de Pedidos</h4>
+      </div>
+      <div class="modal-body">
+        <p>¿ Estas seguro de eliminar este pedido:<b>{{ped.idPedido}} ?</b> </p>
+      </div>
+      <div class="modal-footer">
+          <a class="btn btn-primary" href="/Pedidos/eliminar/{{ped.idPedido}}">Aceptar</a>
+          <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+{% endblock %}
