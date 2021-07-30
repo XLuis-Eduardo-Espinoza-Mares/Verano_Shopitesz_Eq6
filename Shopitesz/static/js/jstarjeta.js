@@ -59,7 +59,7 @@ formulario.inputNumero.addEventListener('keyup', (e) => {
 	.trim();
 
 	numeroTarjeta.textContent = valorInput;
-
+    document.getElementById("noTarteja").value=valorInput
 	if(valorInput == ''){
 		numeroTarjeta.textContent = '#### #### #### ####';
 
@@ -82,6 +82,18 @@ formulario.inputNumero.addEventListener('keyup', (e) => {
 	mostrarFrente();
 });
 
+// * Input de saldo
+formulario.inputSaldo.addEventListener('keyup', (e) => {
+	let valorInput = e.target.value;
+	formulario.inputSaldo.value = valorInput
+	// Eliminamos espacios en blanco
+	.replace(/\s/g, '')
+	// Eliminar las letras
+	.replace(/\D/g, '')
+
+    document.getElementById("saldo").value=valorInput
+
+});
 // * Input nombre de tarjeta
 formulario.inputNombre.addEventListener('keyup', (e) => {
 	let valorInput = e.target.value;
@@ -89,7 +101,7 @@ formulario.inputNombre.addEventListener('keyup', (e) => {
 	formulario.inputNombre.value = valorInput.replace(/[0-9]/g, '');
 	nombreTarjeta.textContent = valorInput;
 	firma.textContent = valorInput;
-
+    document.getElementById("NombrePersona").value=valorInput;
 	if(valorInput == ''){
 		nombreTarjeta.textContent = 'Jhon Doe';
 	}
@@ -100,13 +112,20 @@ formulario.inputNombre.addEventListener('keyup', (e) => {
 // * Select mes
 formulario.selectMes.addEventListener('change', (e) => {
 	mesExpiracion.textContent = e.target.value;
+	document.getElementById("mes").value=e.target.value;
 	mostrarFrente();
 });
 
 // * Select Año
 formulario.selectYear.addEventListener('change', (e) => {
 	yearExpiracion.textContent = e.target.value.slice(2);
+	document.getElementById("año").value=e.target.value;
 	mostrarFrente();
+});
+
+// * Select Banco
+formulario.selectBanco.addEventListener('change', (e) => {
+	document.getElementById("NombreTarjeta").value=e.target.value;
 });
 
 // * CCV
@@ -122,4 +141,5 @@ formulario.inputCCV.addEventListener('keyup', () => {
 	.replace(/\D/g, '');
 
 	ccv.textContent = formulario.inputCCV.value;
+	document.getElementById("CCCV").value=inputCCV.value;
 });
