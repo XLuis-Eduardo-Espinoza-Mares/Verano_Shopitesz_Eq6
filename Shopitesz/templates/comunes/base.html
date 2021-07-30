@@ -22,12 +22,12 @@
           </li>
             {% if current_user.is_authenticated and current_user.is_vendedor() %}
           <li class="nav-menu-item">
-            <a href="/categorias" class="nav-menu-link nav-link">Categorias</a>
+            <a href="/Categorias" class="nav-menu-link nav-link">Categorias</a>
           </li>
             {% endif %}
             {% if current_user.is_authenticated and current_user.is_admin() %}
           <li class="nav-menu-item">
-            <a href="/categorias" class="nav-menu-link nav-link">Categorias</a>
+            <a href="/Categorias" class="nav-menu-link nav-link">Categorias</a>
           </li>
             {% endif %}
           <li class="nav-menu-item">
@@ -40,24 +40,12 @@
             </a>
           </li>
           <li class="nav-menu-item">
-            <img src="{{url_for('static',filename='img/cart4.svg')}}" class="nav-link dropdown-toggle img-fluid nav-menu-link nav-link op" height="70px" width="70px" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></img>
-                                <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
-                                    <table id="lista-carrito" class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Imagen</th>
-                                                <th>Nombre</th>
-                                                <th>Precio</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody></tbody>
-                                    </table>
+              {% if current_user.is_authenticated and current_user.is_comprador() %}
+              <a href="/Todocarritos" class="nav-menu-link nav-link">
+                  {% endif %}
+              <img src="{{url_for('static',filename='img/cart4.svg')}}" class="op" alt="Bootstrap" width="45" height="45"></img>
 
-                                    <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
-                                    <a href="/compra" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
-                                        Compra</a>
-                                </div>
+            </a>
           </li>
             {% if current_user.is_authenticated and current_user.is_vendedor() %}
                 <li class="nav-menu-item">
@@ -66,6 +54,7 @@
                         <div id="Usuario" class="dropdown-menu" aria-labelledby="navbarCollapse">
                                     <a href="/Usuarios/verPerfil" id="verPerfil" class="btn btn-primary btn-block">Ver Perfil</a>
                                     <a href="/Usuarios/Editar" id="EditarPerfil" class="btn btn-primary btn-block">Editar Perfil</a>
+                                    <a href="/ConsultaTarjeta" id="Tarjetas" class="btn btn-primary btn-block">Ver Tarjetas</a>
                                     <a href="/Usuarios/cerrarSesion" id="CerrarSecion" class="btn btn-danger btn-block">Cerrar Secion</a>
                                 </div>
                     </div>
@@ -78,6 +67,7 @@
                         <div id="CUsuario" class="dropdown-menu" aria-labelledby="navbarCollapse">
                                     <a href="/Usuarios/verPerfil" id="CverPerfil" class="btn btn-primary btn-block">Ver Perfil</a>
                                     <a href="/Usuarios/Editar" id="CEditarPerfil" class="btn btn-primary btn-block">Editar Perfil</a>
+                            <a href="/ConsultaTarjeta" id="CTarjetas" class="btn btn-primary btn-block">Ver Tarjetas</a>
                                     <a href="/Usuarios/cerrarSesion" id="CCerrarSecion" class="btn btn-danger btn-block">Cerrar Secion</a>
                                 </div>
                     </div>
@@ -90,6 +80,7 @@
                         <div id="AUsuario" class="dropdown-menu" aria-labelledby="navbarCollapse">
                             <a href="/Usuarios/verPerfil" id="AverPerfil" class="btn btn-primary btn-block">Ver Perfil</a>
                             <a href="/Usuarios/Editar" id="AEditarPerfil" class="btn btn-primary btn-block">Editar Perfil</a>
+                            <a href="/ConsultaTarjeta" id="ATarjetas" class="btn btn-primary btn-block">Ver Tarjetas</a>
                             <a href="/Usuarios/todos" id="AVerPerfiles" class="btn btn-primary btn-block">Todos los Perfiles</a>
                             <a href="/Usuarios/cerrarSesion" id="ACerrarSecion" class="btn btn-danger btn-block">Cerrar Secion</a>
                         </div>

@@ -4,19 +4,21 @@
     <h1 class="bg-primary bg-lg text-center">Edición de Categorias</h1>
     <form action="/Categorias/editar" method="post" enctype="multipart/form-data" style=background-color:#FBEEE6>
         <div class="form-group">
-            <label for="id">ID:</label>
+            <label>ID:</label>
             <input type="number" name="id" value="{{cat.idCategoria}}" readonly class="form-control">
         </div>
         <div class="form-group">
-            <label for="nombre">Nombre:</label>
+            <label>Nombre:</label>
             <input type="text" name="nombre" required maxlength="60" placeholder="Nombre de Categoria" class="form-control" value="{{cat.nombre}}">
         </div>
         <div class="form-control">
-            <label for="estatus">Estatus:</label>
+            <label>Estatus: {{cat.estatus}}</label>
+            {% if current_user.is_authenticated and current_user.is_admin() %}
             {% if cat.estatus=='Activa' %}
                 <input type="checkbox" name="estatus" value="Activa" checked>
             {% else %}
                 <input type="checkbox" name="estatus" value="Activa">
+            {% endif %}
             {% endif %}
         </div>
         <div class="form-group">
@@ -30,13 +32,15 @@
                 <span class="glyphicon glyphicon-floppy-disk"></span>
                 Guardar
             </button>
+            {% if current_user.is_authenticated and current_user.is_admin() %}
             <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#borrar">
                 <span class="glyphicon glyphicon-trash"></span>
                 Eliminar
             </a>
+            {% endif %}
             <a href="/Categorias" class="btn btn-info">
                 <span class="glyphicon glyphicon-arrow-left"></span>
-                Cancelar
+                Regresar
             </a>
     </form>
     <!-- Modal para ver la imagen-->
@@ -81,7 +85,6 @@
     </div>
 
   </div>
-</div>
 </div>
 
 {% endblock %}

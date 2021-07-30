@@ -1,0 +1,155 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+<div>
+    <h1 class="bg-primary bg-lg text-center">Edición de Productos</h1>
+    <form action="/productos/editar" method="post" enctype="multipart/form-data" id="formulario-tarjeta" class="formulario-tarjeta" style=background-color:#FBEEE6>
+        <div class="form-group">
+            <label>ID:</label>
+            <input type="number" name="id" value="{{prod.idProducto}}" readonly class="form-control">
+        </div>
+        <div>
+            <p>Categoria: </p>
+            <select name="banco" id="selectCategoria">
+            <optgroup label="Categorias">
+                {% for cat in categorias %}
+                    {% if cat.estatus=='Activa' %}
+                    {% if not cat.idCategoria==prod.idCategoria %}
+                    <option name="categoria" value="{{cat.idCategoria}}">{{cat.nombre}}</option>
+                    {% endif %}
+                    {% if cat.idCategoria==prod.idCategoria %}
+                    <option name="categoria" value="{{cat.idCategoria}}" selected>{{cat.nombre}}</option>
+                    {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </optgroup>
+            </select>
+            {% for cat in categorias %}
+            {% if cat.idCategoria==prod.idCategoria %}
+            <input class="controls" type="hidden" name="categoria" id="noTarteja" value="{{cat.idCategoria}}" required>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label>Nombre: {{prod.nombre}}</label>
+            <input type="text" name="nombre" required maxlength="100" placeholder="Nombre Producto" class="form-control" value="{{prod.nombre}}">
+        </div>
+        <div class="form-group">
+            <label>Descripcion: {{prod.descripcion}}</label>
+            <input type="text" name="descripcion" required maxlength="200" placeholder="Descripcion" class="form-control" value="{{prod.descripcion}}">
+        </div>
+        <div class="form-group">
+            <label>Precio: {{prod.precioVenta}}</label>
+            <input type="text" name="precio" required maxlength="60" placeholder="Precio" class="form-control" value="{{prod.precioVenta}}">
+        </div>
+        <div class="form-group">
+            <label>Existencias: {{prod.existencia}}</label>
+            <input type="text" name="existencia" required maxlength="11" placeholder="Existencias" class="form-control" value="{{prod.existencia}}">
+        </div>
+        <div class="form-group">
+            <label>Imagen:</label>
+            <input type="file" name="foto" placeholder="foto del Producto" class="form-control" value="{{prod.foto}}">
+            <a href="#" data-toggle="modal" data-target="#imagen">
+                <span class="glyphicon glyphicon-eye-open"></span>Ver Imagen
+            </a>
+        </div>
+        <div class="form-group">
+            <label>Espesificaciones:</label>
+            <input type="file" name="pdf" placeholder="PDF de Productos" class="form-control" value="{{prod.especificaciones}}">
+            <a href="#" data-toggle="modal" data-target="#pdf">
+                <span class="glyphicon glyphicon-eye-open"></span>Ver PDF
+            </a>
+        </div>
+        <div class="form-group">
+            <label>Estatus: {{prod.estatus}}</label>
+            {% if current_user.is_authenticated and current_user.is_admin() %}
+            {% if prod.estatus=='Activa' %}
+                <input type="checkbox" name="estatus" value="Activa" checked>
+            {% else %}
+                <input type="checkbox" name="estatus" value="Activa">
+            {% endif %}
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+                Guardar
+            </button>
+            <a href="/productos/nuevo" class="btn btn-info">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+                Agregar Producto
+            </a>
+            {% if current_user.is_authenticated and current_user.is_admin() %}
+            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#borrar">
+                <span class="glyphicon glyphicon-trash"></span>
+                Eliminar
+            </a>
+            {% endif %}
+            <a href="/productos" class="btn btn-info">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                Regresar
+            </a>
+    </form>
+    <!-- Modal para ver la imagen-->
+<div id="imagen" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Imagen del Producto: <b>{{prod.nombre}}</b></h4>
+      </div>
+      <div class="modal-body">
+        <img src="/productos/consultarImagen/{{prod.idProducto}}" width="200px" height="150px">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    <div id="pdf" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    #Modal content-
+    <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">PDF del producto: <b>{{prod.nombre}}</b></h4>
+          </div>
+          <div class="modal-body">
+              <object class="pdfview" type="application/pdf" data="/productos/consultarPDF/{{prod.idProducto}}"></object>
+
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          </div>
+      </div>
+  </div>
+    </div>
+</div>
+
+ <!-- Modal para ver el cuadro de dialogo de eliminar-->
+<div id="borrar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Eliminación de Productos</h4>
+      </div>
+      <div class="modal-body">
+        <p>¿ Estas seguro de eliminar el producto:<b>{{prod.nombre}} ?</b> </p>
+      </div>
+      <div class="modal-footer">
+          <a class="btn btn-primary" href="/productos/eliminar/{{prod.idProducto}}">Aceptar</a>
+          <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="{{url_for('static',filename='js/jsproductos.js')}}"></script>
+{% endblock %}

@@ -4,7 +4,6 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static',filename='css/estilo1.css')}}">
 <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
-    <script src="{{url_for('static',filename='js/popper.min.js')}}"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
@@ -14,33 +13,43 @@
             <div class="row mt-3">
                 <div class="col">
                     <h2 class="d-flex justify-content-center mb-3">Realizar Compra</h2>
-                    <form id="procesar-pago" action="#" method="post">
-                        <div class="form-group row">
-                            <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
+                    <form action="" id="formulario-tarjeta" class="formulario-tarjeta">
+                        <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
                             <div class="col-12 col-md-10">
                                 <input type="text" class="form-control" id="cliente"
-                                    placeholder="Ingresa nombre cliente" name="destinatario">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="email" class="col-12 col-md-2 col-form-label h2">Correo :</label>
-                            <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="correo" placeholder="Ingresa tu correo" name="cc_to">
-                            </div>
-                        </div>
+                                    placeholder="Ingresa nombre cliente" name="nombre" value="{{current_user.nombreCompleto}}" readonly>
 
+                            </div>
                         <div id="carrito" class="form-group table-responsive" >
+
                             <table class="table" id="lista-compra" >
                                 <thead>
-                                    <tr>
-                                        <th scope="col">Imagen</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Precio</th>
-                                        <th scope="col">Cantidad</th>
-                                        <th scope="col">Sub Total</th>
-                                        <th scope="col">Eliminar</th>
-                                    </tr>
+                                <tr>
+                                        <td scope="col">cat.idCarrito</td>
+                                        <td scope="col">Nombre</td>
+                                        <td scope="col">Precio</td>
+                                        <td scope="col">Cantidad</td>
+                                        <td scope="col">Sub Total</td>
+                                        <td scope="col">Comprar</td>
+                                        <td scope="col">Eliminar</td>
+                                </tr>
+                                {% for prod in productos %}
+                                {% for car in carritos %}
 
+                                    <tr>
+                                        {% if car.idProducto==prod.idProducto %}
+                                        <td><img src="/productos/consultarImagen/{{prod.idProducto}}" width="100px" height="80px"></td>
+                                        <td>{{prod.nombre}}</td>
+                                        <td>{{prod.precioVenta}}</td>
+                                        <td>{{car.cantidad}}</td>
+
+                                        {% endif %}
+                                        <td id="subtotales"><p id="noTarteja"></p>({{car.cantidad}}*{{prod.precioVenta}})</td>
+                                        <td><a href="/Carrito/verCarrito/ed/{{car.idCarrito}}" class="btn btn-success btn-block" id="procesar-compra">Realizar compra</a></td>
+                                        <td><a href="/carrito/eliminacionfisica/{{car.idCarrito}}" class="borrar-producto fas fa-times-circle"></a></td>
+                                    </tr>
+                                {% endfor %}
+                                {% endfor %}
                                 </thead>
                                 <tbody >
 
@@ -78,9 +87,6 @@
                             <div class="col-md-4 mb-2">
                                 <a href="/productos" class="btn btn-info btn-block">Seguir comprando</a>
                             </div>
-                            <div class="col-xs-12 col-md-4">
-                                <button href="#" class="btn btn-success btn-block" id="procesar-compra">Realizar compra</button>
-                            </div>
                         </div>
                     </form>
 
@@ -94,16 +100,6 @@
     </main>
 
     </div>
-
-    <script src="{{url_for('static',filename='js/jquery-3.4.1.min.js')}}"></script>
-    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
-    <script src="{{url_for('static',filename='js/sweetalert2.min.js')}}"></script>
-
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
-
-    <script src="{{url_for('static',filename='js/carrito.js')}}"></script>
-    <script src="{{url_for('static',filename='js/compra.js')}}"></script>
-
+<script src="js/Prodcarrito.js"></script>
 
 {% endblock %}

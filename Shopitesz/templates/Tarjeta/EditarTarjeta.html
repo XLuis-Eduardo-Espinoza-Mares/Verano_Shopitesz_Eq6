@@ -1,0 +1,162 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+
+
+<link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{{url_for('static',filename='css/estilostarjetas.css')}}">
+	<div class="contenedor">
+
+		<!-- Tarjeta -->
+		<section class="tarjeta" id="tarjeta">
+			<div class="delantera">
+				<div class="logo-marca" id="logo-marca">
+					{% if tar.banco=='HSBC Platinum' %}
+					 <img src="{{url_for('static',filename='img/logos/HSBC-Platinum.jpg')}}" alt="">
+					{% endif %}
+					{% if tar.banco=='Básica American Express' %}
+					 <img src="{{url_for('static',filename='img/logos/Básica-American-Express.png')}}" alt="">
+					{% endif %}
+					{% if tar.banco=='Santander Ligth' %}
+					 <img src="{{url_for('static',filename='img/logos/Santander-Ligth.jpg')}}" alt="">
+					{% endif %}
+					{% if tar.banco=='HSBC Air' %}
+					 <img src="{{url_for('static',filename='img/logos/HSBC-Air.jpg')}}" alt="">
+					{% endif %}
+					{% if tar.banco=='Stori' %}
+					 <img src="{{url_for('static',filename='img/logos/Stori.png')}}" alt="">
+					{% endif %}
+					{% if tar.banco=='Paypal' %}
+					 <img src="{{url_for('static',filename='img/logos/paypal2.png')}}" alt="">
+					{% endif %}
+					{% if tar.banco=='DISCOVER' %}
+					 <img src="{{url_for('static',filename='img/logos/discover.png')}}" alt="">
+					{% endif %}
+					{% if tar.banco=='MASTERCARD' %}
+					 <img src="{{url_for('static',filename='img/logos/mastercard.png')}}" alt="">
+					{% endif %}
+					{% if tar.banco=='VISA' %}
+					 <img src="{{url_for('static',filename='img/logos/visa.png')}}" alt="">
+					{% endif %}
+				</div>
+				<img src="{{url_for('static',filename='img/chip-tarjeta.png')}}" class="chip" alt="">
+				<div class="datos">
+					<div class="grupo" id="numero">
+						<p class="label">Número Tarjeta</p>
+						<p class="numero">{{tar.noTarjeta}}</p>
+					</div>
+					<div class="flexbox">
+						<div class="grupo" id="nombre">
+							<p class="label">Nombre Tarjeta</p>
+							<p class="nombre">{{tar.nombrePersona}}</p>
+
+						</div>
+
+						<div class="grupo" id="expiracion">
+							<p class="label">Expiracion</p>
+							<p class="expiracion"><span class="mes">{{tar.mes}}</span> / <span class="year">{{tar.año}}</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="trasera">
+				<div class="barra-magnetica"></div>
+				<div class="datos">
+					<div class="grupo" id="firma">
+						<p class="label">Firma</p>
+						<div class="firma"><p>{{tar.nombrePersona}}</p></div>
+					</div>
+					<div class="grupo" id="ccv">
+						<p class="label">CCV</p>
+						<p class="ccv" >{{tar.CCV}}</p>
+					</div>
+				</div>
+				<p class="leyenda">PRESERVANDO LA MONEDA NACIONAL Y CONTRIBUYENDO A MEJORAR EL BIENESTAR ECONOMICO DE LA REPUBLICA MEXICANA.</p>
+			</div>
+		</section>
+
+		<!-- Contenedor Boton Abrir Formulario -->
+		<div class="contenedor-btn">
+			<button class="btn-abrir-formulario" id="btn-abrir-formulario">
+				<i class="fas fa-plus"></i>
+			</button>
+		</div>
+
+		<!-- Formulario -->
+		<form action="" id="formulario-tarjeta" class="formulario-tarjeta">
+			<div class="grupo ccv">
+					<label for="inputCCV">Elige una opción de Tarjeta</label>
+				</div>
+			<select name="banco" id="selectBanco">
+            <optgroup label="Tarjeta de crédito">
+            	<option name="Básica American Express" >Básica American Express</option>
+            	<option name="Santander Ligth">Santander Ligth</option>
+            	<option name="HSBC Air">HSBC Air</option>
+		    	<option name="HSBC Platinum">HSBC Platinum</option>
+		    	<option name="Stori">Stori</option>
+   			</optgroup>
+   			<optgroup label="tarjeta de debito">
+       			<option name="Paypal">Paypal</option>
+       			<option name="DISCOVER">DISCOVER</option>
+       			<option name="MASTERCARD">MASTERCARD</option>
+	   			<option name="VISA">VISA</option>
+   			</optgroup>
+        	</select>
+
+			<div class="grupo">
+				<label for="inputNumero">Número Tarjeta</label>
+				<input type="text" id="inputNumero" maxlength="19" autocomplete="off" value="{{tar.noTarjeta}}">
+			</div>
+			<div class="grupo">
+				<label for="inputNombre">Nombre</label>
+				<input type="text" id="inputNombre" maxlength="19" value="{{tar.nombrePersona}}" autocomplete="off">
+			</div>
+			<div class="flexbox">
+				<div class="grupo expira">
+					<label for="selectMes">Expiracion</label>
+					<div class="flexbox">
+						<div class="grupo-select">
+							<select name="mes" id="selectMes">
+								<option disabled selected>Mes</option>
+							</select>
+							<i class="fas fa-angle-down"></i>
+						</div>
+						<div class="grupo-select">
+							<select name="year" id="selectYear">
+								<option disabled selected>Año</option>
+							</select>
+							<i class="fas fa-angle-down"></i>
+						</div>
+					</div>
+				</div>
+
+				<div class="grupo ccv">
+					<label for="inputCCV">CCV</label>
+					<input type="text" id="inputCCV" maxlength="3" value="{{tar.CCV}}">
+				</div>
+
+			</div>
+			<div class="grupo">
+				<label for="inputSaldo">Saldo</label>
+				<input type="text" id="inputSaldo" maxlength="10" autocomplete="off" value="{{tar.saldo}}">
+			</div>
+
+		</form>
+
+	</div>
+<form action="/tarjeta/editar/{{tar.idTarjeta}}" method="post" class="Agregar">
+	<input type="hidden" name="id" value="{{tar.idTarjeta}}">
+	<input class="numero" type="hidden" name="NombreTarjeta" placeholder="NombreTarjeta" id="NombreTarjeta" value="{{tar.banco}}" required>
+	<input class="controls" type="hidden" name="noTarjeta" placeholder="noTarjeta" id="noTarteja" value="{{tar.noTarjeta}}" required>
+	<input class="controls" type="hidden" name="Nombre" placeholder="Nombre" id="NombrePersona" value="{{tar.nombrePersona}}" required>
+	<input class="controls" type="hidden" name="Mes" placeholder="Mes" id="mes" value="{{tar.mes}}" required>
+	<input class="controls" type="hidden" name="Año" placeholder="Año" id="año" value="{{tar.año}}" required>
+	<input class="controls" type="hidden" name="ccv" placeholder="ccv" id="CCCV" value="{{tar.CCV}}" required>
+	<input class="controls" type="hidden" name="saldos" placeholder="saldo" id="saldo" value="{{tar.saldo}}" required>
+	<input class="btn btn-primary" type="submit" value="Guardar">
+	<a class="btn btn-danger" href="/Tarjeta/eliminar/{{tar.idTarjeta}}">Eliminar</a>
+</form>
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+	<script src="{{url_for('static',filename='js/jstarjeta.js')}}"></script>
+
+{% endblock %}

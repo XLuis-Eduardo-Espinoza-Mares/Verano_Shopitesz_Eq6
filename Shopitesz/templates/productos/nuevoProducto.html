@@ -1,0 +1,54 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+<div>
+    <h1 class="bg-primary bg-lg text-center">Edición de Productos</h1>
+    <form action="/productos/guardar" method="post" enctype="multipart/form-data" id="formulario-tarjeta" class="formulario-tarjeta" style=background-color:#FBEEE6>
+        <div>
+            <p>Categoria: </p>
+            <select name="banco" id="selectCategoria">
+
+                <option disabled selected>Categorias</option>
+                {% for cate in categorias %}
+                    {% if cate.estatus=='Activa' %}
+                    <option name="categoria" value="{{cate.idCategoria}}">{{cate.nombre}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            <input class="controls" type="hidden" name="categoria" id="noTarteja" required>
+        </div>
+        <div class="form-group">
+            <label>Nombre: </label>
+            <input type="text" name="nombre" required maxlength="100" placeholder="Nombre Producto" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Descripcion: </label>
+            <input type="text" name="descripcion" required maxlength="200" placeholder="Descripcion" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Precio: </label>
+            <input type="text" name="precio" required maxlength="60" placeholder="Precio" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Existencias:</label>
+            <input type="text" name="existencia" required maxlength="11" placeholder="Existencias" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Imagen:</label>
+            <input type="file" name="foto" placeholder="foto del Producto" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Espesificaciones:</label>
+            <input type="file" name="pdf" placeholder="PDF de Productos" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+                Guardar
+            </button>
+            <a href="/productos" class="btn btn-info">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                Regresar
+            </a>
+    </form>
+</div>
+<script src="{{url_for('static',filename='js/jsproductos.js')}}"></script>
+{% endblock %}

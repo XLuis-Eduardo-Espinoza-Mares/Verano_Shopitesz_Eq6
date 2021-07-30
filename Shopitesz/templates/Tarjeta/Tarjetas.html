@@ -1,0 +1,53 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+
+<div>
+    <h1 class="bg-primary text-center">Tarjetas</h1>
+
+    <table class="table table-bordered" style=background-color:#FBEEE6>
+        <th>ID</th>
+
+        <th>BANCO</th>
+
+        <th>NOMBRE USUARIO</th>
+
+         <th>NUMERO TARJETA</th>
+
+        <th>SALDO</th>
+
+        <th>Ver</th>
+
+        {% for tar in tarjetas %}
+                <tr>
+                {% if not current_user.is_admin() %}
+                {% if tar.idUsuario==current_user.idUsuario %}
+                <td>{{tar.idTarjeta}}</td>
+                <td>{{tar.banco}}</td>
+                <td>{{tar.nombrePersona}}</td>
+                <td>{{tar.noTarjeta}}</td>
+                <td>{{tar.saldo}}</td>
+                <td>
+                    <a href="/Tarjeta/{{tar.idTarjeta}}">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                </td>
+                {% endif %}
+                {% endif %}
+                {% if current_user.is_admin() %}
+                <td>{{tar.idTarjeta}}</td>
+                <td>{{tar.banco}}</td>
+                <td>{{tar.nombrePersona}}</td>
+                <td>{{tar.noTarjeta}}</td>
+                <td>{{tar.saldo}}</td>
+                <td>
+                    <a href="/Tarjeta/{{tar.idTarjeta}}">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

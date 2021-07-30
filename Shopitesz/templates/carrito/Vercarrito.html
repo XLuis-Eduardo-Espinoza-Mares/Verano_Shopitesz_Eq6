@@ -1,0 +1,66 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+
+<div>
+    <h1 class="bg-primary bg-lg text-center">Pedir de Productos</h1>
+    <form action="/Pedidos/editarPedidos method="post" enctype="multipart/form-data" id="formulario-tarjeta" class="formulario-tarjeta" style=background-color:#FBEEE6>
+        <div class="form-group">
+            <label>ID USUARIO:</label>
+            <input type="number" value="{{carrito.idUsuario}}" name="idUsuario" readonly class="form-control">
+        </div>
+        <div>
+            {% for prod in productos %}
+            {% if carrito.idProducto==prod.idProducto %}
+            <div class="form-group">
+            <label>Nombre: {{prod.nombre}}</label>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label>Cantidad: {{carrito.cantidad}}</label>
+            <input type="text" value="{{carrito.cantidad}}" name="cantidad">
+        </div>
+        <div class="form-group">
+            <label>Estatus: {{carrito.estatus}}</label>
+            <input type="text" value="{{carrito.estatus}}" name="estatus">
+        </div>
+        <div class="form-group">
+            <label>Tarjeta:</label>
+            <select name="banco" id="selectCategoria">
+                <option disabled selected>Tarjetas</option>
+                {% for tar in tarjetas %}
+                    <option name="categoria" value="{{tar.idTarjeta}}">{{tar.banco}}</option>
+                {% endfor %}
+            </select>
+                <input class="controls" type="hidden" name="idTarjeta" id="noTarteja" required>
+        </div>
+        <div class="form-group">
+            <label>Fecha registro:</label>
+            <input type="date" value="" name="fecha">
+        </div>
+        <div class="form-group">
+            <label>Fecha atencion:</label>
+            <input type="date" value="" name="fechaAtencion">
+        </div>
+        <div class="form-group">
+            <label>Fecha Recepcion: {{carrito.estatus}}</label>
+            <input type="date" value="" name="fechaRecepcion">
+        </div>
+        <div class="form-group">
+            <label>Fecha Cierre</label>
+            <input type="date" value="" name="fechaCierre">
+        </div>
+        <div class="form-group">
+            <label>Total: </label>
+            <input type="number" value="" name="total">
+        </div>
+            <input type="submit" class="btn btn-primary" value="Añadir Carrito" />
+            <a type="submit" class="btn btn-info">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                Pedir
+            </a>
+    </form>
+</div>
+<script src="{{url_for('static',filename='js/jsproductos.js')}}"></script>
+{% endblock %}
