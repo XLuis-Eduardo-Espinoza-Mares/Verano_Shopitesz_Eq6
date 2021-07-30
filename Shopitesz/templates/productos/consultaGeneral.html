@@ -2,6 +2,7 @@
 {% block contenido %}
 <link rel="stylesheet" href="{{url_for('static',filename='css/estilos2.css')}}">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+
 	<script src="{{url_for('static',filename='js/jquery-3.2.1.js')}}"></script>
 	<script src="{{url_for('static',filename='js/script.js')}}"></script>
     <div class="wrap">
@@ -10,30 +11,63 @@
 			<div class="category_list">
 				<a href="#" class="category_item" category="all">Todo</a>
                 {% for cat in categorias %}
-                <a href="#" class="category_item" category="{{cat.nombre}}">{{cat.nombre}}</a>
+					{% if cat.estatus=='Activa' %}
+                		<a href="#" class="category_item" category="{{cat.nombre}}">{{cat.nombre}}</a>
+					{% endif %}
                 {% endfor %}
 			</div>
 			<section class="products-list">
+				{% for cat in categorias %}
 				{% for prod in productos %}
+				{% if cat.estatus=='Activa' and cat.idCategoria==prod.idCategoria %}
+				{% if current_user.is_authenticated and current_user.is_admin() %}
                     <div class="product-item" category="{{prod.categoria.nombre}}">
                         <img src="/productos/consultarImagen/{{prod.idProducto}}" width="100px" height="80px">
-					    <a href="#">{{prod.nombre}}</a>
+					    <a href="/productos/{{prod.idProducto}}" class="Titulo">{{prod.nombre}}</a>
+						<a href="/productos/{{prod.idProducto}}"></a>
+						<a href="/productos/{{prod.idProducto}}">{{prod.descripcion}}</a>
+						<a href="/productos/{{prod.idProducto}}">Precio: ${{prod.precioVenta}}0</a>
+						<a href="/productos/{{prod.idProducto}}">Existencia: {{prod.existencia}} unidades</a>
 				    </div>
-                {% endfor %}
+				{% endif %}
+				{% if current_user.is_authenticated and current_user.is_vendedor() %}
+                    <div class="product-item" category="{{prod.categoria.nombre}}">
+                        <img src="/productos/consultarImagen/{{prod.idProducto}}" width="100px" height="80px">
+					    <a href="/productos/{{prod.idProducto}}" class="Titulo">{{prod.nombre}}</a>
+						<a href="/productos/{{prod.idProducto}}"></a>
+						<a href="/productos/{{prod.idProducto}}">{{prod.descripcion}}</a>
+						<a href="/productos/{{prod.idProducto}}">Precio: ${{prod.precioVenta}}0</a>
+						<a href="/productos/{{prod.idProducto}}">Existencia: {{prod.existencia}} unidades</a>
+				    </div>
+				{% endif %}
+				{% if current_user.is_authenticated and current_user.is_comprador() %}
+                    {% if prod.estatus=='Activa' %}
+                    <div class="product-item" category="{{prod.categoria.nombre}}">
+                        <img src="/productos/consultarImagen/{{prod.idProducto}}" width="100px" height="80px">
+					    <a href="/productos/comprador/{{prod.idProducto}}" class="Titulo">{{prod.nombre}}</a>
+						<a href="/productos/comprador/{{prod.idProducto}}"></a>
+						<a href="/productos/comprador/{{prod.idProducto}}">{{prod.descripcion}}</a>
+						<a href="/productos/comprador/{{prod.idProducto}}">Precio: ${{prod.precioVenta}}0</a>
+						<a href="/productos/{{prod.idProducto}}">Existencia: {{prod.existencia}} unidades</a>
+				    </div>
+				{% endif %}
+				{% endif %}
+				{% if not current_user.is_authenticated %}
+				{% if prod.estatus=='Activa' %}
+                    <div class="product-item" category="{{prod.categoria.nombre}}">
+                        <img src="/productos/consultarImagen/{{prod.idProducto}}" width="100px" height="80px">
+					    <a href="/productos/comprador/{{prod.idProducto}}" class="Titulo">{{prod.nombre}}</a>
+						<a href="/productos/comprador/{{prod.idProducto}}"></a>
+						<a href="/productos/comprador/{{prod.idProducto}}">{{prod.descripcion}}</a>
+						<a href="/productos/comprador/{{prod.idProducto}}">Precio: ${{prod.precioVenta}}0</a>
+						<a href="/productos/{{prod.idProducto}}">Existencia: {{prod.existencia}} unidades</a>
+				    </div>
+				{% endif %}
+                {% endif %}
+				{% endif %}
+				{% endfor %}
+				{% endfor %}
 			</section>
 		</div>
-				{% if current_user.is_authenticated and current_user.is_vendedor() %}
-    <a href="/productos/revisar" class="btn btn-success">
-         <span class="glyphicon glyphicon-plus-sign"></span>
-        Revisar Productos
-    </a>
-		{% endif %}
-		{% if current_user.is_authenticated and current_user.is_admin() %}
-    <a href="/productos/revisar" class="btn btn-success">
-         <span class="glyphicon glyphicon-plus-sign"></span>
-        Revisar Productos:
-    </a>
-		{% endif %}
 	</div>
-
 {% endblock %}
