@@ -3,7 +3,7 @@
 
 <div>
     <h1 class="bg-primary bg-lg text-center">Pedir de Productos</h1>
-    <form action="/Pedidos/editarPedidos method="post" enctype="multipart/form-data" id="formulario-tarjeta" class="formulario-tarjeta" style=background-color:#FBEEE6>
+    <form action="/Pedidos/verPedidos" method="post" enctype="multipart/form-data" id="formulario-tarjeta" class="formulario-tarjeta" style=background-color:#FBEEE6>
         <div class="form-group">
             <label>ID USUARIO:</label>
             <input type="number" value="{{carrito.idUsuario}}" name="idUsuario" readonly class="form-control">
@@ -23,7 +23,7 @@
         </div>
         <div class="form-group">
             <label>Estatus: {{carrito.estatus}}</label>
-            <input type="text" value="{{carrito.estatus}}" name="estatus">
+            <input type="text" value="{{carrito.estatus}}" name="estatus" readonly>
         </div>
         <div class="form-group">
             <label>Tarjeta:</label>
@@ -37,7 +37,7 @@
         </div>
         <div class="form-group">
             <label>Fecha registro:</label>
-            <input type="date" value="" name="fecha">
+            <input type="text" value="{{carrito.fecha}}" name="fecha" readonly>
         </div>
         <div class="form-group">
             <label>Fecha atencion:</label>
@@ -55,11 +55,7 @@
             <label>Total: </label>
             <input type="number" value="" name="total">
         </div>
-            <input type="submit" class="btn btn-primary" value="Añadir Carrito" />
-            <a type="submit" class="btn btn-info">
-                <span class="glyphicon glyphicon-arrow-left"></span>
-                Pedir
-            </a>
+            <input type="submit" class="btn btn-primary" value="Pedir" />
     </form>
 </div>
 <script src="{{url_for('static',filename='js/jsproductos.js')}}"></script>

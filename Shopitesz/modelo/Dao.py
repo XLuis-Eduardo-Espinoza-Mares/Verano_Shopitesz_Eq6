@@ -253,44 +253,41 @@ class Pedido(db.Model):
         db.session.add(self)
         db.session.commit()
 
-    def consultaGeneral(self, id):
-        return self.query.filter(Pedido.idComprador== id and Pedido.idVendedor==id).all()
-
-class Paqueteria(db.Model):
-    __tablename__='PAQUETERIAS'
-    IDPAQUETERIA = Column(Integer, primary_key=True)
-    NOMBRE = Column(String, nullable=False)
-    PAGINAWEB = Column(String, nullable=False)
-    PRECIOGR = Column(Float, nullable=False)
-    TELEFONO = Column(Integer, nullable=False)
-    ESTATUS = Column(String, nullable=False)
-
     def consultaGeneral(self):
         return self.query.all()
 
+
+class Paqueteria(db.Model):
+    __tablename__='paqueteria'
+    idPaqueteria = Column(Integer, primary_key=True)
+    nombre = Column(String, nullable=False)
+    paginaWeb = Column(String, nullable=False)
+    precioGr = Column(Float, nullable=False)
+    telefono = Column(String, nullable=False)
+    estatus = Column(String, nullable=False)
+    def consultaGeneral(self):
+        return self.query.all()
     def editar(self):
         db.session.merge(self)
         db.session.commit()
-
     def consultaIndividual(self,id):
         return self.query.get(id)
-
     def agregar(self):
         db.session.add(self)
         db.session.commit()
 
 class Envio(db.Model):
     __tablename__='ENVIOS'
-    IDENVIO = Column(Integer, primary_key=True)
-    IDPEDIDO = Column(Integer, ForeignKey('Pedidos.idPedido'), nullable=False)
-    IDPAQUETERIA = Column(Integer, ForeignKey('PAQUETERIAS.IDPAQUETERIA'), nullable=False)
-    FECHAENVIO = Column(String)
-    FECHAENTREGA = Column(String)
-    NOGUIA = Column(String)
-    PESOPAQUETE = Column(Float)
-    PRECIOGR = Column(Float)
-    TOTALPAGAR = Column(Float)
-    ESTATUS = Column(String)
+    idEnvio = Column(Integer, primary_key=True)
+    idPedido = Column(Integer, ForeignKey('Pedidos.idPedido'), nullable=False)
+    idPaqueteria = Column(Integer, ForeignKey('PAQUETERIAS.IDPAQUETERIA'), nullable=False)
+    fechaEnvio = Column(String)
+    fechaEntrega = Column(String)
+    noGuia = Column(String)
+    pesoPaquete = Column(Float)
+    precioGr = Column(Float)
+    totalPagar = Column(Float)
+    estatus = Column(String)
 
     def consultaGeneral(self):
         return self.query.all()

@@ -1,0 +1,38 @@
+{% extends 'comunes/base.html' %}
+{% block contenido %}
+
+<div>
+    <h1 class="bg-primary text-center">Servicios de Paqueterias registrados</h1>
+
+    <a href="/Paqueterias/nueva" class="btn btn-success">
+         <span class="glyphicon glyphicon-plus-sign"></span>
+        Agregar Paqueteria
+    </a>
+
+    <table class="table table-bordered" style=background-color:#FBEEE6>
+        <th>ID</th>
+        <th>nombre</th>
+
+         <th>pagina Web</th>
+
+        <th>Precio por gramo</th>
+
+        <th>telefono</th>
+
+        <th>estatus</th>
+
+        {% for paq in paqueterias %}
+            <tr>
+                <td>{{paq.idPaqueteria}}</td>
+                <td>{{paq.nombre}}</td>
+
+                    <td>{{paq.paginaWeb}}</td>
+                    <td>{{paq.precioGr}}</td>
+                    <td>{{paq.telefono}}</td>
+                    <td>{{paq.estatus}}</td>
+
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
