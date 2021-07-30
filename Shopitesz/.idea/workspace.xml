@@ -14,7 +14,7 @@
         <entry file="file://$PROJECT_DIR$/templates/productos/consultaGeneral.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+              <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -101,13 +101,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="Shopitesz1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Shopitesz1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Shopitesz1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Shopitesz1" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="Shopitesz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Shopitesz" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -194,12 +189,12 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27306548" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21726191" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.6710311" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985119" visible="true" weight="0.22258593" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4985119" visible="true" weight="0.22258593" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28805238" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -431,14 +426,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/productos/Editar.html" />
-    <entry file="file://$PROJECT_DIR$/templates/productos/consultaProducto.html">
+    <entry file="file://$PROJECT_DIR$/templates/productos/ConsultaProducto.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/productos/Insertar.html" />
     <entry file="file://$PROJECT_DIR$/templates/productos/consultaGeneral.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
         </state>
       </provider>
     </entry>
